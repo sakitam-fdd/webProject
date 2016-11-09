@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>call and apply</title>
 </head>
 <body>
+<script type="text/javascript">
+    /**
+     * javascript OOP
+     */
+    function cat() {
 
+    }
+    /**
+     * 对cat创建原型链
+     * @type {{food: string, say: cat.say}}
+     */
+    cat.prototype = {
+        food:"fish",
+        say:function () {
+            console.dir("I Love " + this.food);
+        }
+    }
+    var mcat = new cat;
+    mcat.say();
+    /**
+     * 但是如果我们有一个对象whiteDog = {food:"meat"},
+     * 我们不想对它重新定义say方法，那么我们可以通过call或apply
+     * 用mcat的say方法：mcat.say.call(whiteDog);
+     * */
+    var whiteDog = {
+        food:"meat"
+    }
+    mcat.say.call(whiteDog);
+</script>
 </body>
 </html>

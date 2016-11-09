@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型对象方法</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * 定义一个方法，传入一个string类型的参数，
+     * 然后将string的每个字符间加个空格返回
+     */
+    function spacify(str) {
+        //string.split(separator,limit)
+        //split() 方法用于把一个字符串分割成字符串数组。
+        return str.split('').join(' ');
+    }
+    spacify('hello world'); // => 'h e l l o  w o r l d'
+    console.dir(spacify('hello world'));
+
+    /**
+     * 如何把这个方法放入String对象上面
+     * @returns {string}
+     */
+    String.prototype.spacify = function(){
+        return this.split('').join(' ');
+    };
+
+    console.dir('hello'.spacify());
+
+    /*******参数 arguments********/
+
+    /**
+     * 定义log方法，然后它可以代理console.log的方法。
+     * 正确的答案是下面几行代码，也可以直接使用apply.
+     */
+    function log(msg) {
+        console.log(msg);
+    }
+    //apply
+    var log_ = "msg";
+    console.log.call(log_);
+
+    /**
+     * 改变我调用log的方式，传入多个参数。
+     * 我会强调我传入参数的个数是不定的，可不止两个
+     * */
+    function log_apply(){
+        console.log.apply(console, arguments);
+    };
+    log_apply('1','2','3');
+
+    /**
+     * 给每一个log消息添加一个"(app)"的前辍
+     * */
+    function log_add(){
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift('(app)');
+        console.log.apply(console, args);
+    };
+    log_add('1','2');
+</script>
+</body>
+</html>
