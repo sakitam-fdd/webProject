@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js原生事件</title>
+</head>
+<body>
+<div>
+    <ul id="ul0">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+</div>
+<script type="application/javascript">
+    /*window.onload = function(){
+        var oUl = document.getElementById("ul0");
+        var aLi = oUl.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick = function(){
+                alert(123);
+            }
+        }
+    }*/
+   /* window.onload = function () {
+        var oUl = document.getElementById("ul0");
+        oUl.onclick = function(){
+            alert(123);
+        }
+    }*/
+    window.onload = function(){
+        var oUl = document.getElementById("ul0");
+        oUl.onclick = function(ev){
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if(target.nodeName.toLowerCase() == 'li'){
+                target.id = "",
+                alert(123);
+                alert(target.innerHTML);
+            }
+        }
+    }
+</script>
+</body>
+</html>
