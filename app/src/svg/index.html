@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://openlayers.org/en/v3.14.2/build/ol.js"></script>
+    <link href="http://openlayers.org/en/v3.14.2/css/ol.css" rel="stylesheet"/>
+</head>
+<body>
+<embed src="src/circle.svg" type="image/svg+xml" />
+<div id="map" class="map"></div>
+<script>
+    var extent = [0, 0, 512, 512];
+    var projection = new ol.proj.Projection({
+        code: 'static-image',
+        units: 'pixels',
+    });
+    var tiger = new ol.layer.Image({
+        source: new ol.source.ImageStatic({
+            url: 'src/circle.svg',
+            projection: projection,
+            imageExtent: extent
+        })
+    });
+    var raster = new ol.layer.Tile({
+        source: new ol.source.OSM()
+    });
+    var source = new ol.source.Vector();
+
+    var vector = new ol.layer.Vector({
+        source: source,
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255, 255, 255, 0.2)'
+            }),
+            stroke: new ol.style.Stroke({
+                color: '#ffcc33',
+                width: 2
+            }),
+            image: new ol.style.Circle({
+                radius: 7,
+                fill: new ol.style.Fill({
+                    color: '#ffcc33'
+                })
+            })
+        })
+    });
+    var style = new ol.style.Style({
+        image: new ol.style.Icon({//标绘点选中的样式
+            anchor: [0.5, 0.5],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'fraction',
+            opacity: 1,
+            src: 'src/circle.svg'
+        })
+    });
+    var feature = new ol.Feature({
+        geometry: new ol.geom.Point([-11000000, 4600000])
+    });
+    feature.setStyle(style);
+    vector.getSource().addFeature(feature);
+    var map = new ol.Map({
+        layers: [raster,vector],
+        target: 'map',
+        view: new ol.View({
+            zoom: 5,
+            center: [-11000000, 4600000]
+        })
+    });
+</script>
+</body>
+</html>
