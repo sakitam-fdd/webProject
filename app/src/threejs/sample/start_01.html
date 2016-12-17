@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="application/javascript" src="../../../public/threejs/three.js"></script>
+<script>
+    //创建一个场景，视角和渲染器
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    //创建渲染图像
+    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+
+    //渲染
+    function render() {
+        /**
+         * 这将创建一个循环，以每秒60次的频率来绘制场景.
+         * requestAnimationFrame这个函数，它用来替代 setInterval，
+         * 这个新接口具备多个优点，
+         * 比如浏览器Tab切换后停止渲染以节约资源、和屏幕刷新同步避免无效刷新、
+         * 在不支持该接口的浏览器中能安全回退为setInterval
+         */
+        requestAnimationFrame( render );
+//        cube.rotation.x += 0.1;
+//        cube.rotation.y += 0.1;
+        cube.rotation.z += 0.1;
+        renderer.render( scene, camera );
+    }
+    render();
+</script>
+</body>
+</html>
