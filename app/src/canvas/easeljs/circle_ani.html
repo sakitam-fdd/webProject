@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ani</title>
+  <script src="../../../public/easeljs/easeljs-0.8.2.min.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="200"></canvas>
+<script type="application/javascript">
+  var creatCircle = function () {
+    //生成圆形
+    var circle = new createjs.Shape();
+    circle.graphics.setStrokeStyle(5);
+    circle.graphics.beginStroke("rgba(0,0,0,.5)");
+    circle.graphics.Fill("rgba(255,255,255,0)");
+    circle.graphics.Circle(0, 0, 50);
+    //生成圆形
+    circle.x = 160;
+    circle.y = 100;
+    return circle;
+  };
+  function init() {
+    //Update stage will render next frame
+    createjs.Ticker.addEventListener("tick", handleTick);
+
+    function handleTick() {
+      //获取stage
+      var canvas = document.getElementById("myCanvas");
+      var stage = new createjs.Stage(canvas);
+      var circle_ = creatCircle();
+      //将生成图形添加到stage中，并且调用update方法更新
+      stage.addChild(circle_);
+      /*stage.update();*/
+      //Circle will move 10 units to the right.
+      circle_.graphics.drawCircle(0, 0, 50);
+      //Will cause the circle to wrap back
+      if (circle_.x > stage.canvas.width) { circle_.x = 0; }
+      stage.update();
+    }
+  }
+  window.onload(function () {
+    init();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>circle</title>
+  <script src="../../../public/easeljs/easeljs-0.8.2.min.js"></script>
+</head>
+<body>
+<canvas id="myCanvas" width="320" height="200"></canvas>
+<script type="application/javascript">
+  var creatCircle = function () {
+    //生成圆形
+    var circle = new createjs.Shape();
+    circle.graphics.setStrokeStyle(5);
+    circle.graphics.beginStroke("rgba(0,0,0,.5)");
+    circle.graphics.beginFill("orange");
+    circle.graphics.drawCircle(0, 0, 50);
+    //生成圆形
+    circle.x = 160;
+    circle.y = 100;
+    return circle;
+  }
+  function init(){
+    //获取stage
+    var canvas = document.getElementById("myCanvas");
+    var stage = new createjs.Stage(canvas);
+    var circle_ = creatCircle();
+    //将生成图形添加到stage中，并且调用update方法更新
+    stage.addChild(circle_);
+    stage.update();
+
+    circle_.addEventListener("click", handleClick);
+    function handleClick(event){
+      // Click happenened
+    }
+
+    circle_.addEventListener("mousedown", handlePress);
+    function handlePress(event) {
+      // A mouse press happened.
+      // Listen for mouse move while the mouse is down:
+      event.addEventListener("mousemove", handleMove);
+    }
+    function handleMove(event) {
+      // Check out the DragAndDrop example in GitHub for more
+    }
+    //Update stage will render next frame
+    createjs.Ticker.addEventListener("tick", handleTick);
+
+    function handleTick() {
+      //Circle will move 10 units to the right.
+      circle_.x += 10;
+      //Will cause the circle to wrap back
+      if (circle_.x > stage.canvas.width) { circle_.x = 0; }
+      stage.update();
+    }
+  }
+  init();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "webProject",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "gulp server",
+    "build": "yarn install && gulp"
+  },
+  "devDependencies": {
+    "createjs":"0.8.2"
+  }
+}
