@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="wap-font-scale" content="no">
+  <title>canvas画圆</title>
+  <script type="text/javascript" src="../../../public/jQuery/dist/jquery.js"></script>
+</head>
+<body>
+<canvas id="mycanvas" width="850" height="500" style="background:#000;"></canvas>
+<script type="text/javascript">
+  (function ($) {
+    var leftVal;
+    var topVal;
+    var mousePos;
+    var step;
+    var start;
+    var end, add = Math.PI * 2 / 180;
+    var n = 180;
+    var vName;
+    var radius;
+    var cvs = document.getElementById("mycanvas");
+    if (cvs == null) return false;
+    var ctx = cvs.getContext("2d");
+    ctx.lineWidth = 1.0;
+
+    //获取鼠标位置
+    function mouseCoords(ev) {
+      if (ev.pageX || ev.pageY) {
+        return {
+          x: ev.pageX, y: ev.pageY
+        };
+      }
+      return {
+        x: ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+        y: ev.clientY + document.body.scrollTop - document.body.clientTop
+      };
+    }
+
+    function drawCircle() {
+      start = 0;
+      step = 1;
+      ctx.strokeStyle = '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+      radius = Math.floor(Math.random() * 50 + 50);
+      vName = setInterval(animation, 1);
+    }
+
+    var animation = function () {
+      if (step <= n) {
+        end = start + add;
+        drawArc(start, end);
+        start = end;
+        step++;
+      } else {
+        clearInterval(vName);
+      }
+    };
+
+    function drawArc(s, e) {
+      ctx.beginPath();
+      ctx.arc(leftVal, topVal, radius, s, e, false);
+      ctx.lineWidth = 1.0;
+      ctx.stroke();
+    }
+
+    $(document).bind("click", function (event) {
+      mousePos = mouseCoords(event);
+      leftVal = mousePos.x;
+      topVal = mousePos.y;
+      drawCircle();
+    });
+
+  })(jQuery)
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="wap-font-scale" content="no">
+  <title>首页</title>
+  <link rel="stylesheet" href="../../../public/normalize/normalize.css">
+  <script type="text/javascript" src="../../../public/jQuery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../public/hidipCanvas/hidipcanvas.min.js"></script>
+  <script type="text/javascript" src="../../../public/modernizr/modernizr.min.js"></script>
+  <style>
+    .loadingParent {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .loadingParent canvas {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="loadingParent">
+  <canvas id="canvasIndex" width="450" height="225" amount="10000" vote="10000" tip="50">
+    您的浏览器不支持canvas标签，建议使用chrome,firefox,ie10+
+  </canvas>
+  <canvas id="canvasIndex1" width="450" height="225" amount="10000" vote="10000" tip="50">
+    您的浏览器不支持canvas标签，建议使用chrome,firefox,ie10+
+  </canvas>
+  <canvas id="canvasIndex2" width="450" height="225" amount="10000" vote="10000" tip="50">
+    您的浏览器不支持canvas标签，建议使用chrome,firefox,ie10+
+  </canvas>
+</div>
+<script>
+  (function ($, window, document, undefined) {
+    //默认参数var this.PARAMS;
+    var plugin = function (ele, opt) {
+      this.parent = ele;
+      this.defaults = {percent: 100, w: 500, oneCircle: "false"};
+      //初始化参数
+      this.PARAMS = $.extend({}, this.defaults, opt);
+      this.DrawCircle();
+    }
+    //定义方法
+    plugin.prototype = {
+      DrawCircle: function () {
+
+        if (!canvasSupport()) {
+          return
+        }
+        var drawOne = this.PARAMS.oneCircle;
+        var r = this.PARAMS.w / 2;
+        var r1 = this.PARAMS.w / 2 - 20;
+        var x1 = this.PARAMS.w / 2;
+        var y1 = this.PARAMS.w / 2;
+        var canvas = this.parent[0];
+        var tip = this.PARAMS.percent;
+        var angle = "";
+        var init = 0;
+        var initA = 0;
+        var preM = 0;
+        var initM = 0;  //因为是半圆  所以初始角度是Math.PI;
+        var s = 2 * Math.PI / 180;
+        var bottomC = Math.PI;
+        var allCount = 180;
+        var allCountP = 1.8;
+        var poinits = new Array();
+        if (drawOne == "ture") {
+          angle = tip * 2 * Math.PI / 100;
+          canvas.width = this.PARAMS.w;
+          canvas.height = this.PARAMS.w;
+          bottomC = 2 * Math.PI;
+          allCount = 0;
+          allCountP = 3.6;
+        } else {
+          angle = tip * Math.PI / 100 + Math.PI;
+          canvas.width = this.PARAMS.w;
+          canvas.height = this.PARAMS.w / 2;
+          init = 180;
+          preM = Math.PI;
+          initM = Math.PI;  //因为是半圆  所以初始角度是Math.PI;
+          s = 2 * Math.PI / 180;
+        }
+        var cxt = canvas.getContext("2d");
+        //cxt.lineCap="round";
+        cxt.lineWidth = 6;
+        var speed = 1;
+        var radius = this.PARAMS.w / 2 - 2;
+        var ball = {x: 0, y: 0, speed: 2};
+        var T1;
+
+        function drawScreen() {
+          cxt.fillStyle = "#ffffff";
+          cxt.fillRect(0, 0, canvas.width, canvas.height);
+          //创建圆环与虚线
+          //底圆
+          cxt.beginPath();
+          cxt.strokeStyle = "#ffaa02";
+          cxt.arc(x1, y1, r1 - 6, 0, bottomC, true);
+          cxt.stroke();  //先执行stroke  就不会出现横线
+          cxt.closePath();
+          //虚线
+          var balls = [];
+          var balls = new Array();
+          for (var i = initA; i <= 360; i += ball.speed) {
+            var radians = (i) * (Math.PI / 180);
+            ball.x = x1 + Math.cos(radians) * radius;
+            ball.y = y1 + Math.sin(radians) * radius;
+            balls.push({x: ball.x, y: ball.y});
+          }
+          for (var i = 0; i < balls.length; i++) {
+            cxt.fillStyle = "#a7a7a7";
+            cxt.beginPath();
+            cxt.arc(balls[i].x, balls[i].y, 1, 0, Math.PI * 2, false);
+            //console.log(balls[i].x)
+            cxt.closePath();
+            cxt.fill();
+          }
+          //画实线
+          if (initM < angle) {
+            initM += s;
+          } else {
+            initM = angle;
+          }
+          cxt.beginPath();
+          cxt.strokeStyle = "#ff0000";
+          cxt.arc(x1, y1, r1 - 6, 0, initM, false);
+          cxt.stroke();  //先执行stroke  就不会出现横线
+          cxt.closePath();
+          //画虚线
+          if (init < tip * allCountP + allCount) {  //小于初始角度
+            init += ball.speed
+          } else {
+            clearInterval(T1);
+          }
+          for (var i = initA; i <= init; i += 2) {
+            var radians2 = i * (Math.PI / 180);
+            var a1 = x1 + Math.cos(radians2) * radius;
+            var a2 = y1 + Math.sin(radians2) * radius;
+            cxt.fillStyle = "#ff0000";
+            cxt.beginPath();
+            cxt.arc(a1, a2, 1, 0, Math.PI * 2, false);
+            //console.log(balls[i].x)
+            cxt.closePath();
+            cxt.fill();
+          }
+          //百分比文字
+          cxt.font = "20px sans bold";
+          cxt.textBaseline = "middle";
+          cxt.textAlign = "center";
+          cxt.fillStyle = "#ff0000";
+          var messT = tip * initM / angle;
+          /*if(drawOne!="ture"){
+           messT=tip*(initM)/angle;
+           console.log(initM-Math.PI)
+           }*/
+          if (messT > tip) {
+            messT = tip
+          }
+          var mess = messT.toFixed(2) + "%";
+          cxt.fillText(mess, canvas.width / 2, canvas.height / 2);
+        }
+
+        //
+
+        T1 = setInterval(drawScreen, 30)
+      }
+    }
+    function canvasSupport() {
+      //判断是否支持canvas标签
+      return Modernizr.canvas;
+    }
+
+    //在插件中使用plugin对象
+    $.fn.audios2 = function (options) {
+      //创建实体
+      var plugina = new plugin(this, options);
+    }
+  })(jQuery, window, document);
+</script>
+<script>
+  //圆环进度条
+  $(function () {
+    var w = $(".loadingParent").width();
+    var option = {
+      percent: 80,
+      w: 300
+    }
+    $("#canvasIndex").audios2(option);
+
+    var option2 = {
+      percent: 23,   //百分比数值
+      w: 400,          //宽度
+      oneCircle: "ture"  //是否是整个圆  默认半圆
+    }
+    $("#canvasIndex1").audios2(option2);
+    // 默认参数 百分比100  宽度500 半圆环
+    $("#canvasIndex2").audios2();
+  })
+</script>
+</body>
+</html>
