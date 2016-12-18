@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>正则测试工具</title>
+</head>
+<body>
+<form action="" method="post">
+    <ul>
+        <li>用户名：<input type="text" /></li>
+    </ul>
+</form>
+<div id="text"></div>
+<script type="text/javascript">
+    var oIpt = document.getElementsByTagName("input");
+    var txt = document.getElementById("text");
+    var uni=/^[\u4e00-\u9fa5]{3,8}$/;
+    oIpt[0].onchange= function(){
+        if(uni.test(this.value)){
+            a=1;
+            this.style.borderColor = "green";
+        }else{
+            a=0;
+            this.style.borderColor = "red";
+        }
+    }
+</script>
+</body>
+</html>

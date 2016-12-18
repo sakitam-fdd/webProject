@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" href="../../framework/bootstrap-3.3.5/dist/css/bootstrap.min.css">-->
+    <script src="../../framework/jquery/jquery.min.js"></script>
+    <!--<script src="../../framework/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>-->
+    <script src="../../framework/angularjs-latest/angular.min.js"></script>
+    <title>项目表单测试</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            margin: 20px auto;
+        }
+        .form-group{
+            text-align: center;
+        }
+        .form-group table tr{
+            width: 100%;
+            height: 35px;
+            display: inline-block;
+            line-height: 35px;
+        }
+        .form-group table tr td{
+            display: inline-block;
+            width: 33%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<form class="form-horizontal" role="form" id="meta_form" name="meta_form" novalidate>
+    <div class="form-group">
+        <table>
+            <tr>
+                <td>
+                    <label>中文名称：</label>
+                    <input type="text" name="ch_name" ng-model="editFields.chineseName" required/>
+                    <span ng-hide="meta_form.ch_name.$valid">必填！</span>
+                </td>
+                <td>
+                    <label>英文名称：</label>
+                    <input type="text" name="en_name" ng-model="editFields.eglishName" required/>
+                    <span ng-hide="meta_form.en_name.$valid">必填！</span>
+                </td>
+                <td>
+                    <label>中文全拼：</label>
+                    <input type="text" name="fullname" ng-model="editFields.fullPinYin" required/>
+                    <span ng-hide="meta_form.fullname.$valid">必填！</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>编号：</label>
+                    <input type="text" name="meta_code" ng-model="editFields.chineseName" required/>
+                    <span ng-hide="meta_form.ch_name.$valid">必填！</span>
+                </td>
+                <td>
+                    <label>版本：</label>
+                    <input type="text" name="meta_ver" ng-model="editFields.eglishName" required/>
+                    <span ng-hide="meta_form.en_name.$valid">必填！</span>
+                </td>
+                <td>
+                    <label>注册机构：</label>
+                    <input type="text" name="meta_gro" ng-model="editFields.fullPinYin" required/>
+                    <span ng-hide="meta_form.fullname.$valid">必填！</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>相关环境：</label>
+                    <input type="text" name="meta_code" ng-model="editFields.related" required/>
+                    <span ng-hide="meta_form.ch_name.$valid">必填！</span>
+                </td>
+                <td>
+                    <label>同义名称：</label>
+                    <input type="text" name="meta_ver" ng-model="editFields.synonyms" required/>
+                    <span ng-hide="meta_form.en_name.$valid">必填！</span>
+                </td>
+                <td>
+                    <label>定义：</label>
+                    <input type="text" name="meta_gro" ng-model="editFields.define" required/>
+                    <span ng-hide="meta_form.fullname.$valid">必填！</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"><label>类型：</label></td>
+                <!--<td><input type="text" name="password" ng-model="editFields.type"></td>-->
+                <td><select class="domainSelect" ng-model="editFields.type">
+                    <option value="">请选择</option>
+                    <option ng-repeat="type in typeS" value="{{type.value}}">{{type.text}}</option>
+                </select></td>
+                <td><i ng-hide="meta_form.ch_name.$valid">必填！</i></td>
+                <td class="label"><label>数据格式：</label></td>
+                <td><input type="text" name="zw" ng-model="editFields.format"></td>
+                <td class="label"><label>关键字：</label></td>
+                <td><input type="text" name="zw" ng-model="editFields.keyword"></td>
+            </tr>
+            <tr>
+                <td class="label"><label>值域：</label></td>
+                <!--<td><input type="text" name="password" ng-model="editFields.domain"></td>-->
+                <td><select class="domainSelect" ng-model="editFields.domain">
+                    <option value="">请选择</option>
+                    <option ng-repeat="domain in domains" value="{{domain.id}}">{{domain.text}}</option>
+                </select></td>
+                <td><i ng-hide="meta_form.ch_name.$valid">必填！</i></td>
+                <td class="label"><label>状态：</label></td>
+                <td><input type="text" name="zw" ng-model="editFields.state"></td>
+                <td class="label"><label>关系：</label></td>
+                <td><input type="text" name="zw" ng-model="editFields.relation"></td>
+            </tr>
+            <tr>
+                <!--<td class="label"><label>引用元素编码：</label></td>
+                <td><input type="text" name="password"></td>-->
+                <!--<td class="label"><label>引用数据编码：</label></td>
+                <td><input type="text" name="zw" ng-model="editFields.dataElement"></td>-->
+                <td class="label"><label>备注：</label></td>
+                <td><input type="text" name="zw" ng-model="editFields.remark"></td>
+            </tr>
+        </table>
+        <div class="footer">
+            <button ng-click="save()" ng-disabled="" type="submit">保存</button>
+            <button ng-click="reset()">重置</button>
+        </div>
+        <!--<label class="col-sm-2 control-label">多个email</label>
+        <div class="col-sm-4">
+            <input multiple-email name="user_email" ng-model="user.email" required class="form-control" placeholder="自定义验证，多个邮箱地址，以“；”或者“;”分割" />
+            验证通过：{{custom_form.user_email.$valid}}
+        </div>
+        <div style="color: red;" ng-show="custom_form.$invalid">必填！</div>-->
+    </div>
+</form>
+<script>
+    angular.module("myTest", [])
+        .directive('multipleEmail', [function () {
+            return {
+                require: "ngModel",
+                link: function (scope, element, attr, ngModel) {
+                    if (ngModel) {
+//                        var emailsRegexp = /^([a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*[;；]?)+$/i;
+                        var emailsRegexp=/\s*$/g;//非空，且不能为空格
+                    }
+                    var customValidator = function (value) {
+                        var validity = ngModel.$isEmpty(value) || emailsRegexp.test(value);
+                        ngModel.$setValidity("multipleEmail", validity);
+                        return validity ? value : undefined;
+                    };
+                    ngModel.$formatters.push(customValidator);
+                    ngModel.$parsers.push(customValidator);
+                }
+            };
+        }])
+</script>
+</body>
+</html>

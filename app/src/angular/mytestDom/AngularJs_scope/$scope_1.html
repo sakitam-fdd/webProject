@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$scope详解1</title>
+    <script src="../../framework/angularjs-latest/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="MyController">
+        <span>你的名字：</span><input type="text" ng-model="username">
+        <button ng-click="sayHello()">欢迎</button>
+        <hr/>
+        <span>{{greeting}}</span>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);//首先需要定义一个app
+        app.controller('MyController', function($scope,$rootScope) {//通过app来找控制器
+            $rootScope.username="FDD_A";
+//            $scope.username = "FDD";
+            //若$scope没有定义，则向上一级继续寻找到$rootScope
+            console.log($rootScope);
+            console.log($scope);
+            $scope.sayHello = function () {
+                $scope.greeting = "Hello" + $scope.username + "！";
+            };
+        });
+    </script>
+</body>
+</html>

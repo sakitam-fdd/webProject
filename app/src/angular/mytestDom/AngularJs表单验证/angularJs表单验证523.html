@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <link rel="stylesheet" href="../../framework/bootstrap-3.3.5/dist/css/bootstrap.min.css">
+    <script src="../../framework/jquery/jquery.min.js"></script>
+    <script src="../../framework/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+    <script src="../../framework/angularjs-latest/angular.min.js"></script>
+    <style type="text/css">
+        .con{
+            margin-top: 50px;
+        }
+        .form-group .form-label{
+            height: 34px;
+            line-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body ng-app="myTest">
+    <div class="col-md-4 con" ng-controller="myController">
+        <form action="" role="form" class="form-horizontal" name="myForm" ng-submit="submitForm(myForm.$valid)" novalidate>
+            <div class="form-group">
+                <div class="col-md-4 form-label">
+                    <label for="name">1.必填项</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control" id="name" name="name" type="text" required ng-model='user.name' ng-blur="getCurrBlur()"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 form-label">
+                    <label for="rangcode">2.图层编码</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="rangcode" id="rangcode" class="form-control" required ng-model="user.rangcode">
+                </div>
+            </div>
+        </form>
+        <div class="col-md-6">
+            1.必填项:{{user.name}}<br>
+
+            <!--布尔值属性，表示用户是否修改了表单。如果为ture，表示没有修改过；false表示修改过：-->
+
+            $pristine 【没修改】：{{myForm.name.$pristine }}<br/>
+
+            <!--布尔型属性，当且仅当用户实际已经修改的表单。不管表单是否通过验证：-->
+            $dirty【修改过】：{{myForm.name.$dirty}}<br/>
+
+            <!--布尔型属性，它指示表单是否通过验证。如果表单当前通过验证，他将为true：-->
+            $invalid【验证失败】：{{myForm.name.$invalid}}<br/>
+            $invalid【验证成功】：{{myForm.name.$valid}}<br/>
+
+            <!--如果验证失败，这个属性的值为true；如果值为false，说明输入字段的值通过了验证。-->
+            required：{{myForm.name.$error.required}}<br/>
+        </div>
+        <div class="col-md-6">
+            1.必填项:{{my.rangcode}}<br>
+
+            <!--布尔值属性，表示用户是否修改了表单。如果为ture，表示没有修改过；false表示修改过：-->
+
+            $pristine 【没修改】：{{myForm.rangcode.$pristine }}<br/>
+
+            <!--布尔型属性，当且仅当用户实际已经修改的表单。不管表单是否通过验证：-->
+            $dirty【修改过】：{{myForm.rangcode.$dirty}}<br/>
+
+            <!--布尔型属性，它指示表单是否通过验证。如果表单当前通过验证，他将为true：-->
+            $invalid【验证失败】：{{myForm.rangcode.$invalid}}<br/>
+            $invalid【验证成功】：{{myForm.rangcode.$valid}}<br/>
+
+            <!--如果验证失败，这个属性的值为true；如果值为false，说明输入字段的值通过了验证。-->
+            required：{{myForm.rangcode.$error.required}}<br/>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /*ng-submitForm:用于在表单提交后执行函数*/
+        /*angular.module('myTest', [])
+            .controller('myController', function($scope) {
+                $scope.submitForm = function(isValid) {
+                    if (!isValid) {
+                        alert('验证失败');
+                    }
+                };
+            });*/
+        angular.module('myTest',[])
+                .controller('myController', function ($scope) {
+                    $scope.submitForm = function(isValid) {
+                        if (!isValid) {
+                            alert('验证失败');
+                        }
+                    };
+                    $scope.getCurrBlur = function() {
+//                        alert('失去焦点');
+                        if ($scope.myForm.rangcode.$valid=="true"){
+                            alert('验证成功');
+                        }else {
+                            alert('失去焦点');
+                        }
+
+                    };
+                });
+        /*function ParamCtrl($scope) {
+            $scope.getCurrBlur = function(target) {
+                $scope.currFocus = target.getAttribute('name');
+                $scope.jQCurrFocus = $(target).attr('name');
+            };
+        }*/
+    </script>
+</body>
+</html>

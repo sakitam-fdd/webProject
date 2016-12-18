@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>scope监听DOM</title>
+    <script src="../../framework/angularjs-latest/angular.min.js"></script>
+</head>
+<body>
+   <div ng-controller="myController">
+       <span>root scope count:</span>{{count}}
+       <ul>
+           <li ng-repeat="i in [1]" ng-controller="myController">
+               <button ng-click="$emit('MyEvent')">$emit("MyEvent")</button>
+               <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+               <br>
+               <span>middle scope count:{{count}}</span>
+               <ul>
+                   <li ng-repeat="item in [1,2]" ng-controller="myController">
+                       <span>leaf scope count{{count}}</span>
+                       <!--<ul>
+                           <li ng-repeat="item in [1]" ng-controller="myController">
+                               <span>test{{count}}</span>
+                           </li>
+                       </ul>-->
+                   </li>
+               </ul>
+           </li>
+       </ul>
+   </div>
+   <script>
+       /*$emit只能向parent controller传递event与data
+       $broadcast只能向child controller传递event与data
+       $on用于接收event与data*/
+       var app=angular.module('myApp',[]);
+       app.controller('myController',function ($scope) {
+           $scope.count = 0;
+           $scope.$on("MyEvent",function () {
+               $scope.count ++;
+           });
+       });
+   </script>
+</body>
+</html>

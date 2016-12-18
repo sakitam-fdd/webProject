@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>数组排序方法</title>
+  <meta charset="UTF-8">
+  <title>数组排序方法</title>
 </head>
 <body>
 <script type="application/javascript">
-    var object = {
-        array: [2, 5, 1, 8, 7, 3],
-        bubbleSort: function (array) {//冒泡排序
-            var d = null;
-            for (var i = 0; i < array.length; i++) {
-                for (var j = 0; j < array.length; j++) {
-                    if (array[i] < array[j]) {
-                        d = array[j];
-                        array[j] = array[i];
-                        array[i] = d;
-                    }
-                }
-            }
-            console.log(array);
-            return array;
-        },
-        insertSort: function (array) {
-            var i = 1, j, temp, key, len = array.length;
-            for (; i < len; i++) {
-                temp = j = i;
-                key = array[j];
-                while (--j > -1) {
-                    if (array[j] > key) {
-                        array[j + 1] = array[j];
-                    } else {
-                        break;
-                    }
-                }
-                array[j + 1] = key;
-            }
-            return array;
+  var object = {
+    array: [2, 5, 1, 8, 7, 3],
+    bubbleSort: function (array) {//冒泡排序
+      var d = null;
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array.length; j++) {
+          if (array[i] < array[j]) {
+            d = array[j];
+            array[j] = array[i];
+            array[i] = d;
+          }
         }
+      }
+      console.log(array);
+      return array;
+    },
+    insertSort: function (array) {
+      var i = 1, j, temp, key, len = array.length;
+      for (; i < len; i++) {
+        temp = j = i;
+        key = array[j];
+        while (--j > -1) {
+          if (array[j] > key) {
+            array[j + 1] = array[j];
+          } else {
+            break;
+          }
+        }
+        array[j + 1] = key;
+      }
+      return array;
     }
-    console.log(object.array);
-    object.bubbleSort(object.array);
+  }
+  console.log(object.array);
+  object.bubbleSort(object.array);
 </script>
 </body>
 </html>

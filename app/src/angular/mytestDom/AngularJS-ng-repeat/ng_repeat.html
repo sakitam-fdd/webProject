@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-repeat</title>
+    <link rel="stylesheet" href="../../framework/bootstrap-3.3.5/dist/css/bootstrap.min.css">
+    <script src="../../framework/jquery/jquery.min.js"></script>
+    <script src="../../framework/bootstrap-3.3.5/dist/js/bootstrap.min.js"></script>
+    <script src="../../framework/angularjs-latest/angular.min.js"></script>
+</head>
+<body ng-app>
+<div ng-repeat="item in data" class="detailed_information">
+    <div ng-if="item.rows.length != 0" class="information_title">
+        <span class="information_icon iconfont">&#xe627;</span>
+        <span ng-if="item.showType == 'TEXT'"><title-directive data="item"></title-directive></span>
+        <span ng-if="item.showType == 'MEDIAS'"><title-directive data="item"></title-directive></span>
+        <span ng-if="item.showType == 'SELECT'"><test33 data="item"></test33></span>
+        <span ng-if="item.showType == 'TEXT'"><test33 data="item"></test33></span>
+    </div>
+    <div class="information_content">'
+        <ul>
+            <li ng-if="item.showType == 'MEDIAS'"><multi-media data="item.rows"></multi-media></li>
+            <test11 data="item.rows"></test11>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $.ajax({
+        url: "http://127.0.0.1:8080/gdms-webapp/rest/meta/loadLayers.do?userName=zhangs",
+        method: 'GET',
+        success: function(datas){
+            data = datas.response;
+            for(var i=0 ; i < data.length ; i++){
+                if(data[i].type == "POLYLINE"){
+                    var weblog = data[i].webFields;
+                    for(var j = 0; j < weblog.length; j++){
+                        if(weblog[j].name == "空间数据"){
+                            weblog[j].classifyCode='5';
+                            weblog[j].showType="FILE";
+                            weblog[j].type="POLYLINE";
+                        }
+                    }
+                }
+            }
+            callback();
+        }
+    });
+</script>
+</body>
+</html>

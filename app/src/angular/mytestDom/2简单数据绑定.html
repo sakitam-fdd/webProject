@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<script type="text/javascript" src="../framework/angularjs-latest/angular.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>简单数据绑定:时钟</title>
+</head>
+<body>
+    <div ng-controller="MyController">
+        <h3>{{clock}}</h3>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myApp',[]);
+        /*app.controller('MyController',function ($scope,$timeout) {
+            var updateClock = function () {
+                $scope.clock = new Date();
+                $timeout(function () {
+                    updateClock();
+                },1000);
+            }
+            updateClock();
+        });*/
+        app.controller('MyController',function ($scope) {
+            $scope.clock = {
+             now : new Date(),
+                last:new Date()
+            };
+            var updateClock = function () {
+                $scope.clock.now = new Date();
+            }
+            setInterval(function () {
+                $scope.$apply(updateClock);//apply用法：当这个新的执行序列不是被angular JS的库的方法创建的，这个时候我们需要将代码用scope.apply()包起来
+            },1000);
+            updateClock();
+        });
+    </script>
+</body>
+</html>

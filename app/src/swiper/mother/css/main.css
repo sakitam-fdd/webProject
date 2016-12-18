@@ -1,0 +1,115 @@
+.swiper-container{
+    width: 6.40rem;height: 10.49rem;
+}
+.swiper-wrapper{
+    width: 6.40rem;height: 10.49rem;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px;
+}
+.swiper-slide{
+    width: 6.40rem;height: 10.49rem;
+    background-image: url(../images/bgc.jpg);
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    overflow:hidden;
+}
+.sec_a{
+    position: absolute;
+    top: 0.32rem;left: 0.22rem;
+    width: 6.07rem; height: 5.62rem;
+    animation:opac 1s infinite;
+}
+@keyframes opac{
+    0%   {opacity:1;}
+    25%  {opacity:0.5;}
+    50%  {opacity:0.1;}
+    75%  {opacity: 0.5;}
+    100% {opacity:1;}
+}
+@-webkit-keyframes opac{
+    0%   {opacity:1;}
+    25%  {opacity:0.5;}
+    50%  {opacity:0.1;}
+    75%  {opacity: 0.5;}
+    100% {opacity:1;}
+}
+@-moz-keyframes opac {
+    0%   {opacity:1;}
+    25%  {opacity:0.5;}
+    50%  {opacity:0.1;}
+    75%  {opacity: 0.5;}
+    100% {opacity:1;}
+}
+@-ms-keyframes opac {
+    0%   {opacity:1;}
+    25%  {opacity:0.5;}
+    50%  {opacity:0.1;}
+    75%  {opacity: 0.5;}
+    100% {opacity:1;}
+}
+.sec_a0{
+    position: absolute;
+    bottom: 0;left: 0;
+    width: 6.4rem;height: 2.53rem;
+}
+.sec_a1{
+    position: absolute;
+    top: 6.28rem;left: 1.26rem;
+    width: 4.06rem;
+    text-align: center;
+    font-size: 0.25rem;
+    color: #ffacac;
+}
+.sec_a2{
+    position: absolute;
+    left: 0.48rem;top: 7.1rem;
+    font-size: 0.42rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 5px 3px 4px #282727;
+    animation:opac 1s infinite;
+}
+.sec_a3{
+    position: absolute;
+    top: 8.95rem;left: 1.4rem;
+    width: 3.78rem;height: 0.86rem;
+    font-size: 0.4rem;
+    color: #f35500;
+    border: none;
+    background: -webkit-linear-gradient(left, #97461a , #ffffff , #97461a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,#97461a , #ffffff , #97461a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#97461a , #ffffff , #97461a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #97461a , #ffffff , #97461a); /* 标准的语法（必须放在最后） */
+}
+.sec_b1{
+    position: absolute;
+    top: 0.56rem;left:0.37rem ;
+    width: 5.67rem;height: 5.87rem;
+}
+.sec_b2{
+    position: absolute;
+    top: 6.75rem;left: 0.37rem;
+    font-size:0.30rem ;
+    font-weight: 400;
+    color: #ed7f02;
+}
+.sec_b3{
+    position: absolute;
+    top: 7.15rem;left:0.37rem ;
+    font-size: 0.30rem;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+.cover{
+    width: 6.4rem;height: 100%;
+    position: absolute;
+    top: 0;left: 0;
+    display: none;
+}

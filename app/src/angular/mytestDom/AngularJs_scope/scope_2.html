@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>scope-hierarchies</title>
+    <style type="text/css">
+        .ng-cloak {
+            display: none;
+        }
+        .ng-scope {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body class="ng-cloak">
+<div ng-controller="MyController">
+    经理：{{employee.name}} [{{department}}] <br/>
+    报告：
+    <ul>
+        <li ng-repeat="employee in employee.reports">
+            {{employee.name}} [{{department}}]
+        </li>
+    </ul>
+    <hr/>
+    {{greeting}}
+</div>
+<script src="../../framework/angularjs-latest/angular.min.js"></script>
+<script type="text/javascript">
+    /*当 angular 对 {{username}} 求值时，
+    它首先查看与当前元素关联的 scope 的 username
+    属性。如果没有找到对应的属性，它将会一直向上搜索 parent scope
+     ，直到到达 root scope 。在 javascript 中，这个行为被称为
+     “原型继承”， child scope 典型地继承自它们的 parent 。
+     */
+    var app=angular.module('myApp',[]);
+    app.controller('MyController',function ($scope) {
+        $scope.department = "某部";
+        $scope.employee = {
+            name:"My Little Dada",
+            reports: [
+                {name:"Lcllao"},
+                {name:"那个谁^o^"}
+            ]
+        };
+    });
+</script>
+</body>
+</html>

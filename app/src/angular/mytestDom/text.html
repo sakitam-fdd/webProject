@@ -1,0 +1,45 @@
+<div class="left-template-point" ng-show="pointlayers">
+    <div class="left-template-title">
+        <span class="iconfont left-template-title-icon">&#xe643;</span>
+        <span class="left-template-title-name">点</span>
+        <span class="left-template-title-statistics">(8)</span>
+    </div>
+    <div class="left-template-point-content">
+        <div  ng-repeat="layer in pointlayers" class="{{layer.abbreviation}}_layer_content" ng-click="selectLayer(layer.abbreviation)" ng-class="{true: 'layer-active', false: ''}[target == layer.abbreviation]" >
+            <div class="{{layer.abbreviation}}_icon_bgcolor">
+                <div class="{{layer.abbreviation}}_icon iconfont icon-{{layer.icon}}"></div>
+            </div>
+            <div class="{{layer.abbreviation}}_text">{{layer.layerName}}</div>
+        </div>
+    </div>
+</div>
+<div class="left-template-line" ng-show="linelayers">
+    <div class="left-template-title">
+        <span class="iconfont left-template-title-icon">&#xe645;</span>
+        <span class="left-template-title-name">线</span>
+        <span class="left-template-title-statistics">(7)</span>
+    </div>
+    <div class="left-template-line-content">
+        <div ng-repeat="layer in linelayers" class="{{layer.abbreviation}}_layer_content" ng-click="selectLayer(layer.abbreviation)" ng-class="{true: 'layer-active', false: ''}[target == layer.abbreviation]">
+            <div class="{{layer.abbreviation}}_icon_bgcolor">
+                <div class="{{layer.abbreviation}}_icon iconfont icon-{{layer.icon}}"></div>
+            </div>
+            <div class="{{layer.abbreviation}}_text">{{layer.layerName}}</div>
+        </div>
+    </div>
+</div>
+<div class="left-template-noodles" ng-show="noodleslayers">
+    <div class="left-template-title">
+        <span class="iconfont left-template-title-icon">&#xe644;</span>
+        <span class="left-template-title-name">面</span>
+        <span class="left-template-title-statistics">(1)</span>
+    </div>
+    <div class="left-template-noodles-content">
+        <div ng-repeat="layer in noodleslayers" class="{{layer.abbreviation}}_layer_content" ng-click="selectLayer(layer.abbreviation)" ng-class="{true: 'layer-active', false: ''}[target == layer.abbreviation]">
+            <div class="{{layer.abbreviation}}_icon_bgcolor">
+                <div class="{{layer.abbreviation}}_icon iconfont icon-{{layer.icon}}"></div>
+            </div>
+            <div class="{{layer.abbreviation}}_text">{{layer.layerName}}</div>
+        </div>
+    </div>
+</div>

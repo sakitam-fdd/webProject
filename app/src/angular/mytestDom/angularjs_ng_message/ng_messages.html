@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-messages测试</title>
+
+    <script src="../../framework/angularjs-latest/angular.min.js"></script>
+    <script src="../node_modules/angular-messages/angular-messages.min.js"></script>
+</head>
+<body>
+    <!--一般写法-->
+    <!--<form action="" name="userForm">-->
+        <!--<input type="text" name="name" ng-model="user.name" ng-minlength="3" ng-maxlength="8" required>-->
+        <!--<p ng-show="userForm.name.$error.minlength">输入字符太短</p>-->
+        <!--<p ng-show="userForm.name.$error.maxlength">输入字符太长</p>-->
+        <!--<p ng-show="userForm.name.$error.required">必填</p>-->
+    <!--</form>-->
+
+    <!--引入ng-message写法-->
+    <form action="" name="userForm">
+        <input type="text" name="name" ng-pattern="/[a-zA-Z]/" ng-model="user.name" ng-minlength="3" ng-maxlength="8" required>
+        <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+            <!--<p ng-message="minlength">用户名最小长度5</p>-->
+            <!--<p ng-message="maxlength">用户名最大长度10</p>-->
+            <!--<p ng-message="required">用户名必填</p>-->
+
+            <!--支持将验证提示信息单独封装-->
+            <div ng-messages-include="emailmessages.html"></div>
+        </div>
+    </form>
+    <script>
+        var app=angular.module('myApp',['ngMessages'])
+        app.controller('MainCtrl', MainCtrl);
+            function MainCtrl(){
+        }
+    </script>
+</body>
+</html>

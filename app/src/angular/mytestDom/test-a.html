@@ -1,0 +1,14 @@
+<div ng-repeat="data in data" class="detailed_information">
+    <div class="information_title">
+        <span class="information_icon iconfont">&#xe627;{{}}</span>
+        <span class="information_title_name">{{data.type}}</span>
+    </div>
+    <div class="information_content">
+        <div  ng-repeat="layer in data.rows track by $index" class="{{layer.abbreviation}}_layer_content" ng-click="selectLayer(layer.code)" ng-class="{true: \'layer-active\', false: \'\'}[target == layer.code]" >'
+            <div class="{{layer.abbreviation}}_icon_bgcolor">
+                <div class="{{layer.abbreviation}}_icon iconfont icon-{{layer.icon}}"></div>
+            </div>
+            <div class="{{layer.abbreviation}}_text">{{layer.name}}</div>
+        </div>
+    </div>
+</div>

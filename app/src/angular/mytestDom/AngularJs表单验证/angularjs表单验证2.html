@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.5.0-beta.0/angular.min.js"></script>
+    <style>
+        .content{
+            margin: 50px auto;
+        }
+        .form-horizontal .ng-invalid{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body ng-app>
+<div class="col-md-6 content">
+    <form role="form" class="form-horizontal" name="myForm" ng-submit="submitForm(myForm.$valid)" novalidate>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="name">1.必填项</label>
+            </div>
+            <div class="col-md-8">
+                <input class="form-control" id="name" name="name" type="text" required ng-model='user.name' />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="minlength">2.最小长度=5</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" id="minlength" ng-minlength="5" ng-model="user.minlength" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="minlength">3.最大长度=20</label>
+                　　　　　　　　　　</div>
+            <div class="col-md-8">
+                <input type="text" ng-model="user.maxlength" ng-maxlength="20" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="minlength">4. 模式匹配</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" id="minlength" ng-model="user.pattern" ng-pattern="/^[a-zA-Z]*\d$/" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="email">5. 电子邮件</label>
+                　　　　　　　　　　</div>
+            <div class="col-md-8">
+                <input type="email" id="email" name="email" ng-model="user.email" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="age">6. 数字</label>
+                　　　　　　　　　　</div>
+            <div class="col-md-8">
+                <input type="number" id="age" name="age" ng-model="user.age" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label for="url"> 7. URL</label>
+                　　　　　　　　　　</div>
+            <div class="col-md-8">
+                <input type="url" id="url" name="homepage" ng-model="user.url" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <input class="btn btn-primary btn-lg" type="submit" value="提交" />
+        </div>
+    </form>
+</div>
+<div class="col-md-12">
+    1.必填项:{{user.name}}<br>
+    2.最小长度=5:{{user.minlength}}<br>
+    3.最大长度=20:{{user.maxlength}}<br>
+    4.模式匹配:{{user.pattern}}<br>
+    5.电子邮件:{{user.email}}<br>
+    6.数字:{{user.age}}<br>
+    7.URL:{{user.url}}<br>
+    $pristine 【没修改】：{{myForm.name.$pristine }}<br/>
+    $dirty【修改过】：{{myForm.name.$dirty}}<br/>
+    $invalid【验证失败】：{{myForm.name.$invalid}}<br/>
+    $invalid【验证成功】：{{myForm.name.$valid}}<br/>
+    required：{{myForm.name.$error.required}}<br/>
+</div>
+<!--<script type="text/javascript">
+    angular.module('myTest', [])
+    .controller('myController', function($scope) {
+        $scope.submitForm = function(isValid) {
+            if (!isValid) {
+                alert('验证失败');
+            }
+        };
+    });
+</script>-->
+</body>
+</html>

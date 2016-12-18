@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="../../framework/angular-tree/demo/jquery.2.0.3.js"></script>-->
+    <script src="../../framework/angular-tree/demo/angular.1.2.29.js"></script>
+    <script src="../../framework/angular-tree/demo/ui-bootstrap-tpls.0.11.2.js"></script>
+    <script src="../../framework/angular-tree/angular-tree-control.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../framework/angular-tree/css/tree-control.css">
+    <link rel="stylesheet" type="text/css" href="../../framework/angular-tree/css/tree-control-attribute.css">
+</head>
+<body ng-app="example">
+<div id="dirSelection" ng-controller="DirSelection">
+    <div style="position: relative"><input type="text" value="{{data?data.label:'N/A'}}">
+        <input type="hidden" value="{{data?data.id:'N/A'}}">
+        <span ng-click="toggle(id)">点击</span></div>
+    <div ng-hide="myVar" style="position: absolute;width: 180px;height: 200px;overflow: scroll;">
+        <treecontrol class="tree-classic" tree-model="treedata" options="opts" on-selection="showSelected(node)">
+            label: {{node.label}}({{node.id}})
+        </treecontrol>
+    </div>
+    <!--<p>Selected node: <code>{{selectedNode?selectedNode.label:"N/A"}}</code></p>-->
+</div>
+<span style="position: absolute;left: 500px;">
+    <div style="width: 180px; height: 24px;border: 1px solid #c8c8c8;background: #FFFFFF;position: relative;display: inline-block;">
+        <span class="textbox-addon textbox-addon-right" style="right: 0px;position: absolute;top: 0;">
+            <a href="javascript:void(0)" class="textbox-icon combo-arrow" icon-index="0" tabindex="-1" style="width: 18px; height: 24px;"></a>
+        </span>
+        <input type="text" class="textbox-text validatebox-text" readonly="readonly" placeholder="请选择" style="margin-left: 0px; margin-right: 18px; width: 162px;height: 23px;border: none;">
+        <input type="hidden" ng-model="id" >
+        <tree style="width: 180px;height: 200px;border: 1px solid #c8c8c8;position: absolute;top: 0;left: -1px;"></tree>
+    </div>
+</span>
+<script>
+    var example = angular.module("example", ["treeControl", "ui.bootstrap"]);
+    example.controller('DirSelection',function ($scope) {
+        $scope.myVar = false;
+        $scope.toggle = function(id) {
+            $scope.myVar = !$scope.myVar;
+        }
+//        $scope.show=function () {
+//            if(click()){
+//                return true;
+//            }else{
+//                return false;
+//            }
+//        }
+        $scope.treedata=createSubTree(3, 4, "");
+        $scope.opts = {
+            dirSelectable: true
+        };
+        $scope.showSelected = function(sel) {
+            $scope.data = sel;
+        };
+        function createSubTree(level, width, prefix) {
+            var names = ['Homer', 'Marge', 'Bart', 'Lisa', 'Mo'];
+            if (level > 0) {
+                var res = [];
+                for (var i=1; i <= width; i++)
+                    res.push({ "label" : "Node " + prefix + i, "id" : "id"+prefix + i, "i": i, "children": createSubTree(level-1, width, prefix + i +"."), "name": names[i%names.length] });
+                return res;
+            }
+            else
+                return [];
+        }
+        console.log($scope.treedata);
+    })
+</script>
+</body>
+</html>
