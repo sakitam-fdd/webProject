@@ -1,0 +1,247 @@
+body {
+	background:#F6F6F6;
+	margin: 0px;
+	text-align:center;
+	padding:0px;
+	min-width: 1024px;
+	font-family: "Microsoft YaHei";
+
+}
+input{
+	-webkit-appearance: none;
+}
+a{
+	cursor: pointer;
+}
+.device_num_div{
+	position: absolute;
+	margin-left: 124px;
+	margin-top: -155px; 
+	text-align:center;
+	width:27px;	
+	height:27px;
+	z-index: 10;
+	background:url("../images/device_num_bg.png") no-repeat;
+}
+.device_num_div span{
+	line-height: 27px;
+	color: #FFFFFF;
+}
+.bk_span_div{
+	background: #E5E5E5;
+	height: 25px;
+	width: 104px;
+	margin: 0 auto;
+}
+.bk_span_div span{
+	font-size: 16px;
+	line-height: 25px;
+	color:#666666;
+}
+.index_div{
+	margin: 0 auto;
+	width: 1224px; 
+	padding-top: 150px;
+	text-align: center;
+	height: 738px;
+}
+.index_img_div{
+	text-align: center;
+	height: 200px;
+}
+.index_img_div img{
+	
+}
+.index_img_div span{
+
+}
+.index_img_div a:hover .bk_span_div span{
+	color:#F08300;
+}
+
+.index_center_message_div{
+	width: 100%;
+	margin: 0 auto; 
+	text-align: center;
+	height: 35px;
+}
+.signal_span{
+	font-size:22px;
+	text-align: right;
+	width: 45%;
+	float: left;
+	color: #666666;
+	margin-top: 4px;
+	margin-bottom:4px; 
+}
+.wifi_span{
+	color: #666666; 
+	width: 55%;
+	font-size:18px; 
+	float: left;
+	padding-left: 10%;
+	text-align: left;
+	margin-top: 4px;
+	margin-bottom:4px; 
+}
+.signal_speed_span{
+	font-size:22px;
+	text-align: right;
+	width: 25%;
+	float: left;
+	color: #F08300;
+
+}
+.speed_span{
+	color: #666666; 
+	width: 75%;
+	font-size:18px; 
+	float: left;
+	padding-left: 10%;
+	text-align: left;	
+}
+.wifi_break_and_connect_span,.speed_break_and_connect{
+	position: relative; 
+	top:-92px;
+	font-size: 20px;
+	color: #F08300;
+	display: none;
+	z-index: 10;
+	text-align: center;
+} 
+.speed_break_and_connect_span{
+	display: none;
+}
+a:link {
+	text-decoration: none
+}
+a:visited {
+	text-decoration: none
+}
+a:hover {
+	text-decoration: none
+}
+
+.index_table_title_row{
+	padding-top: 20px;
+}
+.index_table_title_div{
+	text-align: left;
+	font-size: 16px;
+	padding-left: 45px;
+}
+.index_table_title_div span{
+	font-family: "Microsoft YaHei";
+	font-size: 18px;
+	color: #666666;
+}
+.index_table{
+	text-align: center; 
+	width: 100%; 
+	border-spacing:10px;
+	margin-top: 20px;
+}
+.index_table_td_1{
+	width: 8%;height: 125px;
+}
+.index_table_td_2{
+	width: 22%;
+}
+.index_table_td_2 div{
+	height: 100%;
+}
+.index_table_td_icon_span{
+	font-size:46px;
+	color: #F08300; 
+	height:100px;
+}
+.index_table_td_msg_span{
+	font-size: 18px;
+	color: #666666;
+	display: block;
+	padding-top: 20px;
+}
+.index_table_td_3{
+	width: 1%;height: 125px; 
+}
+.index_table_td_3 div{
+	border-right:1px solid #F08300; 
+	height: 100%;
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+.index_table_split_line{
+	border-top:1px solid #F08300; 
+	margin-left: 10%; 
+	margin-right: 10%;
+	margin-top:5px;
+	margin-bottom:5px;
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+
+.index_thumbtack_div,.index_break_div{
+	text-align: right;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.index_break_div span{
+	color: #F08300;
+	font-size:20px;
+}
+.index_thumbtack_div span{
+	color: #777777; 
+	font-size:20px;
+}
+.lan_text_div{
+	height: 46px;
+	line-height: 46px;
+}
+.lan_line_div{
+	display: inline-block; 
+	width: 39.4%;
+	border-top:1px solid #666666;
+	margin-bottom:5px;
+}
+.lan_text_div span{
+	width: 10%;
+	color: #666666;
+}
+
+.wifi_col_div{
+	margin-top: 10px;
+	min-width: 175px;
+}
+.wan_break_msg_div{
+	margin-top:20px; 
+	display: none;
+}
+.wan_break_msg_div span{
+	font-size: 20px;
+	color: #FF0000;
+}
+.wan_break_line_div{
+	display: inline-block;
+	width: 37%;
+	border-top:1px solid #666666;
+	margin-bottom:7px;
+}
+
+.speed_col_div{
+	margin-top: 32px;
+	min-width: 175px;
+}
+.wan_connect_msg_div{ 
+	display: block;
+}
+@media (max-width: 1223px){
+	.index_div{
+		width: 1024px; 
+	}
+	.device_num_div{
+		margin-left: 109px;
+	}
+	.lan_line_div{
+		width: 37%;
+	}
+}

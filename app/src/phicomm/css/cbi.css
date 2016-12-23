@@ -1,0 +1,249 @@
+.link_span,.link_span_advance,.cbi_advance_second_title{	
+	width:250px;
+	position:relative;
+	text-align:right;
+	height:31px;
+	line-height: 31px;
+	float:left;
+	color: #666666;
+}
+.link_span_advance,.cbi_advance_second_title{
+	width: 218px;
+}
+.cbi_advance_second_title{
+	margin-top: -1px;
+	font-size:16px; 
+}
+.hidden-input{
+	height: 15px;
+	width: 15px;
+	cursor: pointer;
+}
+.margin_left_remote{
+	margin-left:90px;
+}
+.cbi-button{
+	background: #F08300;
+	border: none;
+	color: #ffffff;
+	width: 170px;
+	text-align: center; 
+	height:30px;
+}
+.cbi_wan_check{ 
+	border: none;
+	color: #F08300;
+	background: #FDF2E5;
+	border: 1px solid #FAD2A2;
+	width: 170px;
+	text-align: center;
+	height: 31px;
+}
+.cbi_wan_check:hover{
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.wan_link{
+	margin-bottom:10px;
+}
+.wan_set_link_msg_span{
+	color: #666666;
+	height: 24px;
+	line-height: 24px;
+}
+.alert_dialog{
+	margin:0 auto;
+	width: 400px;
+	margin-top:240px;
+}
+.alert_content{
+	min-height: 160px;
+	text-align: center;
+	padding-top:40px;
+	background: #FFFFFF;
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+.alert_content span{
+	display: block;
+	font-size:16px;
+	word-break: break-all;
+	margin: 0 20px;
+}
+.alert_content button{
+	margin:30px 0;
+	background:#F08300;
+	border-radius:0px;
+	border:none;
+	border: 1px solid #FFFFFF;
+	width: 120px;
+	color: #FFFFFF;
+	outline:none;
+	height: 35px;
+	font-size:14px; 
+}
+.alert_content button:hover{
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.cbi-value-title{
+	position: relative;
+    top: -2px;
+    color: #666666;
+}
+.title_span{
+	margin: 0 auto;
+	margin-top: 29px;
+	font-size: 18px;
+	color: #666666;
+}
+.title_underline,.title_underline_second{
+	border-bottom: 1px solid #CCCCCC;
+	margin-top:19px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 30px;
+
+}
+.title_underline_second{
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+.title_underline_advance{
+	border-bottom: 1px solid #CCCCCC;
+	margin-top:19px;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 30px;
+}
+.cbi-section{
+	width: 80%;
+	margin: 0 auto;
+}
+.cbi-section-advance{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.height_45{
+	height: 43px;
+}
+.margin_left20{
+	margin-left:10px; 
+}
+.margin_left_per_class{
+   margin-left:36.6%;
+}
+.cbi_second_title{
+	width: 100px;
+	text-align: right;
+	color: #F08300;
+	font-size: 16px;
+	float: left;
+	line-height: 43px;
+}
+.second_title_margin{
+	margin-top: -14px;
+}
+.dropdown_div{
+	margin-left:15px; 
+}
+.hidden_radio{
+	margin-top:9px;
+	float:left;
+}
+.hidden_radio_icon{
+	margin-left:-15px;
+	float:left;
+	cursor: pointer;
+}
+.hidden_radio_text{
+	line-height: 31px;
+    float: left;
+    color: #666666;
+}
+.default_8080_span{
+	color:#999999;
+	float: left;
+	line-height: 31px;
+	margin-left:10px;
+}
+.cbi_checkbox{
+	width: 170px;
+	float: left;
+	text-align: left;
+	margin-left: 10px;
+	line-height: 31px;
+}
+.cbi_save_button,.cbi_save_button_advance{
+	height: 34px;
+	width: 140px;
+	background: #F08300;
+	text-align: center;
+	line-height: 34px;
+	border-style: none;
+	float: left;
+	margin-left: 275px;
+	font-size: 16px;
+	color: #FFFFFF;
+	margin-top: 18px;
+	margin-bottom: 20px;
+}
+.cbi_save_button_advance{
+	margin-left: 235px;
+}
+.cbi_save_button:hover,.cbi_save_button_advance:hover{
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.cbi-page-actions{
+	margin: 0 auto;
+	width: 90%;
+}
+.cbi_icon_help{
+	font-size: 21px;
+	color:#F08300;
+	float:left;
+	margin-left:10px;
+	margin-top:5px;
+	cursor: pointer;
+	position: relative;
+}
+@media (max-width: 1160px) and (min-width: 1023px){
+	.link_span{	
+		width:210px;
+	}
+	.margin_left_per_class{
+  	 margin-left:35%;
+	}
+	.cbi_save_button{
+		margin-left: 235px;
+	}
+}
+@media (max-width: 1024px){
+	.link_span{	
+		width:210px;
+	}
+	.link_span_advance,.cbi_advance_second_title{
+		width: 164px;
+	}
+	.cbi_save_button_advance{
+		margin-left: 179px;
+	}
+	.cbi_save_button{
+		margin-left: 235px;
+	}
+	.margin_left_remote{
+		margin-left:0px;
+	}
+	.margin-left-right10{
+		margin-left:8%;
+	}
+	.margin_left_per_class{
+  	 margin-left:35%;
+	}
+}
+#listtable td input{
+	width: 126px;
+}

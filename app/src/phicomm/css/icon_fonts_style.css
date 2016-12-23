@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('./../icon_fonts//icomoon.eot?ydky9y');
+    src:    url('./../icon_fonts//icomoon.eot?ydky9y#iefix') format('embedded-opentype'),
+        url('./../icon_fonts//icomoon.ttf?ydky9y') format('truetype'),
+        url('./../icon_fonts//icomoon.woff?ydky9y') format('woff'),
+        url('./../icon_fonts//icomoon.svg?ydky9y#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-homepage:before {
+    content: "\e900";
+}
+.icon-networkset:before {
+    content: "\e901";
+}
+.icon-wifiset:before {
+    content: "\e902";
+}
+.icon-device_manage:before {
+    content: "\e903";
+}
+.icon-advancedset:before {
+    content: "\e904";
+}
+.icon-physicalexamination:before {
+    content: "\e905";
+}
+.icon-signin:before {
+    content: "\e906";
+}
+.icon-search:before {
+    content: "\e907";
+}
+.icon-signal:before {
+    content: "\e908";
+}
+.icon-Mbps:before {
+    content: "\e909";
+}
+.icon-Kbps:before {
+    content: "\e90a";
+}
+.icon-thumbtack:before {
+    content: "\e90b";
+}
+.icon-break:before {
+    content: "\e90c";
+}
+.icon-connect:before {
+    content: "\e90d";
+}
+.icon-visible:before {
+    content: "\e90e";
+}
+.icon-invisible:before {
+    content: "\e90f";
+}
+.icon-help:before {
+    content: "\e910";
+}
+.icon-uparrow:before {
+    content: "\e911";
+}
+.icon-downarrow:before {
+    content: "\e912";
+}
+.icon-edit:before {
+    content: "\e913";
+}
+.icon-delete:before {
+    content: "\e914";
+}
+.icon-systemstate:before {
+    content: "\e915";
+}
+.icon-intranetset:before {
+    content: "\e916";
+}
+.icon-lanset:before {
+    content: "\e917";
+}
+.icon-dhcp:before {
+    content: "\e918";
+}
+.icon-more_signal:before {
+    content: "\e919";
+}
+.icon-more_wlextend:before {
+    content: "\e91a";
+}
+.icon-more_wps:before {
+    content: "\e91b";
+}
+.icon-more_parentctl:before {
+    content: "\e91c";
+}
+.icon-more_safeset:before {
+    content: "\e91d";
+}
+.icon-more_remotemgt:before {
+    content: "\e91e";
+}
+.icon-more_ddns:before {
+    content: "\e91f";
+}
+.icon-forwardset:before {
+    content: "\e920";
+}
+.icon-appportfwdset:before {
+    content: "\e921";
+}
+.icon-DMZset:before {
+    content: "\e922";
+}
+.icon-UPnPset:before {
+    content: "\e923";
+}
+.icon-systemset:before {
+    content: "\e924";
+}
+.icon-buttonset:before {
+    content: "\e925";
+}
+.icon-autoupgrade:before {
+    content: "\e926";
+}
+.icon-manualupgrade:before {
+    content: "\e927";
+}
+.icon-backuprecovery:before {
+    content: "\e928";
+}
+.icon-scanning:before {
+    content: "\e929";
+}
+.icon-signalintensity:before {
+    content: "\e92a";
+}
+.icon-browse:before {
+    content: "\e92b";
+}
+.icon-close:before {
+    content: "\e92c";
+}
+.icon-indicatorlight:before {
+    content: "\e92d";
+}
+.icon-APPset:before {
+    content: "\e92e";
+}
+.icon-thumbtackfixed:before {
+    content: "\e92f";
+}
+.icon-signalintensityone:before {
+    content: "\e930";
+}
+.icon-signalintensitytwo:before {
+    content: "\e931";
+}
+.icon-signalintensitythree:before {
+    content: "\e932";
+}
+.icon-routeset:before {
+    content: "\e933";
+}
+.icon-wifibasicset:before {
+    content: "\e934";
+}
+.icon-visitnetwork:before {
+    content: "\e935";
+}
+.icon-wificlient:before {
+    content: "\e936";
+}
+.icon-equipmentinformation:before {
+    content: "\e937";
+}
+.icon-systemtools:before {
+    content: "\e938";
+}
+.icon-systemmanagement:before {
+    content: "\e939";
+}
+.icon-timemanagement:before {
+    content: "\e93a";
+}
+.icon-nav:before {
+    content: "\e93b";
+}
+.icon-restart:before {
+    content: "\e93c";
+}
+

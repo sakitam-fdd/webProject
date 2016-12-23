@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, minimum-scale=0.3, maximum-scale=1, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no"/>
+  <title>K1</title>
+  <link rel="shortcut icon" href="images/favicon.ico" />
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cbi.css">
+  <link rel="stylesheet" href="css/advanced.css">
+  <link rel="stylesheet" href="css/index_style.css">
+  <link rel="stylesheet" href="css/icon_fonts_style.css">
+  <script type="text/javascript" src="scripts/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="scripts/function.js"></script>
+  <script type="text/javascript" src="scripts/base64Encode.js"></script>
+  <script type="text/javascript" src="scripts/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="resources/xhr.js"></script>
+  <script type="text/javascript" src="resources/cbi.js"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <!--<script src="/luci-static/bootstrap/js/html5shiv.js"></script>-->
+  <!--<script src="/luci-static/bootstrap/js/respond.min.js"></script>-->
+  <!--<style type="text/css">-->
+    <!--.bg{-->
+      <!--background: #F5F5F5;-->
+    <!--}-->
+  <!--</style>-->
+  <![endif]-->
+
+  <script type="text/javascript">
+    var error_msg = [
+      ["0","无效！"],
+      ["1","不能为空！"],
+      ["2","过长！"],
+      ["3","范围应在"],
+      ["4","长度应在"],
+      ["5","错误！"],
+      ["6","与"],
+      ["7","之间！"],
+      ["8","位之间！"],
+      ["9","不能含有空格！"],
+      ["10","应为整数！"],
+      ["11","不允许输入\<\>(){}\&\'\"\\\%~和中文字符！"],
+      ["12","不允许输入\<\>(){}\&\'\"\\\%~"],
+      ["13","输入长度应在8-63位之间，不支持中文字符！"],
+      ["14","不允许输入\<\>(){}\&\'\"\\\%\,\:\;"],
+      ["15","不允许输入\<\>(){}\&\'\"\\\%\,\:\;\$\|\`\~和中文字符！"],
+      ["16","长度不能超过"],
+      ["17","位！"],
+      ["18","应为正整数！"],
+      ["19","应是字母、数字、下划线组成的5-16位组合"],
+      ["20","只允许输入字母，数字和下划线"],
+      ["21","不为空时不可少于8位！"],
+      ["22","输入错误，请填写正确的域名！"],
+      ["23","不允许输入\<\>\&\'\"\\和中文字符！"],
+      ["24","必须为5或13位字符"],
+      ["25","包含非法字符！"],
+      ["26","必须为10或26位十六进制字符！"],
+      ["27","包含非法字符，请输入（a-f,A-F,0-9）的组合！"],
+      ["28","输入长度应在5-64位之间，不支持中文字符！"],
+      ["29","MAC地址不能为全0或全F，请重新输入！"],
+      ["30","MAC地址不能为组播地址，请重新输入！"],
+      ["31","不允许输入\<\>(){}\&\'\"\\\%\,\:\;\$\|\`\~"],
+      ["32","2.4G无线名称和访客网络名称不能一样！"],
+      ["33","在2.4G和5G无线名称一致的情况下，密码必须一致！"],
+      ["34","11b/g模式下带宽将强制为20M！"],
+    ];
+  </script>
+
+  <script >
+    media_path = "/luci-static/bootstrap/";
+    no_clone_str = "不克隆MAC地址";
+    auto_clone_str = "克隆本机MAC地址";
+    input_clone_str = "手动输入MAC地址";
+    cur_mac_addr_str = "当前路由MAC地址：";
+
+    var rebootneedrelogin = 0;
+    $(function(){
+      $('.content_body').niceScroll({
+        cursorcolor: "#CCCCCC",
+        cursoropacitymax: 1,
+        touchbehavior: false,
+        cursorwidth: "10px",
+        cursorborder: "0",
+        cursorborderradius: "5px",
+        autohidemode: false
+      });
+      $('.content').niceScroll({
+        cursorcolor: "#CCCCCC",
+        cursoropacitymax: 1,
+        touchbehavior: false,
+        cursorwidth: "5px",
+        cursorborder: "0",
+        cursorborderradius: "5px",
+        autohidemode: false
+      });
+      $("#restart").click(function(){
+        restart_flag = true;
+        $("#confirm_bt").html("确认");
+        Alert("是否确认重启？",true);
+
+      })
+      $("#confirm_bt").click(function(){
+        $("#myAlert").modal("hide");
+        if(restart_flag == true){
+          restart_flag = false;
+          $("#confirm_bt").html("确定");
+          $.ajax({
+            type:"post",
+            url:"/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/system/reboot",
+            success: function(msg){
+              $("#progress_content_up").html("设备重启中...");
+              $("#progress_content_down").html("路由器重启中，请勿切断电源！");
+              start_progress_bar(60);
+              rebootneedrelogin = 1;
+            }
+          });
+        }
+        if(wps_refresh == true)
+        {
+          window.location.reload();
+        }
+      })
+
+      $("#timeRebootEnable").click(function(){
+        var value =  $(this).attr("value");
+        if(value == 0){
+          $("#timeRebootDiv").css({opacity:"1",filter:"alpha(opacity=100)"});
+          $(this).attr("value","1");
+          $("#timeRebootEnablestatus").val("on");
+        }else{
+          $("#timeRebootDiv").css({opacity:"0",filter:"alpha(opacity=0)"});
+          $(this).attr("value","0") ;
+          $("#timeRebootEnablestatus").val("off");
+        }
+      })
+      $(".timeRebootUl").find("li").click(function(){
+        var value = $(this).find("a").attr("value");
+        $(this).parents(".dropdown_div").find("input").val(value);
+      })
+
+
+      $("#timeRebootDiv").css({opacity:"1",filter:"alpha(opacity=100)"});
+
+      $("#timeRebootSave").click(function(){
+        $("#timeRebootrange").val($("#timereboothour").val() + ":" + $("#timerebootmin").val());
+        $("#cururl").val(location);
+        $("form[name='from_time_reboot']").submit();
+      })
+
+    });
+    var err_num = 0;
+    var warn_num = 0;
+    var router_frac = 100;
+    var isCheckNet = 1;
+    var time_stop;
+    var time_stop_twice;
+    var checkNUm = 0;
+    var isCheck = 0;
+
+    var currentVersion;    //当前软件版本
+    var newVersion;        //最新软件版本
+    var swPt;              //发布日期
+    var sw_verdesc = "";
+    var str_load =".";
+    var load_timer;
+    function check_load(){
+      str_load = str_load +".";
+      if(str_load.length > 6){
+        str_load = ".";
+      }
+      $("#check_loading").html(str_load);
+    }
+
+    function set_default(){
+      clearTimeout(time_stop);
+
+      err_num = 0;
+      warn_num = 0;
+      router_frac = 100;
+      checkNUm = 0;
+      isCheckNet = 1;
+      isCheck = 0;
+
+      $("#wan_fault_det").hide();
+      $("#wan_fault_det_ok").hide();
+      $("#wan_fault_det_result").hide();
+
+      $("#inte_status_det").hide();
+      $("#inte_status_det_ok").hide();
+      $("#inte_status_det_result").hide();
+
+      $("#wifi_status_det").hide();
+      $("#wifi_status_det_ok").hide();
+      $("#wifi_status_det_result_2").hide();
+      $("#wifi_status_det_result_5").hide();
+      $("#wifi_status_det_result_sig").hide();
+
+      $("#wifi_pwd_det").hide();
+      $("#wifi_pwd_det_ok").hide();
+      $("#wifi_pwd_det_result_2").hide();
+      $("#wifi_pwd_det_result_5").hide();
+
+      $("#router_pwd_det").hide();
+      $("#router_pwd_det_ok").hide();
+      $("#router_pwd_det_result").hide();
+
+      $("#firmware_ver_det").hide();
+      $("#firmware_ver_det_ok").hide();
+      $("#firmware_ver_det_result").hide();
+      $("#title1").show();
+      $("#title2").hide();
+      $("#fault_det").hide();
+      $("#sys_alert").hide();
+    }
+
+    function begin_check()
+    {
+      clearTimeout(time_stop);
+      clearTimeout(time_stop_twice);
+      err_num = 0;
+      warn_num = 0;
+      router_frac = 100;
+      checkNUm = 0;
+      isCheckNet = 1;
+      isCheck = 1;
+
+      $("#wan_fault_det").hide();
+      $("#wan_fault_det_ok").hide();
+      $("#wan_fault_det_result").hide();
+
+      $("#inte_status_det").hide();
+      $("#inte_status_det_ok").hide();
+      $("#inte_status_det_result").hide();
+
+      $("#wifi_status_det").hide();
+      $("#wifi_status_det_ok").hide();
+      $("#wifi_status_det_result_2").hide();
+      $("#wifi_status_det_result_5").hide();
+      $("#wifi_status_det_result_sig").hide();
+
+      $("#wifi_pwd_det").hide();
+      $("#wifi_pwd_det_ok").hide();
+      $("#wifi_pwd_det_result_2").hide();
+      $("#wifi_pwd_det_result_5").hide();
+
+      $("#router_pwd_det").hide();
+      $("#router_pwd_det_ok").hide();
+      $("#router_pwd_det_result").hide();
+
+      $("#firmware_ver_det").hide();
+      $("#firmware_ver_det_ok").hide();
+      $("#firmware_ver_det_result").hide();
+
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_checkistimeout',null,
+        function(x,s)
+        {
+          if(s == "timeout")
+            location.href = location.href;
+          else
+          {
+            $("#title1").hide();
+            $("#title2").show();
+            $("#title2span").html("体检进行中");
+            load_timer=setInterval(check_load,500);
+            $("#score").show();
+            $("#title2span").removeAttr("style");
+            $("#score").css("background",'url("images/oncheckload.gif") no-repeat');
+            $("#score").html(router_frac);
+            $("#fault_det").show();
+            $("#sys_alert").show();
+            time_stop = setTimeout("fun_sys_error_1()", 2000);
+          }
+        });
+    }
+
+    var progress_bar_cur_num=0;
+    var progress_bar_timer;
+
+    function checklocation()
+    {
+      if(1 == rebootneedrelogin)
+      {
+        rebootneedrelogin = 0;
+        var curlanip = "192.168.2.1";
+        window.location.href = "http://" + curlanip;
+      }
+    }
+
+    function Progress_Bar_Modalhide(){
+
+      $("#close_progress_button").click();
+
+      checklocation();
+
+    }
+    function start_progress_bar(progress_bar_time){
+      $("#progress_bar_buttom").click();
+      $("#progress_bar").attr("style","width:0px");
+      $("#progress_bar").animate({width:$("#progress_bar").attr("w")+"px"},progress_bar_time*1100,function(){
+        Progress_Bar_Modalhide();
+      });
+
+    }
+    function check_version(){
+
+      var pop_upgrade=0;
+
+      if((pop_upgrade == 1) || (pop_upgrade == 2))
+      {
+        XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_checkversion',null,
+          function(x,s){
+            if(s[0].retstate == 1)
+            {
+              if(s[0].VerNum == 1)
+              {
+                newVersion = s[0].version;        //最新软件版本
+                swPt = s[0].pubtime;             //发布日期
+                if(s[0].versiondesc)
+                  sw_verdesc = s[0].versiondesc;
+                currentVersion = s[0].CurNum;    //当前软件版本
+
+                sw_verdesc = unescape(sw_verdesc.replace(/#x/g,'%u').replace(/;/g,''));
+                $("#onecheck_list").click();
+                $("#upgrade_button").click();
+
+                $("#sw_alert1").html(currentVersion);
+                $("#sw_alert2").html(newVersion);
+                $("#sw_alert3").html(swPt);
+                $("#sw_alert4").html(sw_verdesc);
+              }
+            }
+          }
+        );
+      }
+    }
+
+    $(function(){
+      check_version();
+
+      $("#onekeycheck_button").click(function(){
+        $("#onekeycheck_button").hide();
+        $("#onecheckmodal_body_1_div").show();
+
+        begin_check();
+      });
+
+      $(".onecheck_close").click(function(){
+        clearTimeout(time_stop);
+        time_stop_twice = setTimeout("clear_onecheck_close()", 2000);
+        set_default();
+        $("#onekeycheck_button").show();
+
+        $("#onekeycheck_button").html("开始体检");
+
+        clearTimeout(load_timer);
+        $("#check_loading").html("");
+        $("#onecheckmodal_body_1_div").hide();
+
+      });
+
+      $("#save_pwd").click(function(){
+        var str_pwd_old = $("#pwd_old").val();
+        var str_pwd_new1 = $("#pwd_new1").val();
+        var str_pwd_new2 = $("#pwd_new2").val();
+
+        if(str_pwd_old == "" || str_pwd_old.length == 0)
+        {
+          $("#error_msg").show();
+          $("#error_msg").html("原管理员密码为空");
+        }
+        else if( base64encode(utf16to8(str_pwd_old)) != "c21pbGVGREQ=")
+        {
+          $("#error_msg").show();
+          $("#error_msg").html("原管理员密码输入错误！");
+        }
+        else if(str_pwd_new1 == "" || str_pwd_new1.length == 0)
+        {
+          $("#error_msg").show();
+          $("#error_msg").html("新管理员密码为空");
+        }
+        else if(str_pwd_new2 == "" || str_pwd_new2.length == 0)
+        {
+          $("#error_msg").show();
+          $("#error_msg").html("确认新管理员密码为空");
+        }
+        else if(str_pwd_new1 != str_pwd_new2){
+          $("#error_msg").show();
+          $("#error_msg").html("新管理员密码两次输入不一致！");
+        }
+        else if(str_pwd_new1 == str_pwd_old){
+          $("#error_msg").show();
+          $("#error_msg").html("新旧管理员密码相同，请修改！");
+        }
+        else
+        {
+          var v = str_pwd_new1
+          var error = 0;
+
+          if( v.length == 64 )
+          {
+            if(v.match(/^[a-fA-F0-9]{64}$/) == null)
+            {
+              error = 1;
+            }
+          }
+          else
+          {
+            if((v.length >= 5) && (v.length <= 63))
+            {
+              for(var i = 0; i < v.length; i++)
+              {
+                if(v.charAt(i) < ' ' || v.charAt(i) > '~')
+                {
+                  error = 1;
+                  break;
+                }
+
+                if(v.charAt(i).match(/[\u00B7]/)
+                  || v.charAt(i).match(/[\u0022]/) || v.charAt(i).match(/[\u0026]/)
+                  || v.charAt(i).match(/[\u003E]/) || v.charAt(i).match(/[\u003C]/)//<>
+                  || v.charAt(i).match(/[\u005C]/) || v.charAt(i).match(/[\u0027]/)
+                  || v.charAt(i).match(/[\u0028]/) || v.charAt(i).match(/[\u0029]/)//()
+                  || v.charAt(i).match(/[\u007B]/) || v.charAt(i).match(/[\u007D]/)//{}
+                  || v.charAt(i).match(/[\u0025]/)
+                  || v.charAt(i).match(/[\u003A]/) || v.charAt(i).match(/[\u003B]/)//:;
+                  || v.charAt(i).match(/[\u002C]/)//,
+                  || v.charAt(i).match(/[\u0024]/)//$
+                  || v.charAt(i).match(/[\u007C]/)//|
+                  || v.charAt(i).match(/[\u0060]/)//`
+                  || v.charAt(i).match(/[\u007E]/)//~
+                  || v.charAt(i).match(/[\u0026]/))//&
+                {
+                  error = 2;
+                  break;
+                }
+              }
+            }
+            else
+            {
+              error = 1;
+            }
+          }
+
+          if(1 == error)
+          {
+            $("#error_msg").html("输入长度应在5-64位之间，不支持中文字符！");
+            $("#error_msg").show();
+          }
+          else if(2 == error)
+          {
+            $("#error_msg").html(error_msg[31][1]);
+            $("#error_msg").show();
+          }
+          else
+          {
+            $("#pwd_new1").val(base64encode(utf16to8(str_pwd_new1)));
+            $("form[name='frm_change_pwd']").submit();
+          }
+        }
+
+
+      });
+
+      $("#wanlink_up").click(function(){
+        XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/get_phy_connect/wan',null,
+          function(x,s)
+          {
+            if(s[0].phy_connect == 1)
+            {
+              $("#wan_fault_det_result").hide();
+              $("#wan_fault_det_ok").show();
+              router_frac = router_frac + 15;
+              err_num = err_num - 1;
+              $("#score").html(router_frac);
+              if (isCheckNet == 0 && checkNUm == 5)
+                $("#title2span").html("发现<span style='color:#F08300;'>"+err_num+"</span>个故障，<span style='color:#F08300;'>"+warn_num+"</span>个提醒，建议立即修复");
+            }
+            else
+            {
+              $("#wan_fault_det_ok").hide();
+              $("#wan_fault_det_result").show();
+            }
+          }
+        );
+      });
+
+      $("#network_list").click(function(){
+        window.location.href = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/networkset";
+      });
+
+      $(".wifi_list").click(function(){
+        window.location.href = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/wifiset";
+      });
+
+      $("#signal_en").click(function(){
+        window.location.href = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_signal";
+      });
+
+      $("#pwd_list").click(function(){
+        $("#onecheck_list").click();
+        $("#change_pwd").click();
+      });
+
+      $("#update_button").click(function(){
+        sw_verdesc = unescape(sw_verdesc.replace(/#x/g,'%u').replace(/;/g,''));
+        $("#onecheck_list").click();
+        $("#upgrade_button").click();
+
+        $("#sw_alert1").html(currentVersion);
+        $("#sw_alert2").html(newVersion);
+        $("#sw_alert3").html(swPt);
+        $("#sw_alert4").html(sw_verdesc);
+      });
+
+      $("#savebackup").click(function(){     //一键升级
+        $("#upgrade_button").click();
+        $("#wan_check_modal").find(".loading_msg_span").html("正在处理...");
+        $("#wan_check_modal").modal("show");
+        upgrade_pop_close(doOnekeyUpgrade);
+      });
+
+      $("#cancelbackup").click(function(){
+        upgrade_pop_close();
+      });
+
+      $("#change_pwd").click(function(){
+        $("#error_msg").hide();
+      });
+    });
+
+    function upgrade_pop_close(callback)
+    {
+      var pop_upgrade=0;
+
+      if(pop_upgrade == 1 || pop_upgrade == 2)
+      {
+        XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_upgrade_pop',null,
+          function(x,s){
+            callback && callback();
+          }
+        );
+      }
+    }
+    if (!Array.prototype.indexOf){
+      Array.prototype.indexOf = function(elt /*, from*/){
+        var len = this.length >>> 0;
+        var from = Number(arguments[1]) || 0;
+        from = (from < 0)
+          ? Math.ceil(from)
+          : Math.floor(from);
+        if (from < 0)
+          from += len;
+        for (; from < len; from++)
+        {
+          if (from in this &&
+            this[from] === elt)
+            return from;
+        }
+        return -1;
+      };
+    }
+
+    function doOnekeyUpgrade()
+    {
+      document.frm_OneKey.submit();
+    }
+
+    function clear_onecheck_close()
+    {
+      clearTimeout(time_stop);
+    }
+
+    function fun_sys_error_1()
+    {
+      checkNUm = checkNUm + 1;
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/get_phy_connect/wan',null,
+        function(x,s)
+        {
+          if( !isCheck )
+            return;
+          if (s[0].phy_connect == 1)
+          {
+            $("#wan_fault_det").show();
+            $("#wan_fault_det_ok").show();
+            time_stop = setTimeout("fun_sys_error_2()", 1000);
+          }
+          else
+          {
+            $("#wan_fault_det").show();
+            $("#wan_fault_det_result").show();  //WAN口未连接
+            err_num = err_num + 1;
+            router_frac = router_frac - 30;
+            isCheckNet = 0;
+            $("#score").html(router_frac);
+            time_stop = setTimeout("fun_sys_error_3()", 2000);
+          }
+        }
+      );
+    }
+
+    function fun_sys_error_2()
+    {
+      checkNUm = checkNUm + 1;
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_InternetCheck',null,
+        function(x,s)
+        {
+          if( !isCheck )
+            return;
+          if(s[0].PingQQ == 1)
+          {
+            //可以Ping通QQ
+            $("#inte_status_det").show();
+            $("#inte_status_det_ok").show();
+            time_stop = setTimeout("fun_sys_error_3()", 2000);
+          }
+          else  //不可以Ping通QQ
+          {
+            $("#inte_status_det").show();
+            $("#inte_status_det_result").show();
+            if(s[0].NetworkType == 2)  //静态IP问题
+            {
+              //静态IP问题
+              $("#inte_status_det_result").find("span").html("静态IP设置有问题，静态IP上网方式有别于自动方式（DHCP）和宽带拨号上网方式，使用前请确认当前网络是否是静态IP网络，如果是，请向网络管理员核实IP地址、子网掩码、网关、首选DNS、备用DNS等参数");
+            }
+            else if(s[0].NetworkType == 1) //PPPOE问题
+            {
+              if(s[0].WanIp == 0)   //WAN口无IP
+              {
+                if(s[0].ErrorCode == 709)
+                {
+                  //PPPOE密码太短或者不匹配
+                  $("#inte_status_det_result").find("span").html("宽带密码太短或者与可能与以前使用的密码不匹配，请联系宽带运营商");
+                }
+                else if(s[0].ErrorCode == 691)
+                {
+                  //PPPOE密码错误或者账号到期
+                  $("#inte_status_det_result").find("span").html("有可能是账号密码错误，也有可能是宽带到期账号无法使用");
+                }
+                else if(s[0].ErrorCode == 678)
+                {
+                  //运营商服务器升级或者网线松动
+                  $("#inte_status_det_result").find("span").html("有可能是运营商服务器升级，也有可能是网线松动，建议拔掉网线10分钟后重新插入试试看，如果还是不行，请联系宽带运营商");
+                }
+                else if(s[0].ErrorCode == 646 || s[0].ErrorCode == 647 || s[0].ErrorCode == 648 || s[0].ErrorCode == 649)
+                {
+                  //PPPOE账号无法使用，错误代码XXX
+                  $("#inte_status_det_result").find("span").html("您的宽带账号无法使用，错误代码"+s[0].ErrorCode+"，请联系宽带运营商");
+                }
+                else if(s[0].ErrorCode == 1)
+                {
+                  //PPPOE正在拨号
+                  $("#inte_status_det_result").find("span").html("正在拨号");
+                }
+                else
+                {
+                  //PPPOE请求发出无响应
+                  $("#inte_status_det_result").find("span").html("PPPoE请求发出后无响应，可能由于宽带运营商线路不稳定，导致路由器PPPoE拨号异常，请联系宽带运营商");
+                }
+              }
+              else   //WAN口有IP
+              {
+                if(s[0].PingWan == 0)  //不能PING通WAN侧网关IP
+                {
+                  //重启或MAC克隆
+                  $("#inte_status_det_result").find("span").html("1.请重启宽带运营商设备，如依然无法解决，请联系宽带运营商；2.请尝试开启路由器MAC克隆功能，克隆能上网的设备MAC地址");
+                }
+                else  //能PING通WAN侧网关IP
+                {
+                  if(s[0].DNS == 0)
+                  {
+                    //DNS地址不存在
+                    $("#inte_status_det_result").find("span").html("无DNS,请至外网设置页面设置DNS");
+                  }
+                  else if(s[0].DNS == 1)
+                  {
+                    // DNS地址存在
+                    $("#inte_status_det_result").find("span").html("1.路由器WAN侧连接的宽带运营商设备无法上网，请重启宽带运营商设备，如依然存在问题，请联系宽带运营商；2.请尝试开启路由器MAC克隆功能，克隆能上网的设备MAC地址");
+                  }
+                  else
+                  {
+                    // DNS地址自定义
+                    $("#inte_status_det_result").find("span").html("路由器使用了自定义DNS，可能会影响上网效果，如果已经影响上网，建议取消自定义DNS，如果上网没影响，可以忽略本条建议");
+                  }
+                }
+              }
+            }
+            else   //DHCP问题
+            {
+              if(s[0].WanIp == 0)  //WAN口无IP
+              {
+                //DHCP问题
+                $("#inte_status_det_result").find("span").html("自动方式（DHCP）无法上网，请确认上联设备是否打开DHCP服务");
+              }
+              else   //WAN口有IP
+              {
+                if(s[0].PingWan == 0)  //不能PING通WAN侧网关IP
+                {
+                  //重启或MAC克隆
+                  $("#inte_status_det_result").find("span").html("1.请重启宽带运营商设备，如依然无法解决，请联系宽带运营商；2.请尝试开启路由器MAC克隆功能，克隆能上网的设备MAC地址");
+                }
+                else  //能PING通WAN侧网关IP
+                {
+                  if(s[0].DNS == 0)
+                  {
+                    //DNS地址不存在
+                    $("#inte_status_det_result").find("span").html("无DNS,请至外网设置页面设置DNS");
+                  }
+                  else if(s[0].DNS == 1)
+                  {
+                    // DNS地址存在
+                    $("#inte_status_det_result").find("span").html("1.路由器WAN侧连接的宽带运营商设备无法上网，请重启宽带运营商设备，如依然存在问题，请联系宽带运营商；2.请尝试开启路由器MAC克隆功能，克隆能上网的设备MAC地址");
+                  }
+                  else
+                  {
+                    // DNS地址自定义
+                    $("#inte_status_det_result").find("span").html("路由器使用了自定义DNS，可能会影响上网效果，如果已经影响上网，建议取消自定义DNS，如果上网没影响，可以忽略本条建议");
+                  }
+                }
+              }
+            }
+            err_num = err_num + 1;
+            router_frac = router_frac - 15;
+            $("#score").html(router_frac);
+            time_stop = setTimeout("fun_sys_error_3()", 2000);
+          }
+        }
+      );
+    }
+
+    function fun_sys_error_3()
+    {
+      checkNUm = checkNUm + 1;
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_WIFICheck',null,
+        function(x,s)
+        {
+          if( !isCheck )
+            return;
+          if(s[0].Link24G == 0)
+          {
+            $("#wifi_status_det").show();
+            $("#wifi_status_det_result_2").show(); //2.4G无线未开启
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 10;
+            $("#score").html(router_frac);
+          }
+          else
+          {
+            //2.4G无线开启
+          }
+          if(s[0].Link5G == 0)
+          {
+            $("#wifi_status_det").show();
+            $("#wifi_status_det_result_5").show();  //5G无线未开启
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 10;
+            $("#score").html(router_frac);
+          }
+          else
+          {
+            //5G无线开启
+          }
+          if(s[0].SignalEnhancement24G == 0)
+          {
+            $("#wifi_status_det").show();
+            $("#wifi_status_det_result_sig").show();   //2.4G信号增强未开启
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 10;
+            $("#score").html(router_frac);
+          }
+          else
+          {
+            //2.4G信号增强开启
+          }
+          if(s[0].Link24G == 1 && s[0].Link5G == 1 && s[0].SignalEnhancement24G == 1)
+          {
+            $("#wifi_status_det").show();
+            $("#wifi_status_det_ok").show();
+          }
+          time_stop = setTimeout("fun_sys_error_4()", 2000);
+        }
+      );
+    }
+
+    function fun_sys_error_4()
+    {
+      checkNUm = checkNUm + 1;
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_WifiPasswordCheck',null,
+        function(x,s)
+        {
+          if( !isCheck )
+            return;
+          if(s[0].GWIFISecurity24G == 1)
+          {
+            $("#wifi_pwd_det").show();
+            $("#wifi_pwd_det_result_2").show();   //2.4G无线密码安全性弱
+            $("#wifi_pwd_det_result_2").find("span").html("2.4G密码：安全性弱");
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 9;
+            $("#score").html(router_frac);
+          }
+          else if(s[0].GWIFISecurity24G == 2)
+          {
+            $("#wifi_pwd_det").show();
+            $("#wifi_pwd_det_result_2").show();   //2.4G无线密码安全性中
+            $("#wifi_pwd_det_result_2").find("span").html("2.4G密码：安全性中");
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 5;
+            $("#score").html(router_frac);
+          }
+          else
+          {
+            //2.4G无线密码安全性强
+          }
+          if(s[0].GWIFISecurity5G == 1)
+          {
+            $("#wifi_pwd_det").show();
+            $("#wifi_pwd_det_result_5").show();   //5G无线密码安全性弱
+            $("#wifi_pwd_det_result_5").find("span").html("5G密码：安全性弱");
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 9;
+            $("#score").html(router_frac);
+          }
+          else if(s[0].GWIFISecurity5G == 2)
+          {
+            $("#wifi_pwd_det").show();
+            $("#wifi_pwd_det_result_5").show();   //5G无线密码安全性中
+            $("#wifi_pwd_det_result_5").find("span").html("5G密码：安全性中");
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 5;
+            $("#score").html(router_frac);
+          }
+          else
+          {
+            //5G无线密码安全性强
+          }
+          if(s[0].GWIFISecurity24G == 3 && s[0].GWIFISecurity5G == 3)
+          {
+            $("#wifi_pwd_det").show();
+            $("#wifi_pwd_det_ok").show();
+          }
+          time_stop = setTimeout("fun_sys_error_5()", 2000);
+        }
+      );
+    }
+
+    function fun_sys_error_5()
+    {
+      checkNUm = checkNUm + 1;
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_RouterPasswordCheck',null,
+        function(x,s)
+        {
+          if( !isCheck )
+            return;
+          if(s[0].RouterSecurity == 1)
+          {
+            $("#router_pwd_det").show();
+            $("#router_pwd_det_result").show();   //登录密码安全性弱
+            $("#router_pwd_det_result").find("span").html("路由器密码：安全性弱");
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 9;
+            $("#score").html(router_frac);
+            time_stop = setTimeout("fun_sys_error_6()", 2000);
+          }
+          else if(s[0].RouterSecurity == 2)
+          {
+            $("#router_pwd_det").show();
+            $("#router_pwd_det_result").show();   //登录密码安全性中
+            $("#router_pwd_det_result").find("span").html("路由器密码：安全性中");
+            warn_num = warn_num + 1;
+            router_frac = router_frac - 5;
+            $("#score").html(router_frac);
+            time_stop = setTimeout("fun_sys_error_6()", 2000);
+          }
+          else
+          {
+            //登录密码安全性强
+            $("#router_pwd_det").show();
+            $("#router_pwd_det_ok").show();
+            time_stop = setTimeout("fun_sys_error_6()", 2000);
+          }
+        }
+      );
+    }
+
+    function fun_sys_error_6()
+    {
+      checkNUm = checkNUm + 1;
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_checkversion',null,
+        function(x,s){
+          if( !isCheck )
+            return;
+
+          if(s[0].retstate == 1)
+          {
+            if(s[0].VerNum == 1)
+            {
+              $("#firmware_ver_det").show();   //有新版本
+              $("#firmware_ver_det_result").show();
+              warn_num = warn_num + 1;
+              router_frac = router_frac - 10;
+              $("#score").html(router_frac);
+              newVersion = s[0].version;        //最新软件版本
+              swPt = s[0].pubtime;             //发布日期
+              if(s[0].versiondesc)
+                sw_verdesc = s[0].versiondesc;
+            }
+            else
+            {
+              $("#firmware_ver_det").show();   //没有新版本
+              $("#firmware_ver_det_ok").show();
+            }
+          }
+          else
+          {
+            $("#firmware_ver_det").show();   //没有新版本
+            $("#firmware_ver_det_ok").show();
+          }
+
+          $("#onekeycheck_button").show();
+          $("#onekeycheck_button").html("重新体检");
+          if(err_num == 0 && warn_num == 0)
+          {
+            $("#title2span").html("系统安全，请放心使用");
+            $("#check_loading").html("");
+            $("#score").css("background",'url("images/oncheckloadend.png") no-repeat')
+            clearTimeout(load_timer);
+          }
+          else
+          {    $("#title2span").attr("style","font-size:12px;color:#999999");
+            $("#title2span").html("发现<span style='color:#F08300;'>"+err_num+"</span>个故障，<span style='color:#F08300;'>"+warn_num+"</span>个提醒，建议立即修复");
+            $("#check_loading").html("");
+            $("#score").css("background",'url("images/oncheckloadend.png") no-repeat')
+            clearTimeout(load_timer);
+          }
+          currentVersion = s[0].CurNum;    //当前软件版本
+
+        }
+      );
+    }
+    $(function(){
+      $(".cbi_wan_check ").click(function(){
+        $("#wan_check_modal").find(".loading_msg_span").html("正在检测上网方式，请稍候...");
+        $("#wan_check_modal").modal("show");
+      });
+    })
+  </script>
+</head>
+
+<body class="content_body bg"  oncontextmenu=self.event.returnValue=false >
+<div class="modal fade" id="wan_check_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-content loading_modal_div" role="document">
+    <img src="images/load.gif" class="loading_img"/>
+    <span class="loading_msg_span">生效中...</span>
+  </div>
+</div>
+
+<div class="modal fade" id="myAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="alert_dialog" role="document">
+    <div class="modal-content alert_content">
+      <span id="alert_msg"></span>
+      <button id="confirm_bt" type="button" >确定</button>
+      <button id="cancel_bt" type="button" data-dismiss="modal" style="background: #666666;margin-left:20px;display: none; ">取消</button>
+    </div>
+  </div>
+</div>
+
+<button style="display:none" data-toggle="modal" data-target="#promptModal" id="prompt_button">升级提示
+</button>
+<div class="modal fade" id="promptModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="progress_modal_dialog" role="document">
+    <div class="modal-content modal_content modal_header_border" style="" >
+      <div class="icon_close_div">
+        <a href="#" data-dismiss="modal" class="onecheck_close close">
+                        <span class="icon-break icon_close_pan">
+                        </span>
+        </a>
+      </div>
+      <div class="modal-header modal_header_border">
+        <div class="modal_title_div" style="">
+          <span>升级提示</span>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="software_upgrade_modal_body_div">
+          <span ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--progress_bar  -->
+<button style="display: none;" data-toggle="modal" data-target="#progress_barModal" id="progress_bar_buttom">进度条</button>
+<div class="modal fade" id="progress_barModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="progress_modal_dialog" role="document">
+    <div class="modal-content modal_content">
+      <button type="button" id="close_progress_button" class="close" data-dismiss="modal" style="opacity: 0;">
+      </button>
+      <div class="progress_modal_content_title">
+
+        <span id="progress_content_up">设备重启中...</span>
+
+        <div class="progress_div">
+          <div class="progress_bar_div" id="progress_bar" w="476" style="width:0px;">
+            <div class="progress_bar_circle_div"></div>
+          </div>
+        </div>
+        <div class="progress_msg_div">
+
+          <span id="progress_content_down">路由器重启中，请勿切断电源！</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form method="post" name="frm_OneKey" action="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_onekeyupgrade" enctype="multipart/form-data" target="">
+  <input type="hidden" name="onekeyupgrade" value="1">
+</form>
+<!-- soft update -->
+<button style="display:none" data-toggle="modal" data-target="#upgradeModal" id="upgrade_button">软件升级</button>
+<div class="modal fade" id="upgradeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+  <div class="progress_modal_dialog" role="document" style="margin-top:100px;">
+    <div class=" software_upgrade_modal_content">
+      <div class="modal-header modal_header_border">
+        <div class="modal_title_div" style="margin-top:25px;">
+          <span>软件升级</span>
+        </div>
+      </div>
+      <hr style="opacity:.5;filter:alpha(opacity=50)">
+      <div class="update_sw_msg_div">
+        <div class="cur_sw">
+          <span>当前版本：</span><span id="sw_alert1"></span>
+        </div>
+        <div class="new_sw">
+          <span>最新版本：</span><span id="sw_alert2"></span>
+        </div>
+        <div class="release_time">
+          <span>发布时间：</span><span id="sw_alert3"></span>
+        </div>
+      </div>
+      <div class="update_sw_content_div">
+        <span class="update_content_title">更新内容</span>
+        <span id="sw_alert4"></span>
+      </div>
+      <div class="button_div">
+        <div class="btn confirm_button" id="savebackup">
+          <span class="button_span">确认</span>
+        </div>
+        <div class="btn  cancel_button" id="cancelbackup" data-dismiss="modal"><span class="button_span">取消</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- header -->
+<nav class=" header_div navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header header_left">
+      <div  class="navbar-brand head_logo" >
+        <img style="" src="images/logo.png" >
+      </div>
+      <div class="header_min_button_div">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
+    </div>
+    <div class="header_right">
+      <div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="">
+        <div class="nav header_center_div">
+          <ul class="nav navbar-nav">
+            <li>
+              <a class="header_a" id="index"  href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/"  style="background:#F5F5F5;color:#F08300" >
+                <div>
+                  <span class="icon-homepage header_icon"></span>
+                  <span class="header_text_span">首页</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="header_a" id="networkset" href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/networkset/" >
+                <div>
+                  <span class="icon-networkset header_icon"></span>
+                  <span class="header_text_span">上网设置</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="header_a" id="wifiset" href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/wifiset/" >
+                <div>
+                  <span class="icon-wifiset header_icon"></span>
+                  <span class="header_text_span">无线设置</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="header_a" id="device_manage" href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/device_manage/" >
+                <div>
+                  <span class="icon-device_manage header_icon"></span>
+                  <span class="header_text_span">终端管理</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="header_a" id="more_set" href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysstatus/" >
+                <div>
+                  <span class="icon-advancedset header_icon"></span>
+                  <span class="header_text_span">高级设置</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav header_right_div">
+          <ul class="nav navbar-nav navbar-right ">
+            <li class="header_left_li">
+              <div title="一键体检" href="#" id="onekeycheck"  data-toggle="modal" data-target="#onekeyCheckModal" style="cursor:pointer">
+                                    <span class="icon-physicalexamination header_other_icon" >
+                                    </span>
+              </div>
+            </li>
+            <li class="dropdown header_left_li">
+              <div title="重启" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="cursor:pointer">
+                                    <span class="icon-restart header_other_icon" >
+                                    </span>
+              </div>
+              <ul id="reboot_ul"  class="dropdown-menu">
+                <li>
+                  <a href="#" id="restart" data-toggle="modal">立即重启路由器</a>
+                </li>
+                <li>
+                  <a href="#" id="timeRboot" data-toggle="modal" data-target="#timeRestartModal">定时重启路由器</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown header_left_li" >
+              <div title="管理员设置" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="cursor:pointer">
+                                    <span class="icon-signin header_other_icon">
+                                    </span>
+              </div>
+              <ul id="user_ul" class="dropdown-menu" aria-labelledby="userset">
+                <li>
+                  <a href="#" id="change_pwd" data-toggle="modal" data-target="#changePwdModal">修改管理员密码
+                  </a>
+                </li>
+                <li>
+                  <a href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/logout/">退出
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade onekeycheck_div" id="timeRestartModal" tabindex="-1" role="dialog" aria-labelledby="changePwdModalLabel">
+  <form method="post" name="from_time_reboot" action="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/timereboot" enctype="multipart/form-data" target="">
+    <div class="modal-dialog changePwd_dialog" role="document">
+      <div class="modal-content changePwd_content" >
+        <div class="modal-header modal_header_border">
+          <div class="icon_close_div">
+            <a href="#" data-dismiss="modal" class="close">
+              <span class="icon-break icon_close_pan"   style=""></span>
+            </a>
+          </div>
+          <div class="modal_title_div" style="">
+            <span>定时重启路由器</span>
+          </div>
+        </div>
+        <hr style="margin-bottom: 5px;">
+        <div class="modal-body">
+          <div style="margin-top:10px;height: 45px;line-height: 43px;">
+            <span class="link_span" style="width: 210px;">定时重启：</span>
+            <img id="timeRebootEnable" class="img_change"  value="1" src="images/switch_on.png" style="margin-top: 5px;float: left;margin-left: 10px;">
+          </div>
+          <div id="timeRebootDiv" style="height: 45px;line-height: 43px;opacity: 0;filter: alpha(opacity=0);">
+            <span class="link_span" style="width: 210px;">指定重启时间：</span>
+            <div class="dropdown dropdown_div" style="float:left;margin-left:10px;width: 65px;">
+              <div class="dropdown_button" onclick="dropdown_click(this)" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <input type="text" id="timereboothour" class="drop_input" readonly="readonly" onfocus="this.blur();" unselectable="on" value="00" style="width: 65px;">
+                <span class="icon-downarrow"></span>
+              </div>
+              <ul class="dropdown-menu timeRebootUl" aria-labelledby="dLabel" style="min-width:65px;height: 104px;overflow-x:hidden">
+                <li id="0"><a value="00">00</a></li>
+                <li id="1"><a value="01">01</a></li>
+                <li id="2"><a value="02">02</a></li>
+                <li id="3"><a value="03">03</a></li>
+                <li id="4"><a value="04">04</a></li>
+                <li id="5"><a value="05">05</a></li>
+                <li id="6"><a value="06">06</a></li>
+                <li id="7"><a value="07">07</a></li>
+                <li id="8"><a value="08">08</a></li>
+                <li id="9"><a value="09">09</a></li>
+                <li id="10"><a value="10">10</a></li>
+                <li id="11"><a value="11">11</a></li>
+                <li id="12"><a value="12">12</a></li>
+                <li id="13"><a value="13">13</a></li>
+                <li id="14"><a value="14">14</a></li>
+                <li id="15"><a value="15">15</a></li>
+                <li id="16"><a value="16">16</a></li>
+                <li id="17"><a value="17">17</a></li>
+                <li id="18"><a value="18">18</a></li>
+                <li id="19"><a value="19">19</a></li>
+                <li id="20"><a value="20">20</a></li>
+                <li id="21"><a value="21">21</a></li>
+                <li id="22"><a value="22">22</a></li>
+                <li id="23"><a value="23">23</a></li>
+              </ul>
+            </div>
+            <span style="line-height: 31px;float: left;width: 15px;text-align: right;">:</span>
+            <div class="dropdown dropdown_div" style="float:left;width: 65px;">
+              <div class="dropdown_button" onclick="dropdown_click(this)" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+                <input type="text" class="drop_input" id="timerebootmin" readonly="readonly" onfocus="this.blur();" unselectable="on" value="05" style="width:65px;">
+                <span class="icon-downarrow"></span>
+              </div>
+              <ul class="dropdown-menu timeRebootUl" aria-labelledby="dLabel" style="min-width:65px;height: 104px;overflow-x:hidden">
+                <li id="0"><a value="00">00</a></li>
+                <li id="1"><a value="05">05</a></li>
+                <li id="2"><a value="10">10</a></li>
+                <li id="3"><a value="15">15</a></li>
+                <li id="4"><a value="20">20</a></li>
+                <li id="5"><a value="25">25</a></li>
+                <li id="6"><a value="30">30</a></li>
+                <li id="7"><a value="35">35</a></li>
+                <li id="8"><a value="40">40</a></li>
+                <li id="9"><a value="45">45</a></li>
+                <li id="10"><a value="50">50</a></li>
+                <li id="11"><a value="55">55</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="margin-left: 23px;">
+          <button type="button" class="check_button" id="timeRebootSave">保 存</button>
+        </div>
+        <input id="timeRebootEnablestatus" name="timeRebootEnablestatus" value="on" type="hidden">
+        <input id="timeRebootrange" name="timeRebootrange" value="" type="hidden">
+        <input id="cururl" name="cururl" value="" type="hidden">
+      </div>
+  </form>
+</div>
+</div>
+
+<!--modify pwd-->
+<div class="modal fade onekeycheck_div" id="changePwdModal" tabindex="-1" role="dialog" aria-labelledby="changePwdModalLabel" style="">
+  <form method="post" name="frm_change_pwd" action="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_changepassword" enctype="multipart/form-data" target="">
+    <div class="modal-dialog changePwd_dialog" role="document">
+      <div class="modal-content changePwd_content" >
+        <div class="modal-header modal_header_border">
+          <div class="icon_close_div">
+            <a href="#" data-dismiss="modal" class="close">
+                                <span class="icon-break icon_close_pan"   style="">
+                                </span>
+            </a>
+          </div>
+          <div class="modal_title_div" style="">
+            <span>修改管理员密码</span>
+          </div>
+        </div>
+        <hr style="margin-bottom: 5px;">
+        <div class="modal-body">
+          <div class="changePwdModal_body">
+            <span id="error_msg" style="text-align: center;color: #FF0000;"></span>
+            <div style="margin-top:10px;">
+              <span style="">原管理员密码：</span>
+              <input type="password" id="pwd_old" value=""></input>
+            </div>
+            <div>
+              <span style="">新管理员密码：</span>
+              <input type="password" id="pwd_new1" name="pwd_new" value=""></input>
+              <img src="images/icon_visible_off.png" class="img_change user_new_pwd" value="1">
+            </div>
+            <div>
+              <span style="">确认新管理员密码：</span>
+              <input type="password" id="pwd_new2" value=""></input>
+              <img src="images/icon_visible_off.png" class="img_change user_new_pwd" value="1">
+            </div>
+
+          </div>
+        </div>
+        <div style="margin-left: 23px;">
+          <button type="button" class="check_button" id="save_pwd">保 存
+          </button>
+        </div>
+      </div>
+  </form>
+</div>
+</div>
+
+<!--onekeycheck-->
+<div class="modal fade onekeycheck_div" id="onekeyCheckModal" tabindex="-1" role="dialog" aria-labelledby="onekeyCheckModalLabel">
+  <div class="onekeycheck_dialog" role="document">
+    <div class="modal-content" style="min-height:304px;">
+      <div class="modal-header modal_header_border">
+        <div class="icon_close_div">
+          <a href="#" data-dismiss="modal" class="onecheck_close close" id="onecheck_list">
+                            <span class="icon-break icon_close_pan">
+                            </span>
+          </a>
+        </div>
+        <div class="modal_title_div"  id="title1">
+          <span>一键体检</span>
+        </div>
+        <div class="modal_header_score_div" style="display:none;" id="title2">
+          <span class="modal_header_score_div_span1">一键体检</span>
+          <span class="modal_header_score_div_span2" id="title2span">体检进行中</span>
+          <span class="check_loading_span" id="check_loading"></span>
+          <div class="onekeycheck_score2" id="score">100
+          </div>
+
+        </div>
+      </div>
+      <hr>
+      <div class="modal-body" style="text-align:left;margin-top: -10px;min-height:185px;">
+        <div>
+          <span class="onecheckmodal_body_1" id="fault_det" style="display:none">故障检测:</span>
+          <div class="onecheckmodal_body_2">
+            <span id="wan_fault_det" style="display:none">WAN口故障检测:</span>
+            <img class="onecheckmodal_body_2_span" src="images/hook.png"  id="wan_fault_det_ok" style="display:none"/>
+            <div class="onecheckmodal_body_3" id="wan_fault_det_result" style="display:none">
+              <div class="onecheckmodal_body_3_div1">
+                                    <span>请将网线的一端插在路由器WAN口，另一端插在运营商提供的宽带接口上，如果还是不行，换一条网线试试？
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div2">
+                <button id="wanlink_up">刷新</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="onecheckmodal_body_2" >
+            <span id="inte_status_det" style="display:none">上网状态检测:</span>
+            <img class="onecheckmodal_body_2_span" src="images/hook.png"  id="inte_status_det_ok" style="display:none"/>
+            <div class="onecheckmodal_body_3" id="inte_status_det_result" style="display:none">
+              <div class="onecheckmodal_body_3_div1">
+                                    <span>
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div2">
+                <button id="network_list">立即修改</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 15px;display:none" id="onecheckmodal_body_1_div">
+          <span class="onecheckmodal_body_1" id="sys_alert" style="display:none">系统提醒:</span>
+          <div class="onecheckmodal_body_2" >
+            <span id="wifi_status_det" style="display:none">无线状态检测:</span>
+            <img class="onecheckmodal_body_2_span" src="images/hook.png"   id="wifi_status_det_ok" style="display:none"/>
+            <div class="onecheckmodal_body_3" id = "wifi_status_det_result_2" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>2.4G WiFi：未开启
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button class="wifi_list">立即修改</button>
+              </div>
+            </div>
+            <div class="onecheckmodal_body_3" id = "wifi_status_det_result_5" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>5G WiFi: 未开启
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button class="wifi_list">立即修改</button>
+              </div>
+            </div>
+            <div class="onecheckmodal_body_3" id = "wifi_status_det_result_sig" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>无线信号增强：未开启
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button id="signal_en">立即修改</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="onecheckmodal_body_2" >
+            <span id="wifi_pwd_det" style="display:none">无线密码检测:</span>
+            <img class="onecheckmodal_body_2_span" src="images/hook.png"  id="wifi_pwd_det_ok" style="display:none"/>
+            <div class="onecheckmodal_body_3" id="wifi_pwd_det_result_2" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>2.4G密码：安全性弱
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button class="wifi_list">立即修改</button>
+              </div>
+            </div>
+
+            <div class="onecheckmodal_body_3" id="wifi_pwd_det_result_5" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>5G密码：安全性弱
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button class="wifi_list">立即修改</button>
+              </div>
+            </div>
+          </div>
+          <div class="onecheckmodal_body_2" >
+            <span id="router_pwd_det" style="display:none">路由器密码检测:</span>
+            <img class="onecheckmodal_body_2_span" src="images/hook.png"  id="router_pwd_det_ok" style="display:none"/>
+            <div class="onecheckmodal_body_3" id="router_pwd_det_result" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>路由器密码：安全性弱
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button id="pwd_list">立即修改</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="onecheckmodal_body_2" >
+            <span id="firmware_ver_det" style="display:none">固件版本检测:</span>
+            <img class="onecheckmodal_body_2_span" src="images/hook.png"  id="firmware_ver_det_ok" style="display:none"/>
+            <div class="onecheckmodal_body_3" id="firmware_ver_det_result" style="display:none">
+              <div class="onecheckmodal_body_3_div3">
+                                    <span>检测到新版本
+                                    </span>
+              </div>
+              <div class="onecheckmodal_body_3_div4">
+                <button id="update_button">立即升级</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="onekeycheck_button_div" style="text-align:center;margin-bottom:20px;">
+          <button class="check_button" id="onekeycheck_button" style="">开始体检</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  var history_list = [ { "name": "more_signal", "stack": "0" }, { "name": "more_parentctl", "stack": "0" }, { "name": "dhcp", "stack": "0" }, { "name": "device_manage", "stack": "0" }, { "name": "APPset", "stack": "0" } ]
+  function updateHisName(num,v)
+  {
+    var tbsid = "#tbs-"+num;
+    var nhref = null;
+    var frid = "#fr-"+num;
+    if(v == "device_manage")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/device_manage";
+      $(tbsid).html("终端管理")
+    }
+    else if(v == "networkset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/networkset";
+      $(tbsid).html("上网设置")
+    }
+    else if(v == "wifiset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/wifiset";
+      $(tbsid).html("无线设置")
+    }
+    else if(v == "lanset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_wanset/lanset";
+      $(tbsid).html("LAN口设置")
+    }
+    else if(v == "dhcp")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_wanset/dhcp";
+      $(tbsid).html("DHCP服务")
+    }
+    else if(v == "more_signal")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_signal";
+      $(tbsid).html("信号调节")
+    }
+    else if(v == "more_wps")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_wps";
+      $(tbsid).html("WPS设置")
+    }
+    else if(v == "more_wlextend")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_wlextend";
+      $(tbsid).html("无线扩展")
+    }
+    else if(v == "more_parentctl")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_parentctl";
+      $(tbsid).html("家长控制")
+    }
+    else if(v == "more_safeset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_safeset";
+      $(tbsid).html("安全设置")
+    }
+    else if(v == "more_remotemgt")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_remotemgt";
+      $(tbsid).html("远程管理")
+    }
+    else if(v == "more_ddns")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_ddns";
+      $(tbsid).html("动态DNS")
+    }
+    else if(v == "appportfwdset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_forward/appportfwdset";
+      $(tbsid).html("端口转发")
+    }
+    else if(v == "DMZset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_forward/DMZset";
+      $(tbsid).html("DMZ主机")
+    }
+    else if(v == "UPnPset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_forward/UPnPset";
+      $(tbsid).html("UPnP设置")
+    }
+    else if(v == "indicatorlight")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysset/indicatorlight";
+      $(tbsid).html("指示灯")
+    }else if(v == "buttonset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysset/buttonset";
+      $(tbsid).html("按钮设置")
+    }else if(v == "APPset")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysset/APPset";
+      $(tbsid).html("应用设置")
+    }
+    else if(v == "autoupgrade")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysset/autoupgrade";
+      $(tbsid).html("自动升级")
+    }
+    else if(v == "manualupgrade")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysset/manualupgrade";
+      $(tbsid).html("手动升级")
+    }
+    else if(v == "backuprecovery")
+    {
+      nhref = "/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysset/backuprecovery";
+      $(tbsid).html("备份恢复")
+    }
+
+    $(frid).attr("href",nhref);
+
+  }
+</script>
+<div id="homeDiv" class="index_div">
+
+  <div class="row" >
+    <div class="col-md-1 col-xs-1"></div>
+
+    <div class="col-md-2 col-xs-2 index_img_div" >
+      <a href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/device_manage">
+        <img src="images/icon_terminal.png" style="margin-left: -1px;">
+        <div class="bk_span_div"><span>终端设备</span></div>
+        <div class="device_num_div"><span id = "devicenum">1</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-2 col-xs-2 wifi_col_div">
+
+      <div class="index_center_message_div" style="border-bottom:1px dashed #666666;">
+        <span class="icon-signal signal_span"></span>
+        <span class="wifi_span">2.4G</span>
+      </div>
+      <div class="lan_text_div">
+        <div class="lan_line_div"></div>
+        <span>LAN</span>
+        <div class="lan_line_div"></div>
+      </div>
+      <div class="index_center_message_div" style="border-top:1px dashed #666666;" >
+        <span class="icon-signal signal_span"></span>
+        <span class="wifi_span">5G</span>
+      </div>
+      <div><span id = "wifitext_2" class="icon-break wifi_break_and_connect_span" style=""></span></div>
+      <div><span id = "wifitext_5" class="icon-break wifi_break_and_connect_span" style="top:-68px;"></div>
+      </span>
+    </div>
+
+    <div class="col-md-2 col-xs-2 index_img_div">
+      <a href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/more_sysstatus">
+        <img src="images/icon_router.png" style="margin-top: -10px;margin-bottom:10px; margin-left:-2px; ">
+        <div class="bk_span_div"><span>路由器</span></div>
+      </a>
+    </div>
+
+    <div class="col-md-2 col-xs-2 speed_col_div">
+      <div class="wan_connect_msg_div">
+        <div class="index_center_message_div" style="border-bottom:1px solid #666666;height: 30px;  ">
+          <span class="icon-Mbps signal_speed_span"></span>
+          <span id = "upspeed" class="speed_span">0KB/S</span>
+        </div>
+      </div>
+
+      <div class="wan_break_msg_div">
+        <div class="wan_break_line_div"></div>
+        <span class="icon-close"></span>
+        <div class="wan_break_line_div"></div>
+      </div>
+
+      <div class="wan_connect_msg_div">
+        <div class="index_center_message_div" style="margin-top:19px;border-top:1px solid #666666;padding-top: 5px;" >
+          <span class="icon-Kbps signal_speed_span"></span>
+          <span id = "downspeed" class="speed_span">0KB/S</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-2 col-xs-2 index_img_div">
+      <a href="/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/networkset">
+        <img src="images/icon_internet.png" style="margin-top:-5px; margin-bottom:5px;margin-left:-2px;">
+        <div class="bk_span_div"><span>互联网</span></div>
+      </a>
+    </div>
+
+
+    <div class="col-md-1 col-xs-1"></div>
+  </div>
+
+  <div class="row index_table_title_row">
+    <div class="col-md-1 col-xs-1"></div>
+    <div class="col-md-3 col-xs-3 index_table_title_div">
+      <span>您可能需要：</span>
+    </div>
+    <div class="col-md-8 col-xs-8"></div>
+  </div>
+  <table class="index_table">
+    <tr>
+      <td class="index_table_td_1">
+      </td>
+
+      <td class="index_table_td_2 mouse_td" value="1">
+
+        <div class="index_thumbtack_div" id="tk-1" style="opacity:0;filter:alpha(opacity=0);">
+          <a href="#"><span  class="icon-thumbtack thumbtack_span" value="1" style ="color:#777777;"></span></a>
+        </div>
+
+        <div>
+          <a href="#" id="fr-1">
+            <div>
+							<span class="icon-more_signal index_table_td_icon_span" id="tb-1">
+								<span class="index_table_td_msg_span" id="tbs-1"></span>
+								<script>
+								    updateHisName("1","more_signal");
+								</script>
+							</span>
+            </div>
+          </a>
+        </div>
+        <div class="index_break_div" id="tl-1" style="opacity:0;filter:alpha(opacity=0);">
+          <a href="#"><span  class="icon-break break_span" value="1"></span></a>
+        </div>
+      </td>
+
+      <td class="index_table_td_3">
+        <div>
+        </div>
+      </td>
+
+      <td class="index_table_td_2 mouse_td" value="1">
+
+        <div class="index_thumbtack_div" id="tk-2" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-thumbtack thumbtack_span" value="1" style ="color:#777777;"></span></a>
+        </div>
+
+        <div>
+          <a href="#" id="fr-2">
+            <div>
+							<span class="icon-more_parentctl index_table_td_icon_span" id="tb-2">
+								<span class="index_table_td_msg_span" id="tbs-2"></span>
+								<script>
+								    updateHisName("2","more_parentctl");
+								</script>
+							</span>
+            </div>
+          </a>
+        </div>
+        <div class="index_break_div" id="tl-2" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-break break_span" value="1"></span></a>
+        </div>
+      </td>
+
+      <td class="index_table_td_3">
+        <div>
+        </div>
+      </td>
+
+      <td class="index_table_td_2 mouse_td" value="1">
+
+        <div class="index_thumbtack_div" id="tk-3" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-thumbtack thumbtack_span" value="1" style ="color:#777777;"></span></a>
+        </div>
+
+        <div>
+          <a href="#" id="fr-3">
+            <div>
+							<span class="icon-dhcp index_table_td_icon_span" id="tb-3">
+								<span class="index_table_td_msg_span" id="tbs-3"></span>
+								<script>
+								    updateHisName("3","dhcp");
+								</script>
+							</span>
+            </div>
+          </a>
+        </div>
+        <div class="index_break_div" id="tl-3" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-break break_span" value="1"></span></a>
+        </div>
+      </td>
+
+      <td class="index_table_td_1">
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="7">
+        <div class="index_table_split_line"></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="index_table_td_1">
+      </td>
+
+      <td class="index_table_td_2 mouse_td" value="1">
+
+        <div class="index_thumbtack_div" id="tk-4" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-thumbtack thumbtack_span" value="1" style ="color:#777777;"></span></a>
+        </div>
+
+        <div>
+          <a href="#" id="fr-4">
+            <div>
+							<span class="icon-device_manage index_table_td_icon_span" id="tb-4">
+								<span class="index_table_td_msg_span" id="tbs-4"></span>
+								<script>
+								    updateHisName("4","device_manage");
+								</script>
+							</span>
+            </div>
+          </a>
+        </div>
+        <div class="index_break_div" id="tl-4" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-break break_span" value="1"></span></a>
+        </div>
+      </td>
+
+      <td class="index_table_td_3">
+        <div>
+        </div>
+      </td>
+
+      <td class="index_table_td_2 mouse_td" value="1">
+
+        <div class="index_thumbtack_div" id="tk-5" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-thumbtack thumbtack_span" value="1" style ="color:#777777;"></span></a>
+        </div>
+
+        <div>
+          <a href="#" id="fr-5">
+            <div>
+							<span class="icon-APPset index_table_td_icon_span" id="tb-5">
+								<span class="index_table_td_msg_span" id="tbs-5"></span>
+								<script>
+								    updateHisName("5","APPset");
+								</script>
+							</span>
+            </div>
+          </a>
+        </div>
+        <div class="index_break_div" id="tl-5" style="opacity:0;filter: alpha(opacity=0);">
+          <a href="#"><span  class="icon-break break_span" value="1"></span></a>
+        </div>
+      </td>
+
+      <td class="index_table_td_3 ">
+        <div>
+        </div>
+      </td>
+
+      <td class="index_table_td_2 mouse_td" value="0">
+        <div class="index_thumbtack_div" id="tk-6">
+          <a href="#"><span  class="icon-thumbtack thumbtack_span" value="1"></span></a>
+        </div>
+        <div>
+          <a href="#" id="fr-6">
+            <div>
+							<span class=" index_table_td_icon_span" id="tb-6">
+								<span class="index_table_td_msg_span" id="tbs-6"></span>
+							</span>
+            </div>
+          </a>
+        </div>
+        <div class="index_break_div" id="tl-6">
+          <a href="#"><span  class="icon-break break_span" value="6"></span></a>
+        </div>
+      </td>
+
+      <td class="index_table_td_1">
+      </td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript">
+  var phy_connect_wan = 0;
+
+  $(function(){
+
+
+
+  });
+
+
+  function indexAspReq() {
+    $.ajax({
+      type:"post",
+      url:"/LocalIndex.asp?action=get",
+      success:function(s, other) {
+
+        if(s.phy_connect)
+        {
+          phy_connect_wan = 1;
+        }
+        else
+        {
+          phy_connect_wan = 0;
+        }
+        if(s.devicenum)
+        {
+          $("#devicenum").html(s.devicenum);
+        }
+
+        if( s.wifi2G_on_off == 1)
+        {
+          $("#wifitext_2").hide();
+        }
+        else
+        {
+          $("#wifitext_2").show();
+        }
+
+        if( s.wifi5G_on_off == 1)
+        {
+          $("#wifitext_5").hide();
+        }
+        else
+        {
+          if(s.wifi2G_on_off == 1)
+          {
+            $("#wifitext_5").css("top","-45px");
+          }
+          $("#wifitext_5").show();
+        }
+
+        if(phy_connect_wan)
+        {
+          $(".wan_connect_msg_div").show();
+          $(".wan_break_msg_div").hide();
+          if (s.rx_rate) {
+            var rx_kbytes = s.rx_rate/1024;
+            if (rx_kbytes/1024 > 1) {
+              $("#downspeed").html((s.rx_rate/(1024*1024)).toFixed(2) + "MB/S");
+            } else {
+              $("#downspeed").html((s.rx_rate/1024).toFixed(2) + "KB/S");
+            }
+          }
+          if (s.tx_rate) {
+            var tx_kbytes = s.tx_rate/1024;
+            if (tx_kbytes/1024 > 1) {
+              $("#upspeed").html((s.tx_rate/(1024*1024)).toFixed(2) + "MB/S");
+            } else {
+              $("#upspeed").html((s.tx_rate/1024).toFixed(2) + "KB/S");
+            }
+          }
+        }
+        else
+        {
+          $(".wan_connect_msg_div").hide();
+          $(".wan_break_msg_div").show();
+        }
+      }});
+  }
+
+  indexAspReq();
+  setInterval(indexAspReq, 5000);
+
+  function delhref(num)
+  {
+    var nhref = "#";
+    var frid = "#fr-"+num;;
+    var tbid = "#tb-"+num;;
+    var tbsid = "#tbs-"+num;
+    var tkid = "#tk-"+num;
+    var tlid = "#tl-"+num;
+    var tbclass = " index_table_td_icon_span";
+    $(tbid).attr("class",tbclass);
+    $(tkid).css("opacity","0");
+    $(tkid).css("filter","alpha(opacity=0)");
+    $(tkid).parents("td").attr("value","0");
+    $(tkid).find("span").removeClass("thumbtack_span");
+    $(tlid).css("opacity","0");
+    $(tlid).css("filter","alpha(opacity=0)");
+    $(tlid).find("span").removeClass("break_span");
+    $(frid).attr("href",nhref);
+    $(tbsid).html("")
+
+    $(tkid).attr("value","")
+  }
+
+  function gethref(data,num)
+  {
+    var v = data.name;
+    var stack = data.stack;
+    var tbid = "#tb-"+num;;
+    var tkid = "#tk-"+num;
+    var tlid = "#tl-"+num;
+    var tbclass = "icon-"+v+" index_table_td_icon_span";
+    $(tbid).attr("class",tbclass);//显示功能图片
+    if(stack == 1){
+      $(tkid).find("span").css("color","#F08300");
+      $(tkid).find("span").attr("value","0");
+    }else{
+      $(tkid).find("span").css("color","#777777");
+      $(tkid).find("span").attr("value","1");
+    }
+    $(tkid).css("opacity",stack);   //钉住按钮透明or显示 （0：透明；1：显示）
+    if(stack == 0){
+      $(tlid).css("filter","alpha(opacity=0)");
+    }else{
+      $(tlid).css("filter","alpha(opacity=100)");
+    }
+    $(tkid).parents("td").attr("value","1"); //显示钉住和删除按钮
+    $(tkid).find("span").addClass("thumbtack_span"); //增加钉住按钮的事件类
+    $(tlid).css("opacity","0");	//删除按钮透明
+    $(tlid).css("filter","alpha(opacity=0)");
+    $(tlid).find("span").addClass("break_span");//增加删除按钮的事件类
+
+    $(tkid).attr("value", v)
+
+    updateHisName(num,v)
+
+  }
+  function gethisory()
+  {
+    XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_gethistory',null,
+      function(s, x)
+      {
+
+        if(x[0][0])
+        {
+          gethref(x[0][0],1);
+        }
+        else
+          delhref(1);
+        if(x[0][1])
+        {
+          gethref(x[0][1],2);
+        }
+        else
+          delhref(2);
+        if(x[0][2])
+        {
+          gethref(x[0][2],3);
+        }
+        else
+          delhref(3);
+        if(x[0][3])
+        {
+          gethref(x[0][3],4);
+        }
+        else
+          delhref(4);
+        if(x[0][4])
+        {
+          gethref(x[0][4],5);
+        }
+        else
+          delhref(5);
+        if(x[0][5])
+        {
+          gethref(x[0][5],6);
+        }
+        else
+          delhref(6);
+
+        del_hand();
+      }
+    );
+
+  }
+
+  $(function(){
+    gethisory();
+  });
+
+  //钉住事件
+  $(".thumbtack_span").click(function(){
+    var str_value = $(this).attr("value");
+    var str_color = $(this).css("color");
+    if(str_color == "rgb(119, 119, 119)"){
+      $(this).css("color","#F08300");
+      $(this).parents("td").find(".index_break_div").css("opacity","0");
+      $(this).parents("td").find(".index_break_div").css("filter","alpha(opacity=0)");
+    }else{
+      $(this).css("color","#777777");
+      $(this).parents("td").find(".index_break_div").css("opacity","1");
+      $(this).parents("td").find(".index_break_div").css("filter","alpha(opacity=100)");
+    }
+
+    if(str_value == "1"){ //未钉住 --> 钉住
+      $(this).attr("value","0");
+      var data = "name="+$(this).parents(".index_thumbtack_div").attr("value")+"&stack=1";
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_stackhistory',data,function(s, x)	{
+          if(x[0].ok && x[0].ok =="1")
+          {
+            gethisory();
+          }
+        }
+      );
+    }else{ //钉住 --> 解钉
+      $(this).attr("value","1");
+      var data = "name="+$(this).parents(".index_thumbtack_div").attr("value")+"&stack=0";
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_stackhistory',data,function(s, x)	{
+          if(x[0].ok && x[0].ok =="1")
+          {
+            gethisory();
+          }
+        }
+      );
+    }
+  });
+  //删除事件
+  $(".break_span").click(function(){
+    var data = "name=" + $(this).parents("td").find(".index_thumbtack_div").attr("value");
+    var str_value = $(this).parents("td").find(".thumbtack_span").attr("value");
+    if(str_value == "1"){
+      XHR.get('/cgi-bin/luci/;stok=f3979629c6eb1e10842f471408574593/admin/index/gra_deletehistory',data,function(s, x)	{
+          if(x[0].ok && x[0].ok =="1")
+          {
+            gethisory();
+          }
+        }
+      );
+    }
+  });
+
+  $(".mouse_td").on("mouseenter",function(){
+    var str_td_value=$(this).attr("value");
+    if(str_td_value == "1"){
+      var str_value = $(this).find(".icon-thumbtack").attr("value");
+      if(str_value == "1"){
+        $(this).find(".index_break_div").css("opacity","1");
+        $(this).find(".index_break_div").css("filter","alpha(opacity=100)");
+      }else{
+        $(this).find(".index_break_div").css("opacity","0");
+        $(this).find(".index_break_div").css("filter","alpha(opacity=0)");
+      }
+      $(this).find(".index_thumbtack_div").css("opacity","1");
+      $(this).find(".index_thumbtack_div").css("filter","alpha(opacity=100)");
+    }
+  }).on("mouseleave",function(){
+    var str_value = $(this).find(".icon-thumbtack").attr("value");
+    if(str_value == "1"){
+      $(this).find(".index_thumbtack_div").css("opacity","0");
+      $(this).find(".index_thumbtack_div").css("filter","alpha(opacity=0)");
+
+    }else{
+      $(this).find(".index_thumbtack_div").css("opacity","1");
+      $(this).find(".index_thumbtack_div").css("filter","alpha(opacity=100)");
+    }
+    $(this).find(".index_break_div").css("opacity","0");
+    $(this).find(".index_break_div").css("filter","alpha(opacity=0)");
+  });
+</script>
+
+
+
+
+<!-- fotter -->
+<div class="fix_qrcode_div" style="right: 47px;">
+  <img src="images/phico.png"/>
+  <span class="footer_qrcode_span" style="right: 56px;">扫一扫,下载APP</span>
+</div>
+<div class="footer_div">
+  <span>软件版本号：22.4.2.15</span>
+  <span>MAC地址：CC:81:DA:4B:59:D8</span>
+  <span>斐讯路由器 | 服务热线：4007-567-567</span>
+</div>
+</body>
+</html>
+

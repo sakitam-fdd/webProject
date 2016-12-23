@@ -5,6 +5,22 @@
   <title>数组排序方法</title>
 </head>
 <body>
+<form id="login-form" method="post" onsubmit="return checkForm()">
+  <input type="text" id="username" name="username">
+  <input type="password" id="input-password">
+  <input type="hidden" id="md5-password" name="password">
+  <button type="submit">Submit</button>
+</form>
+<script>
+  function checkForm() {
+    var input_pwd = document.getElementById('input-password');
+    var md5_pwd = document.getElementById('md5-password');
+    // 把用户输入的明文变为MD5:
+    md5_pwd.value = toMD5(input_pwd.value);
+    // 继续下一步:
+    return true;
+  }
+</script>
 <script type="application/javascript">
   var object = {
     array: [2, 5, 1, 8, 7, 3],

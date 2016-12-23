@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no"/>
+  <title>K1</title>
+  <link rel="shortcut icon" href="/luci-static/bootstrap/images/favicon.ico" />
+
+  <link rel="stylesheet" href="/luci-static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/luci-static/bootstrap/css/login.css">
+  <script type="text/javascript" src="/luci-static/bootstrap/js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="/luci-static/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/luci-static/resources/cbi.js"></script>
+  <script type="text/javascript" src="/luci-static/bootstrap/js/base64Encode.js"></script>
+  <script type="text/javascript" src="/luci-static/bootstrap/js/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript">
+    function Alert(var_str,var_cancle) {
+      $("#alert_msg").html(var_str);
+      if(var_cancle == true){
+        $("#cancel_bt").css("display","inline-block");
+      }
+      $("#myAlert").modal("show");
+    }
+
+    $(function(){
+      var isIE = document.all ? true : false;
+      if (isIE) {
+        var check=navigator;
+        var b_version=navigator.appVersion;
+        var version=b_version.split(";");
+        var trim_Version=version[1].replace(/[ ]/g,"");
+        if(check.appName=="Microsoft Internet Explorer") {
+          var ver_num = trim_Version.substring(4,5);
+          if (ver_num < 9) {
+            $("#browserModal").modal("show");
+          } else {
+            $("#browserModal").modal("hide");
+          }
+        }
+      }
+    });
+  </script>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/luci-static/bootstrap/js/html5shiv.js"></script>
+  <script src="/luci-static/bootstrap/js/respond.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript">
+    var error_msg = [
+      ["0","无效！"],
+      ["1","不能为空！"],
+      ["2","过长！"],
+      ["3","范围应在"],
+      ["4","长度应在"],
+      ["5","错误！"],
+      ["6","与"],
+      ["7","之间！"],
+      ["8","位之间！"],
+      ["9","不能含有空格！"],
+      ["10","应为整数！"],
+      ["11","不允许输入\<\>(){}\&\'\"\\\%~和中文字符！"],
+      ["12","不允许输入\<\>(){}\&\'\"\\\%~"],
+      ["13","输入长度应在8-63位之间，不支持中文字符！"],
+      ["14","不允许输入\<\>(){}\&\'\"\\\%\,\:\;"],
+      ["15","不允许输入\<\>(){}\&\'\"\\\%\,\:\;\$\|\`\~和中文字符！"],
+      ["16","长度不能超过"],
+      ["17","位！"],
+      ["18","应为正整数！"],
+      ["19","应是字母、数字、下划线组成的5-16位组合"],
+      ["20","只允许输入字母，数字和下划线"],
+      ["21","不为空时不可少于8位！"],
+      ["22","输入错误，请填写正确的域名！"],
+      ["23","不允许输入\<\>\&\'\"\\和中文字符！"],
+      ["24","必须为5或13位字符"],
+      ["25","包含非法字符！"],
+      ["26","必须为10或26位十六进制字符！"],
+      ["27","包含非法字符，请输入（a-f,A-F,0-9）的组合！"],
+      ["28","输入长度应在5-64位之间，不支持中文字符！"],
+      ["29","MAC地址不能为全0或全F，请重新输入！"],
+      ["30","MAC地址不能为组播地址，请重新输入！"],
+      ["31","不允许输入\<\>(){}\&\'\"\\\%\,\:\;\$\|\`\~"],
+      ["32","2.4G无线名称和访客网络名称不能一样！"],
+      ["33","在2.4G和5G无线名称一致的情况下，密码必须一致！"],
+      ["34","11b/g模式下带宽将强制为20M！"],
+    ];
+  </script>
+
+  <script type="text/javascript">
+    $(function(){
+      $(".img_change").click(function(){
+        var img_src = $(this).attr("src");
+        var img = img_src.substring(0,img_src.length-6);
+        var img_i = img_src.substring(img_src.length-6,img_src.length-4);
+        if(img_i == "on"){
+          $(this).attr("src",img+"off.png");
+          document.frm.remember.checked = false;
+        }else{
+          $(this).attr("src",img+"n.png");
+          document.frm.remember.checked = true;
+        }
+      });
+      $('.content_body').niceScroll({
+        cursorcolor: "#CCCCCC",
+        cursoropacitymax: 1,
+        touchbehavior: false,
+        cursorwidth: "10px",
+        cursorborder: "0",
+        cursorborderradius: "5px",
+        autohidemode: false
+      });
+    });
+    function changePage(value){
+      if(value == 1){
+        $(".pwd_span").css("display","none");
+        $(".remember_pwd_div").css("display","none");
+        $(".pwd_input").css("width","282px");
+        $(".pwd_input").attr("placeholder","请输入管理员密码");
+        $(".login_button_div").css("margin-top","50px");
+        $(".login_button_div button").html("立即升级");
+      }
+    }
+    function setCookie(name,value,hours,path){
+      var name = escape(name);
+      var value = escape(value);
+      var expires = new Date();
+      expires.setTime(expires.getTime() + hours*3600000);
+      path = path == "" ? "" : ";path=" + path;
+      _expires = (typeof hours) == "string" ? "" : ";expires=" + expires.toUTCString();
+      document.cookie = name + "=" + value + _expires + path;
+    }
+
+    function getCookieValue(name){
+      var name = escape(name);
+
+      var allcookies = document.cookie;
+
+      name += "=";
+      var pos = allcookies.indexOf(name);
+
+      if (pos != -1){
+        var start = pos + name.length;
+        var end = allcookies.indexOf(";",start);
+        if (end == -1) end = allcookies.length;
+        var value = allcookies.substring(start,end);
+        return unescape(value);
+      }
+      else return "";
+    }
+
+    function deleteCookie(name,path){
+      var name = escape(name);
+      var expires = new Date(0);
+      path = path == "" ? "" : ";path=" + path;
+      document.cookie = name + "="+ ";expires=" + expires.toUTCString() + path;
+    }
+
+    function check(){
+
+      document.frm.action_mode.value = 'apply';
+      document.frm.action_url.value = this.location.href;
+      var password=document.frm.password.value;
+
+      if(document.frm.password.value=="")
+      {
+        Alert("管理员密码不能为空，请输入管理员密码");
+        document.frm.password.focus();
+        return false;
+      }
+
+      document.frm.cbi_validators = null;
+      cbi_validate_field('admin_pwd', false, 'and(wpakey_minlen_5,checkWirelessspechar)', '密码:', error_msg);
+
+      if( document.frm.remember.checked)
+      {
+        setCookie("password",password,24,"/");
+      }
+      else{
+        deleteCookie("password","/");
+      }
+
+      if(!cbi_validate_form(document.frm, null,showerror))
+      {
+        return false;
+      }
+      $("#admin_pwd").val(base64encode(utf16to8($("#admin_pwd").val())));
+      document.frm.submit();
+
+    }
+    function showerror(errmsg)
+    {
+      Alert("管理员密码错误，请重新输入");
+    }
+    function initValue()
+    {
+      var passwordValue = getCookieValue("password");
+      if(passwordValue != '')
+      {
+        document.frm.remember.checked = true;
+        document.getElementById("image_check").src = "/luci-static/bootstrap/images/icon_checkbox_on.png";
+      }
+      else
+      {
+        document.frm.remember.checked = false;
+        document.getElementById("image_check").src = "/luci-static/bootstrap/images/icon_checkbox_off.png";
+      }
+      document.frm.password.value = passwordValue;
+      document.frm.password.focus();
+    }
+    $(function(){
+      $("body").keypress(function(e){
+        if (e.keyCode == 13) {
+          if($("#myAlert").css("display")=="block"){
+            $("#myAlert").modal("hide");
+            $("#admin_pwd").focus();
+          }else{
+            check();
+          }
+        }
+      });
+      $("#confirm_bt").click(function(){
+        $("#myAlert").modal("hide");
+        $("#admin_pwd").focus();
+      })
+    });
+  </script>
+</head>
+<div class="modal fade" id="myAlert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="alert_dialog" role="document">
+    <div class="modal-content alert_content">
+      <span id="alert_msg"></span>
+      <button id="confirm_bt" type="button" >确定</button>
+    </div>
+  </div>
+</div>
+
+<body class="content_body" onLoad="initValue()" oncontextmenu=self.event.returnValue=false>
+<div class="modal fade" id="browserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="browser_dialog" role="document">
+    <div class="modal-content browser_content">
+      <div class="browser_warning_div">
+        <div style="float:left;">
+          <img src="/luci-static/bootstrap/images/warning.png" />
+        </div>
+        <div class="browser_warning_text">
+          <span class="browser_warning_msg">您的浏览器版本过低！</span>
+          <span class="browser_warning_msg" style="display:block;margin-top:5px;">为了得到最好的体验效果，我们建议您对浏览器进行升级</span>
+          <div class="browser_continue_access_bt" data-dismiss="modal">
+            继续访问
+          </div>
+        </div>
+      </div>
+      <div class="browser_center_div">
+        <div class="browser_line" style="float:left;"></div>
+        <div class="browser_recommend_msg">
+          <span>推荐以下浏览器或浏览器版本</span>
+        </div>
+        <div class="browser_line" style="float:right;"></div>
+      </div>
+      <div class="browser_recommend_img_center">
+        <div class="browser_recommend_img"><a href="http://www.google.cn/chrome/browser/desktop/index.html" target="_blank">
+          <img src="/luci-static/bootstrap/images/chrome.png">
+          <span>Chrome</span>
+        </a>
+        </div>
+        <div class="browser_recommend_img"><a href="http://www.firefox.com.cn/download/" target="_blank">
+          <img src="/luci-static/bootstrap/images/firefox.png">
+          <span>Firefox</span>
+        </a>
+        </div>
+        <div class="browser_recommend_img">
+          <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">
+            <img src="/luci-static/bootstrap/images/ie9.png">
+            <span>Internet Explorer 9</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="login_logo">
+  <img src="/luci-static/bootstrap/images/logo_guide.png"/>
+  <span>登录</span>
+</div>
+<div class="login_top_right"></div>
+<form  method="post" name="frm" action="/cgi-bin/luci/admin/login"  autocomplete="off" >
+  <input type="hidden" name="action_mode" value="" />
+  <input type="hidden" name="action_url" value="" />
+  <input type="checkbox" name="remember" style="display:none;"/>
+  <input type="text" name="username" value="admin" style="display:none;"/>
+  <div class="login_center_div">
+
+    <input type="password" class="pwd_input" name="password" id="admin_pwd" placeholder="请输入管理员密码" tabindex="1"/>
+
+    <div class="remember_pwd_div">
+      <span id="pwd_error_msg" class="pwd_error_msg_span"></span>
+      <img src="/luci-static/bootstrap/images/icon_checkbox_off.png" id = "image_check" class="img_change" tabindex="2">
+      <span class="remember_pwd_span">记住我的密码</span>
+    </div>
+    <div class="login_button_div">
+      <button type="button"  onclick="return check();" tabindex="3">登 录</button>
+    </div>
+  </div>
+</form>
+<div class="login_bottom_left"></div>
+<div class="login_fotter">
+  <span class="hotline_span">斐讯路由器 | 服务热线：4007-567-567</span>
+  <span class="mac_span">MAC地址：CC:81:DA:4B:59:D8</span>
+  <span class="software_version_span">软件版本号：22.4.2.15</span>
+</div>
+</body>
+</html>
