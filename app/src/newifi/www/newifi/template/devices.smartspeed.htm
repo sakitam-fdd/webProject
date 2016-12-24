@@ -1,0 +1,91 @@
+<div id="map" class="limit-page">
+	<div class="limit-bar">
+		<span class="limit-bar-title"><%:devices-limit-switch%></span>
+		<a class="limit-switch"></a>
+	</div>
+
+	<div class="limit-off" style="display: none;">
+		<div class="limit-off-icon"></div>
+		<p><%:devices-limit-off%></p>
+	</div>
+	<div class="limit-on" style="display: none;">
+
+		<div class="limit-content">
+			<div class="limit-measure">
+				<div class="limit-measure-content">
+					<div class="limit-measure-details">
+						<div class="limit-measure-item">
+							<span><%:limit-measure-brand-up%></span>
+							<div class="limit-measure-item-info">
+								<span id="text_measure_up" class="text-measure">----</span>
+								<input id="input_measure_up" type="text" class="form-control input-measure input-error"  style="display: none;"/>
+							</div>
+							<span>Mbps</span>
+							<div class="label label-danger measure-error measure-error-up"></div>
+						</div>
+						<div class="limit-measure-item">
+							<span><%:limit-measure-brand-down%></span>
+							<div class="limit-measure-item-info">
+								<span id="text_measure_down" class="text-measure">----</span>
+								<input id="input_measure_down" type="text" class="form-control input-measure input-error" style="display: none;" />
+							</div>							
+							<span>Mbps</span>
+							<div class="label label-danger measure-error measure-error-down"></div>
+						</div>
+					</div>					
+					
+					<div class="limit-measure-notice"><%:limit-measure-notice%></div>
+
+					<div class="limit-measure-operate">
+						<div id="limit_measure_operate_check">
+							<button id="limit_measure_edit" class="newifi-btn btn-ready limit-measure-operate-btn"><%:edit%></button>
+							<button class="newifi-btn btn-green limit-measure-operate-check"><%:check%></button>
+						</div>
+						<div id="limit_measure_operate_set" style="display: none;">
+							<button id="limit_measure_save" class="newifi-btn btn-ready limit-measure-operate-btn"><%:Save%></button>
+							<button id="limit_measure_cancel" class="newifi-btn btn-cancel limit-measure-cancel"><%:cancel%></button>
+						</div>						
+					</div>
+				</div>	
+				<div class="limit-measure-info">
+					<div class="limit-measure-info-details limit-measure-info-doing" style="display: none;">
+						<p>
+							<span class="limit-measure-info-doing-icon"></span>
+							<%:limit-measure-doing%>	
+						</p>
+						<p style="margin-top: 40px;">
+							<button id="measure_stop" class="newifi-btn btn-ready"><%:limit-measure-stop%></button>
+						</p>
+					</div>
+					<div class="limit-measure-info-details limit-measure-info-failed" style="display: none;">
+						<p style="margin-left: -90px;"><img src="/newifi/icons/cesb.jpg" style="margin-right: 20px;margin-left: 74px;" /><%:limit-measure-failed%></p>
+						<p style="margin-top: 40px;margin-left: -90px;">
+							<button id="measure_back" class="newifi-btn btn-ready limit-measure-operate-btn"><%:return%></button>
+							<button class="newifi-btn btn-green limit-measure-operate-check"><%:check%></button>
+						</p>
+					</div>
+				</div>							
+			</div>
+			<div class="limit-device-show">
+				<table class="limit-table">
+					<thead>
+						<tr>
+							<th style="width: 70px;"></th>
+							<th style="width: 340px;">
+								<%:devices-title-one%>
+								<a class="limit-refresh"></a>
+							</th>
+							<th style="width: 330px;"><%:devices-title-two%></th>
+							<th style="width: 200px;"><%:devices-network%></th>
+							<th style="width: 296px;" class="text-center"><%:devices-broadband%></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				<div class="limit-footer"></div>
+			</div>			
+		</div>
+	</div>
+</div>

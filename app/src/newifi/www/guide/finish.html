@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.base64.js"></script>
+<script src="js/common.js"></script>
+<title>设置完成</title>
+</head>
+<body>
+<div id="wrap" class="wrap">
+	<img class="logo" src="images/logo.png">
+
+	<p class="title">初始化配置完成</p>
+
+	<img class="img" src="images/finish.png">
+
+	<p class="text finish-text">请选中<span id="finish-text-wifi"></span>，输入密码即可上网</p>
+
+	<button id="finish-btn" class="btn image-btn">完成</button>
+
+	<p id="error-message" class="error-message"></p>
+
+	<button id="qrcode-btn" class="qrcode-btn">
+		<img class="qrcode-btn-icon" src="images/icon-qrcode.png">
+		<span class="qrcode-btn-text">下载手机APP</span>
+	</button>
+	<img id="qrcode" class="qrcode" src="images/qrcode.png">
+</div>
+
+<p class="copyright">Copyright © 2015-2016 丨 服务咨询service2@xcloud.cc</p>
+
+<input id="page" type="hidden" value="finish">
+</body>
+</html>

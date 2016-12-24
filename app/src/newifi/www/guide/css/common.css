@@ -1,0 +1,549 @@
+/* *********
+ *    Author: Jason He;
+ *    Copyright: xcloud.cc;
+ *    Version: 1.0.1;
+ *    Date: 2016-07-20;
+ *    File: common.css;
+ ********* */
+
+/*global*/
+*{
+	/*Hide Android Webview Highlight border when click*/
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.wrap{
+	width: 100%;
+	background: #f4f4f4;
+}
+.title{
+	padding: 40px 0 30px;
+	font-size: 20px;
+	color: #4690fa;
+}
+.text{
+	font-size: 12px;
+	color: #666;
+}
+.img{
+	display: block;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn{
+	display: block;
+	position: relative;
+	width: 300px;
+	height: 40px;
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	background: #4690fa;
+	border: 1px solid #49bcff;
+	border-radius: 2px;
+	line-height: 38px;
+	font-size: 15px;
+	color: #fff;
+	cursor: pointer;
+}
+.btn:disabled{
+	background: #68a7f9;
+	color: #a4cafb;
+}
+.image-btn{
+	margin-top: 45px;
+}
+.form-btn{
+	margin-top: 30px;
+}
+.loading{
+	display: inline-block;
+	position: absolute;
+	width: 0;
+	margin-left: 3px;
+	font-size: 18px;
+	overflow: hidden;
+	vertical-align: top;
+	animation: loading 1.2s linear infinite;
+	-webkit-animation: loading 1.2s linear infinite;
+}
+@keyframes loading{
+	33%{
+		width: 5px;
+	}
+	66%{
+		width: 10px;
+	}
+	100%{
+		width: 15px;
+	}
+}
+@-webkit-keyframes loading{
+	33%{
+		width: 5px;
+	}
+	66%{
+		width: 10px;
+	}
+	100%{
+		width: 15px;
+	}
+}
+.link{
+	color: #4690fa;
+}
+.error-message{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #ff6868;
+}
+.footer{
+	font-size: 14px;
+	color: #4690fa;
+}
+.image-footer{
+	margin-top: 55px;
+}
+.form-footer{
+	margin-top: 85px;
+}
+.checkbox-wrap{
+	display: inline-block;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+.checkbox-input{
+	width: 16px;
+	height: 16px;
+	opacity: 0;
+}
+.checkbox-label{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 16px;
+	height: 16px;
+	box-sizing: border-box;
+	background: #ece9e9;
+	border: 1px solid #dbd8db;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.checkbox-label:after{
+	position: absolute;
+	top: 1px;
+	left: 4px;
+	width: 4px;
+	height: 7px;
+	content: "";
+	opacity: 0;
+	border: 2px solid #fff;
+	border-top: none;
+	border-left: none;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+.checkbox-input:checked + .checkbox-label{
+	background: #2b58b9;
+	border: 1px solid #2b58b9;
+}
+.checkbox-input:checked + .checkbox-label:after{
+	opacity: 1;
+}
+.confirm-wrap{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
+}
+.confirm{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 270px;
+	height: 120px;
+	margin: -60px 0 0 -135px;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 15px;
+}
+.confirm-text{
+	width: 270px;
+	height: 80px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #d7d5d0;
+	line-height: 80px;
+	font-size: 14px;
+	color: #666;
+}
+.confirm-btn{
+	display: block;
+	width: 135px;
+	height: 40px;
+	float: left;
+	line-height: 40px;
+	font-size: 14px;
+	color: #4690fa;
+}
+.confirm-btn-cutline{
+	box-sizing: border-box;
+	background: transparent;
+	border: none;
+	border-right: 1px solid #d7d5d0;
+	border-bottom-left-radius: 15px;
+}
+.form-wrap{
+	width: 320px;
+	height: 133px;
+	margin: 0 auto;
+	background: #fff;
+	border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+}
+.form-cutline{
+	width: 300px;
+	height: 1px;
+	margin: 0 auto;
+	background: #e3e3e3;
+}
+.input-title{
+	display: block;
+	width: 300px;
+	height: 33px;
+	margin: 0 auto;
+	line-height: 33px;
+	font-size: 12px;
+	color: #333;
+	text-align: left;
+}
+.input-wrap{
+	position: relative;
+	width: 300px;
+	height: 33px;
+	margin: 0 auto;
+}
+.input{
+	width: 245px;
+	height: 14px;
+	padding: 10px 25px 9px 30px;
+	border: none;
+	line-height: 14px;
+	font-size: 14px;
+	color: #333;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 15px 17px;
+}
+.input-wifi{
+	background-image: url("../images/icon-wifi.png");
+}
+.input-wifi.active{
+	background-image: url("../images/icon-wifi-active.png");
+}
+.input-broadband{
+	background-image: url("../images/icon-broadband.png");
+}
+.input-broadband.active{
+	background-image: url("../images/icon-broadband-active.png");
+}
+.input-password{
+	background-image: url("../images/icon-password.png");
+}
+.input-password.active{
+	background-image: url("../images/icon-password-active.png");
+}
+.input-clear-btn{
+	display: none;
+	position: absolute;
+	top: 0;
+	right: -5px;
+	width: 26px;
+	height: 33px;
+	background: url("../images/icon-clear.png") center center / 20px 17px no-repeat;
+	border: none;
+	cursor: pointer;
+}
+.input-showpwd-btn{
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -3px;
+	width: 26px;
+	height: 33px;
+	background-color: transparent;
+	background-image: url("../images/icon-showpwd.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 20px 17px;
+	border: none;
+	cursor: pointer;
+}
+.input-showpwd-btn.active{
+	background-image: url("../images/icon-showpwd-active.png");
+	cursor: pointer;
+}
+.logo{
+	display: none;
+	position: absolute;
+	top: -130px;
+	left: 50%;
+	width: 105px;
+	margin-left: -52px;
+}
+.qrcode-btn{
+	display: none;
+	position: absolute;
+	bottom: -68px;
+	left: 50%;
+	z-index: 1;
+	width: 320px;
+	height: 40px;
+	box-sizing: border-box;
+	margin-left: -160px;
+	background: transparent;
+	border: 1px solid #fff;
+	opacity: 0.5;
+	line-height: 38px;
+	font-size: 14px;
+	color: #fff;
+	cursor: pointer;
+}
+.qrcode-btn.active{
+	opacity: 0.8;
+}
+.qrcode-btn-icon{
+	vertical-align: -2px;
+}
+.qrcode-btn-text{
+	display: inline-block;
+	margin-left: 5px;
+}
+.qrcode{
+	display: none;
+	position: absolute;
+	bottom: -28px;
+	left: 50%;
+	margin-left: -155px;
+}
+.copyright{
+	display: none;
+	width: 100%;
+	font-size: 14px;
+	color: #88B6F9;
+}
+
+/*initalize*/
+.initalize-protocol{
+	display: none;
+	width: 187px;
+	height: 16px;
+	margin: 15px auto -31px;
+}
+.initalize-protocol-text{
+	display: inline-block;
+	width: 165px;
+	margin-left: 6px;
+	line-height: 16px;
+	vertical-align: top;
+}
+
+/* protocol */
+.protocol-wrap{
+	width: 100%;
+	padding-bottom: 30px;
+	background: #f4f4f4;
+}
+.protocol-content-wrap{
+	width: 290px;
+	padding: 0 15px 20px;
+	margin: 0 auto;
+	font-size: 12px;
+	text-align: left;
+}
+.protocol-title{
+	margin: 13px 0 6px;
+	color: #333;
+}
+.protocol-content{
+	color: #666;
+}
+
+/*offline*/
+.offline-text{
+	width: 300px;
+	height: 22px;
+	margin: 0 auto;
+	line-height: 22px;
+	text-align: left;
+}
+.offline-text-margin{
+	margin-bottom: -44px;
+}
+.offline-text-dot{
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	margin-right: 5px;
+	border-radius: 50%;
+	vertical-align: 2px;
+}
+.offline-text-dot.blue{
+	background: #4690fa;
+}
+.offline-text-dot.yellow{
+	background: #f5a623;
+}
+
+/*pppoe*/
+.pppoe-forgetpwd-wrap{
+	width: 300px;
+	height: 18px;
+	margin: 0 auto -18px;
+}
+.pppoe-forgetpwd-btn{
+	display: block;
+	float: right;
+	background: transparent;
+	border: none;
+	line-height: 18px;
+	color: #4690fa;
+	cursor: pointer;
+}
+.pppoe-popup-wrap{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
+}
+.pppoe-popup{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	margin: -145px 0 0 -150px;
+	padding-bottom: 20px;
+	background: #fff;
+	border-radius: 3px;
+}
+.pppoe-popup-close-btn{
+	width: 25px;
+	height: 25px;
+	float: right;
+	margin: 5px 5px 0 0;
+	background: url("../images/icon-close.png") center center / 15px 15px no-repeat;
+	border: none;
+	cursor: pointer;
+}
+.pppoe-popup-text{
+	width: 260px;
+	height: 20px;
+	margin: 0 auto 10px;
+	line-height: 20px;
+	font-size: 14px;
+	color: #333;
+}
+.pppoe-popup-text > .left{
+	display: block;
+	float: left;
+}
+.pppoe-popup-text > .right{
+	display: block;
+	float: right;
+}
+
+/*finish*/
+.finish-text{
+	line-height: 20px;
+	margin-bottom: -20px;
+}
+
+/*browser*/
+.browser-body{
+	background: #f4f4f4;
+}
+.browser-img{
+	display: block;
+	margin: 90px auto 50px;
+}
+.browser-text{
+	font-size: 15px;
+	color: #666;
+}
+
+@media screen and (min-width: 375px) and (max-width: 413px) {
+	.title{
+		padding-top: 70px;
+	}
+}
+
+@media screen and (min-width: 414px) and (max-width: 425px) {
+	.title{
+		padding-top: 90px;
+	}
+}
+
+@media screen and (min-width: 426px) {
+	body{
+		background: #3885f5;
+	}
+	.wrap{
+		width: 320px;
+		height: 458px;
+		border-radius: 2px;
+	}
+	.logo{
+		display: block;
+	}
+	.qrcode-btn{
+		display: block;
+	}
+	.copyright{
+		display: block;
+	}
+	.protocol-wrap{
+		position: relative;
+		width: 320px;
+		margin: 160px auto 0;
+	}
+	/*prevent input clear function of IE input*/
+	.input::-ms-clear{
+		display: none;
+	}
+	/*prevent input showpwd function of IE input*/
+	.input::-ms-reveal{
+		display: none;
+	}
+}
+
+@media screen and (min-width: 426px) and (min-height: 711px) {
+	.wrap{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -229px 0 0 -160px;
+	}
+	.copyright{
+		position: absolute;
+		bottom: 20px;
+		z-index: -1;
+	}
+}
+
+@media screen and (min-width: 426px) and (max-height: 710px) {
+	.wrap{
+		position: relative;
+		margin: 130px auto 0;
+	}
+	.copyright{
+		margin: 87px 0 20px;
+	}
+}

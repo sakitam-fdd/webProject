@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.base64.js"></script>
+<script src="js/common.js"></script>
+<title>设置宽带</title>
+</head>
+<body>
+<div id="wrap" class="wrap">
+	<img class="logo" src="images/logo.png">
+
+	<p class="title">请输入运营商宽带账号</p>
+
+	<form class="form-wrap">
+		<label class="input-title">宽带账号</label>
+		<div class="input-wrap">
+			<input id="broadband" class="input input-broadband" type="text" placeholder="请输入运营商宽带账号">
+			<button id="input-clear-btn" class="input-clear-btn"></button>
+		</div>
+
+		<div class="form-cutline"></div>
+
+		<label class="input-title">宽带密码</label>
+		<div class="input-wrap">
+			<input id="password" class="input input-password" type="password" placeholder="请输入运营商宽带密码">
+			<button id="input-showpwd-btn" class="input-showpwd-btn"></button>
+		</div>
+	</form>
+
+	<p id="error-message" class="error-message"></p>
+
+	<div class="pppoe-forgetpwd-wrap">
+		<button id="pppoe-forgetpwd-btn" class="pppoe-forgetpwd-btn">忘记密码</button>
+	</div>
+
+	<button id="pppoe-btn" class="btn form-btn" disabled="disabled">下一步</button>
+
+	<div class="footer form-footer">
+		<a class="link" href="wifi.html?from=dhcp">无需拨号(DHCP)</a>
+		丨
+		<a class="link" href="index.html">返回</a>
+	</div>
+
+	<button id="qrcode-btn" class="qrcode-btn">
+		<img class="qrcode-btn-icon" src="images/icon-qrcode.png">
+		<span class="qrcode-btn-text">下载手机APP</span>
+	</button>
+	<img id="qrcode" class="qrcode" src="images/qrcode.png">
+</div>
+
+<p class="copyright">Copyright © 2015-2016 丨 服务咨询service2@xcloud.cc</p>
+
+<div id="pppoe-popup-wrap" class="pppoe-popup-wrap">
+	<div class="pppoe-popup">
+		<button id="pppoe-popup-close-btn" class="pppoe-popup-close-btn"></button>
+
+		<p class="title">联系宽带运营商找回密码</p>
+
+		<p class="pppoe-popup-text clearfix">
+			<span class="left">电信宽带客服</span>
+			<span class="right">10000</span>
+		</p>
+		<p class="pppoe-popup-text clearfix">
+			<span class="left">移动宽带客服</span>
+			<span class="right">10086</span>
+		</p>
+		<p class="pppoe-popup-text clearfix">
+			<span class="left">联通宽带客服</span>
+			<span class="right">10010</span>
+		</p>
+		<p class="pppoe-popup-text clearfix">
+			<span class="left">长城宽带客服</span>
+			<span class="right">95079</span>
+		</p>
+		<p class="pppoe-popup-text clearfix">
+			<span class="left">歌华宽带客服</span>
+			<span class="right">96196</span>
+		</p>
+		<p class="pppoe-popup-text clearfix">
+			<span class="left">艾普宽带客服</span>
+			<span class="right">952155</span>
+		</p>
+	</div>
+</div>
+
+<input id="page" type="hidden" value="pppoe">
+</body>
+</html>

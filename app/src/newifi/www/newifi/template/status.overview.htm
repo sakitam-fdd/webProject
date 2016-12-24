@@ -1,0 +1,153 @@
+<div class="status-page">
+	<div class="status-bar">
+		<div class="status-content">
+			<a class="status-bar-device status-wan pull-left">
+				<%:status-internete-name%>				
+			</a>
+			<div class="status-link pull-left">
+				<div class="link-line"></div>
+				<div id="link-icon" class="link-icon"></div>
+			</div>
+			<div class="status-os pull-left"></div>
+			<div class="status-link pull-left">
+				<div class="link-line"></div>
+				<div class="link-icon" style="background-position: 0 0;"></div>				
+			</div>
+			<a class="status-bar-device status-pc pull-right">
+				<div style="margin-bottom: 2px;"><%:status-pc-name%></div>
+				<span id="pc_num" class="pc-num">--</span>
+			</a>
+			<div class="clearfix"></div>
+			<div class="status-info">
+				<div id="os_model" class="pull-left"><label><%:status-model%></label><span></span></div>
+				<div id="os_version" class="pull-right"><label><%:status-system-version%></label><span></span></div>
+				<div class="clearfix"></div>
+				<div id="os_version_tip" class="os-version-tip"></div>
+			</div>
+		</div>
+	</div>
+	<div class="status-charts">
+		<div class="chart-net pull-left">
+			<div class="chart-title">
+				<%:status-title-internet%>
+				<!-- <div class="pull-right net-legend"><span></span><%:status-download%></div> -->
+				<div class="clearfix"></div>
+			</div>
+			<div class="chart-content">
+				<div id="net_line" style="height: 250px; width: 555px;"></div>
+				<div class="text-right cur-net-info">
+					<%:status-current-upload%><span id="cur_up" style="color: #29cc4c;margin-right: 20px;"></span>
+					<%:status-current-download%><span id="cur_down" style="color: #007ad3;"></span>
+				</div>
+				<div class="net-panel">
+					<div class="net-block net-line">
+						<p id="net_up_max" class="net-up">
+							<span>--</span>
+						</p>
+						<p class="net-desc"><%:status-fast-upload%></p>
+					</div>
+					<div class="net-block net-line">
+						<p id="net_up_avg" class="net-up">
+							<span>--</span>
+						</p>
+						<p class="net-desc"><%:status-avg-upload%></p>
+					</div>
+					<div class="net-block net-line">
+						<p id="net_down_max" class="net-down">
+							<span>--</span>
+						</p>
+						<p class="net-desc"><%:status-fast-download%></p>
+					</div>
+					<div class="net-block">
+						<p id="net_down_avg" class="net-down">
+							<span>--</span>
+						</p>
+						<p class="net-desc"><%:status-avg-download%></p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="chart-storage pull-left">
+			<div id="storage_no" class="storage-no" style="display: none;">
+				<img src="/newifi/icons/sign130.png" alt="" />
+				<p><%:status-null-device%></p>
+			</div>
+			<div id="help-info" style="margin-top: -250px;display:none;">
+				<div class="chart-title">
+					<p style="float:left;margin:0;">当前存储状态</p>
+					<div class="port-help-icon" style="margin:4px 0 0 150px">
+						<div class="port-help-content">
+							<img class="port-help-arrow" src="/newifi/icons/portdmz-arrow.png">
+							<p class="port-help-title"><%:status-device-help-title%></p>
+							<div class="port-help-text" style="padding-right:20px">
+								<p class="status-help-value"><%:status-device-help-row1%></p>
+								<p class="status-help-value"><%:status-device-help-row2%></p>
+								<p class="status-help-value"><%:status-device-help-row3%></p>
+								<p class="status-help-value"><%:status-device-help-row4%></p>
+								<p class="status-help-value"><%:status-device-help-row5%></p>
+								<p class="status-help-value"><%:status-device-help-row6%></p>
+								<p class="status-help-value"><%:status-device-help-row7%></p>
+								<p class="status-help-value"><%:status-device-help-row8%></p>
+								<p class="status-help-value"><%:status-device-help-row9%></p>
+								<p class="status-help-value"><%:status-device-help-row10%></p>
+								<p class="status-help-value"><%:status-device-help-row11%></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="storage_list" class="storage-list" style="display: none;">
+				<div class="chart-title">
+					<p style="float:left;margin:0;"><%:status-device%></p>
+					<div class="port-help-icon" style="margin:4px 0 0 100px">
+						<div class="port-help-content">
+							<img class="port-help-arrow" src="/newifi/icons/portdmz-arrow.png">
+							<p class="port-help-title"><%:status-device-help-title%></p>
+							<div class="port-help-text" style="padding-right:20px">
+								<p class="status-help-value"><%:status-device-help-row1%></p>
+								<p class="status-help-value"><%:status-device-help-row2%></p>
+								<p class="status-help-value"><%:status-device-help-row3%></p>
+								<p class="status-help-value"><%:status-device-help-row4%></p>
+								<p class="status-help-value"><%:status-device-help-row5%></p>
+								<p class="status-help-value"><%:status-device-help-row6%></p>
+								<p class="status-help-value"><%:status-device-help-row7%></p>
+								<p class="status-help-value"><%:status-device-help-row8%></p>
+								<p class="status-help-value"><%:status-device-help-row9%></p>
+								<p class="status-help-value"><%:status-device-help-row10%></p>
+								<p class="status-help-value"><%:status-device-help-row11%></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="chart-content pull-left">
+					<div class="storage-dot"></div>
+					<div id="storage_pie" class="storage-pie" style="height: 234px;width: 234px"></div>
+					<div class="storage-info">
+						<p>
+							<span class="storage-title"><%:status-my-device%></span>	
+							<span class="storage-source"><%:status-source%></span>
+							<span class="storage-status" style="display: none;"><%:status-full%></span>
+						</p>
+						<ul class="storage-content list-inline list-unstyled">
+							<li id="storage_total" class="storage-item storage-total"><label><%:status-total-storage%></label><span></span></li>
+							<li id="storage_used" class="storage-item storage-used"><label><%:status-used-storage%></label><span></span></li>
+							<li id="storage_unused" class="storage-item storage-unused"><label><%:status-free-storage%></label><span></span></li>
+						</ul>
+					</div>
+					<p class="storage-exit text-center">						
+						<a href="javascript: void(0)"><%:status-safe-exit%></a>
+						<span style="display: none;"></span>						
+					</p>
+				</div>	
+				<div class="chart-list pull-right">
+					<ul id="chart_list" class="list-unstyled">						
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>			
+		</div>		
+		<div class="clearfix"></div>
+	</div>
+
+</div>

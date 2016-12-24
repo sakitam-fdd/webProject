@@ -1,0 +1,3221 @@
+/*public*/
+.ul-tabs{
+
+}
+
+.ul-tabs li{
+    margin-right: 24px;
+    padding: 0;
+}
+
+.ul-tabs li a{
+    font-size: 14px;
+    color: #999;
+}
+
+.ul-tabs li.active a{
+    color: #007ad3;
+}
+
+/*devices*/
+.acc-title{
+    height: 74px;
+    line-height: 74px;
+    background: #F1F9FF;
+    font-size: 18px;
+    color: #007AD3;
+    padding: 0 20px;
+}
+.acc-title-one{
+    float: left;
+    width: 370px;
+}
+.acc-title-two{
+    float: left;
+    width: 310px;
+    padding-left: 20px;
+}
+.acc-title-three{
+    float: left;
+    width: 278px;
+    text-align: center;
+}
+.acc-title-four{
+    float: left;
+    width: 238px;
+    text-align: center;
+}
+.acc-title-one-text{
+    margin-left: 50px;
+}
+.acc-title-one-photo{
+    margin: -3px 0px 0 20px;
+    cursor: pointer;
+}
+.acc-row{
+    height: 112px;
+    overflow: hidden;
+    border-bottom: 1px #F1F1F1 solid;
+    padding: 0 20px;
+}
+.acc-type{
+    display: block;
+    margin: 30px 16px 42px 49px;
+    float: left;
+}
+.acc-ispeed{
+    display: block;
+    position: absolute;
+    margin: 41px 0px;
+}
+.acc-text{
+    float: left;
+    overflow: hidden;
+    margin-top: 23px;
+}
+.acc-name{
+    margin: 0;
+    line-height: 34px;
+    color: #333333;
+    font-size: 16px;
+    float: left;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.acc-self-one{
+    height: 10px;
+    width: 1px;
+    background: #999999;
+    margin-left: 10px;
+    margin-top: 11px;
+    float: left;
+}
+.acc-self-two{
+    color: #999999;
+    font-size: 12px;
+    margin-left: 5px;
+    line-height: 34px;
+    float: left;
+}
+.acc-netype{
+    font-size: 14px;
+    color: #999999;
+    margin: 0;
+}
+.acc-column-one{
+    width: 370px;
+    overflow: hidden;
+    float: left;
+    height: 112px;
+}
+.acc-column-two{
+    width: 310px;
+    overflow: hidden;
+    float: left;
+    font-size: 14px;
+    padding: 20px;
+    height: 112px;
+}
+.acc-column-three{
+    width: 278px;
+    overflow: hidden;
+    float: left;
+    height: 112px;
+}
+.acc-column-four{
+    width: 238px;
+    overflow: hidden;
+    float: left;
+    height: 112px;
+    color: #333333;
+    text-align: center;
+    line-height: 112px;
+}
+.acc-info-right{
+    margin-left: 5px;
+    color: #999999;
+}
+.acc-info-left{
+    color: #666666;
+}
+.acc-internt-switch{
+    margin: 44px auto;
+}
+.acc-text-row1{
+    overflow: hidden;
+}
+.devices-a{
+    font-size: 16px;
+    height: 60px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    background: #0F91FF;
+    line-height: 60px;
+    color: #C4DDFF;
+}
+.navbar-view .devices-li > a{
+    padding: 0;
+}
+.devices-first{
+    border-top-left-radius: 4px;
+}
+.devices-last{
+    border-top-right-radius: 4px;
+}
+.devices-htm{
+    background: #ffffff;
+    min-height: 550px;
+}
+.navbar-view .devices-li > a:hover, .navbar-view .devices-li > a:focus,.devices-li .devices-active{
+    background: #007AD3;
+    color: #ffffff;
+}
+.portdmz-a{
+    font-size: 16px;
+    height: 60px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    background: #0F91FF;
+    line-height: 60px;
+    color: #C4DDFF;
+}
+.portdmz-port-part{
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+.navbar-view .portdmz-li > a{
+    padding: 0;
+}
+.portdmz-first{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.portdmz-last{
+    border-top-right-radius: 4px;
+}
+.portdmz-htm{
+    background: #ffffff;
+    min-height: 550px;
+}
+.navbar-view .portdmz-li > a:hover, .navbar-view .portdmz-li > a:focus,.portdmz-li .portdmz-active{
+    background: #007AD3;
+    color: #ffffff;
+}
+.portdmz-htm{
+    min-height: 600px;
+    background: #ffffff;
+}
+.port-titlerow{
+    height: 74px;
+    line-height: 74px;
+    background: #F1F9FF;
+    font-size: 18px;
+    color: #007AD3;
+    padding: 0 40px;
+}
+.portdmz_dmz{
+    padding: 0 40px;
+}
+.port-help-icon{
+    cursor: pointer;
+    width: 22px;
+    height: 26px;
+    float: left;
+    background: url("/newifi/icons/portdmz-help.png") 0 0;
+    position: absolute;
+    margin: -2px 0px 0 100px;
+}
+.port-help-icon:hover{
+    background: url("/newifi/icons/portdmz-help.png") -22px 0;
+}
+.port-help-icon:hover .port-help-content{
+    display: block;
+}
+.port-titlerow span{
+    display: block;
+    float: left;
+}
+.port-title-right{
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+}
+.port-title-right:hover .port-add-icon{
+    background: url("/newifi/icons/portdmz-add.png") no-repeat -48px 0;
+}
+.port-title-right:hover .port-add-text{
+    color: #333333;
+}
+.port-title-left{
+    float: left;
+}
+.port-add-text{
+    color: #666666;
+    font-size: 16px;
+    margin-left: 10px;
+    display: block;
+    float: left;
+    line-height: 24px;
+}
+.port-add-icon{
+    width: 24px;
+    height: 24px;
+    background: url("/newifi/icons/portdmz-add.png") no-repeat -24px 0;
+    float: left;
+}
+.port-help-content{
+    position: absolute;
+    background: #ffffff;
+    width: 380px;
+    margin: 39px 0 0 -5px;
+    border-radius: 4px;
+    border: 1px #e8e8e8 solid;
+    z-index: 99;
+    display: none;
+    box-shadow: 0 4px 7px 2px #d7d7d7;
+}
+.port-help-arrow{
+    position: absolute;
+    margin: -8px 7px;
+}
+.port-help-title{
+    background: #f4f4f4;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0;
+    font-size: 16px;
+    color: #999999;
+    font-family: "Microsoft YaHei" !important;
+}
+.port-help-row0,.port-help-row1,.port-help-row2,.port-help-row3,.port-help-row4,.port-help-row5{
+    font-size: 12px;
+    color: #333333;
+    margin: 0;
+    padding: 10px 0;
+    overflow: hidden;
+}
+.port-row3-left{
+    height: 24px;
+    float: left;
+    width: 18%;
+    line-height: 18px;
+}
+.port-row3-right{
+    display: block;
+    float: left;
+    width: 80%;
+    line-height: 18px;
+}
+.port-row4-left{
+    height: 36px;
+    float: left;
+    width: 18%;
+    line-height: 18px;
+}
+.port-row4-right{
+    display: block;
+    float: left;
+    width: 81%;
+    line-height: 18px;
+}
+.port-help-text{
+    padding: 11px 2px 11px 20px;
+}
+.port-info-title0{
+    width: 200px;
+}
+.port-info-title1{
+    width: 182px;
+}
+.port-info-title2{
+    width: 180px;
+}
+.port-info-title3{
+    width: 171px;
+    text-align: center;
+}
+.port-info-title4{
+    width: 171px;
+    text-align: center;
+}
+.port-info-title5{
+    width: 81px;
+    text-align: center;
+}
+.port-info-title6{
+    width: 171px;
+    padding-left: 83px;
+}
+.port-group-item{
+    list-style-type: none;
+}
+.port-panel{
+    border-bottom: 1px #f4f4f4 solid;
+    height: 120px;
+    padding: 0 40px;
+}
+.port-section-ul{
+    float: left;
+    width: 985px;
+    margin: 0;
+    padding: 0;
+}
+.port-had-panel{
+    border-bottom: 1px #f4f4f4 solid;
+    height: 90px;
+    padding: 0 40px;
+}
+.port-port_name{
+    float: left;
+    width: 200px;
+}
+.port-had-name{
+    width: 200px;
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    margin: 0;
+    padding-right: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.port-had-protocol{
+    width: 182px;
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    margin: 0;
+}
+.port-had-ip{
+    width: 180px;
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    margin: 0;
+}
+.port-had-Outside{
+    width: 171px;
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    margin: 0;
+    text-align: center;
+}
+.port-had-inside{
+    width: 171px;
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    margin: 0;
+    text-align: center;
+}
+.port-had-state{
+    width: 81px;
+    float: left;
+    margin: 0;
+    float: left;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+}
+.port-no-had-entry{
+    margin: 0;
+    padding: 28px 0 0 40px;
+}
+.port-radio-state{
+    font-size: 12px;
+}
+.port-radio-radio0{
+    overflow: hidden;
+}
+.port-radio-radio1{
+    overflow: hidden;
+    margin-top: 9px;
+}
+.port-radio-radio0 .port-radio-input0,.port-radio-radio1 .port-radio-input1{
+    margin: 0px 5px 0 0px;
+    display: block;
+    float: left;
+}
+.port-radio-input0,.port-radio-input1,.port-radio-text0,.port-radio-text1{
+    cursor:pointer;
+    font-weight: normal;
+}
+.top-port-name-width{
+    width: 200px;
+    float: left;
+    padding-top: 35px;
+}
+.port-name-width .form-input{
+    width: 160px;
+    padding: 0;
+}
+.port-name-width .label-danger{
+    padding: 0px;
+    text-align: left;
+    margin: 21px 0px 0px;
+    position: absolute;
+}
+.port-ip-width .label-danger{
+    padding: 0px;
+    text-align: left;
+    margin: 61px 0px 0px -148px;
+    position: absolute;
+}
+.top-port-protocol-width{
+    width: 182px;
+    float: left;
+    padding-top: 35px;
+}
+.port-protocol-width .dropdown-toggle,.port-protocol-width #list-ul{
+    width: 160px;
+    overflow-x: hidden; 
+}
+.top-port-ip-width{
+    width: 180px;
+    float: left;
+    padding-top: 35px;
+}
+.port-ip-width .ip-text-one{
+    margin-right: 6px;
+}
+.top-port-outside-width,.top-port-inside-width{
+    width: 171px;
+    float: left;
+    padding-top: 35px;
+}
+.port-outside-width .ip-assignment,.port-inside-width .ip-assignment{
+    margin-left: 20px;
+}
+.port-outside-width input,.port-inside-width input,.port-ip-width input{
+    width: 60px;
+}
+.port-outside-width .ip-text-two,.port-inside-width .ip-text-two{
+    width: 8px;
+}
+.port-outside-width .label-danger,.port-inside-width .label-danger{
+    padding: 0px;
+    position: absolute;
+    margin-top: 4px;
+    width: 171px;
+    margin-left: 0;
+}
+.port-value-tip{
+    clear: both;
+    color: #999999;
+    font-size: 12px;
+    margin: 3px 0 0;
+    text-align: center;
+    width: 128px;
+}
+.top-port-state-width{
+    width: 81px;
+    float: left;
+    padding-top: 38px
+}
+.port-state-width{
+    padding-left: 20px;
+}
+.panel-footer-port{
+    width: 171px;
+    float: left;
+    line-height: 106px;
+}
+.panel-footer-port-had{
+    width: 171px;
+    float: left;
+    line-height: 90px;
+}
+.panel-footer-port-had .btn-portEdit,.panel-footer-port .btn-portSave{
+    background: #007ad3;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin-left: 31px;
+}
+.panel-footer-port-had .btn-portDel,.panel-footer-port .btn-portCancel{
+    background: #f4f4f4;
+    color: #666666;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin-left: 20px;
+}
+.value-default-width .dropdown-toggle{
+    width: 160px;
+}
+.unable-opcity{ 
+    -webkit-opacity: 0.7;   
+    -moz-opacity: 0.7;    
+    -khtml-opacity: 0.7;  
+    opacity: 0.7;  
+    filter:alpha(opacity=70);  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";  
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70); 
+}
+.key-value{
+    margin: 0;
+    line-height: 40px;
+}
+.section-help-key{
+    color: #fb8200;
+    margin: 0;
+    line-height: 16px;
+}
+.section-help-value{
+    color: #333333;
+    margin: 0;
+    line-height: 16px;
+}
+.section-help-div{
+    margin: 10px 0;
+    font-size: 12px;
+}
+.section-help-content{
+    padding: 11px 20px;
+}
+#sectionitem_deviceAccSection{
+    padding: 0;
+}
+.acc-edit-png{
+    margin-left: 10px;
+    margin-top: 11px;
+    cursor: pointer;
+}
+.acc-input-name{
+    display: none;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    height: 40px;
+    margin: 20px 0 10px;
+    padding: 0 6px;
+    color: #555555;
+    line-height: 38px;
+    width: 200px;
+    font-size: 16px;
+}
+.acc-input-wrong{
+    display: none;
+    font-size: 14px;
+    color: #ff0101;
+}
+.mtu-default-value-tip{
+    margin-left: 10px;
+}
+/*colappsevalue*/
+.collapse-style{
+    height: 40px;
+    line-height: 40px;
+    padding: 6px 12px;
+    margin-left: 312px;
+    width: 114px;
+    float: left;
+}
+.collapse-style:hover{
+    cursor: pointer;
+}
+.hide-ssid-div .hide-ssid-checkbox{
+    float: left;
+    margin: 0;
+    cursor: pointer;
+}
+.hide-ssid-p{
+    margin: 0;
+    float: left;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.hide-ssid-div{
+    overflow: hidden;
+}
+.password-eye{
+    width: 26px;
+    height: 17px;
+    background: url("/newifi/icons/Settings_wifi_01.png") no-repeat 0px -17px;
+    position: absolute;
+    margin: -29px 0px 0px 224px;
+    cursor: pointer;
+}
+
+.password-form{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.password-form .has-error{
+    border: 1px solid #ff0000;
+}
+
+.password-input{
+    border: 0 none !important;
+    height: 36px;
+    width: 208px;
+    padding: 10px 0 6px 22px;
+    margin: 2px;
+}
+
+.password-control{
+    width: 260px;    
+    border: 1px solid #ccc;    
+    border-radius: 4px;
+}
+
+.label-danger{
+    margin-left: 20px;
+}
+.collapse-text{
+    float: left;
+    margin: 0;
+}
+.collapse-rrow{
+    width: 16px;
+    height: 8px;
+    background: url("/newifi/icons/Settings_wifi_02.png");
+    float: left;
+    margin: 3px 0px 0 10px;
+}
+.collapse-margin{
+    margin-left: 300px;
+}
+.checkbox-test{
+    font-size: 14px;
+    overflow: hidden;
+}
+.checkbox-test:hover{
+    cursor: pointer;
+}
+#dropdownMenu1{
+    font-size: 14px;
+    color: #555555;
+    text-align: left;
+    padding-left: 10px;
+    line-height: 38px;
+    overflow: hidden;
+}
+#dropdownMenu1:hover{
+    color: #555555;
+    background-color: #FFFFFF;
+}
+#list-ul{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 0px;
+    width: 260px;
+    padding: 0;
+    border: 1px solid #66AFE9;
+    overflow-y: auto;
+    max-height: 142px;
+}
+#list-ul li{
+    line-height: 20px;
+    font-size: 14px;
+}
+.list-span{
+    margin-left: 10px;
+    width: 96%;
+    display: block;
+}
+#list-ul li:hover{
+    cursor: pointer;
+    background: #007AD3;
+    color: #FFFFFF;
+}
+.save-state{
+    position: absolute;
+    margin: 10px -160px;
+}
+.list-btn{
+    float: right;
+    display: block;
+    width: 38px;
+    height: 38px;
+    background: #E8E8E8;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.newifi-btn{
+    display: inline-block;
+    padding: 0/*6px 12px*/;
+    margin-bottom: 0;
+    font-size: 18px/*14px*/;
+    font-weight: normal;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    color: #ffffff;
+    width: 200px;
+    height: 40px;
+}
+.pop-foot .btn-cancel{
+    width: 100px;
+    margin-left: 0px;
+}
+.pop-foot .btn-sure{
+    width: 100px;
+    margin-left: 66px;
+}
+.btn-unable{
+    background: #E8E8E8;
+}
+.btn-saving{
+    background: #0f91ff;
+}
+.btn-saveS{
+    background: #3fb350;
+}
+.btn-saveF{
+    background: #ffa800;
+}
+.btn-ready{
+    background: #007ad3;
+}
+.btn-green{
+    background: #3fb350;
+}
+.btn-ok{
+    color: #ffffff;
+    background: #007ad3;
+    width: 200px;
+    height: 40px;
+}
+.btn-green:hover{
+    background: #46cc5a;
+}
+.btn-ok:hover,.btn-sure:hover,.btn-ready:hover{
+    background-color: #0f91ff;
+}
+.btn-sure{
+    color: #ffffff;
+    background: #007ad3;
+    margin-left: 58px;
+    width: 66px;
+}
+.pop-foot .btn-sure-unable{
+    color: #ffffff;
+    background: #e8e8e8;
+    margin-left: 58px;
+    width: 66px;
+    width: 100px;
+    margin-left: 66px;
+}
+.btn-cancel{
+    background: #e8e8e8;
+    width: 66px;
+    color: #333;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn-local:hover{
+    color: #2ab679;
+}
+
+.btn-local .cbi-input-file{
+    font-size: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity:0;
+    filter:alpha(opacity=0);
+    cursor: pointer;    
+}
+.btn-local{
+    width: 140px;
+    height: 34px;    
+    line-height: 34px;
+    border: 1px solid #2ab679;
+    position: relative;
+    font-size: 16px;
+    color: #2ab679;
+    overflow: hidden;    
+}
+.list-img{
+    margin-left: 11px;
+}
+.switch-btn{
+    width: 50px;
+    height: 24px;
+    cursor: pointer;
+}
+.section-switch{
+    width: 50px;
+    height: 24px;
+    margin-left: 206px;
+    position: absolute;
+}
+.section-switch:hover{
+    cursor: pointer;
+}
+.section-new{
+    width: 16px;
+    height: 17px;
+    margin-right: 30px;
+    float: right;
+    background: url("/newifi/icons/Settings_Relay_02.png");
+    cursor: pointer;
+}
+.duSeHead{
+    overflow: hidden;
+    color: #007ad3;
+    background-color: #ffffff;
+    border-color: #dddddd;
+}
+.floatL{
+    float: left;
+}
+.dummy-panel-close{
+    padding: 30px 0 26px 40px;
+    overflow: hidden;
+    color: #333333;
+}
+.warn-png{
+    float: left;
+    display: block;
+    line-height: 34px;
+    margin-top: 2px;
+}
+.dummy-close-info{
+    margin-left: 216px;
+    overflow: hidden;
+}
+.dummy-close-content{
+    margin: 0 0 0 286px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #999;
+}
+.dummy-close-visitor{
+    margin: 0 0 0 286px;
+    line-height: 34px;
+    font-size: 16px;
+}
+.dummy-close-text{
+    float: left;
+    font-size: 18px;
+    margin: 0 0 0 40px;
+    line-height: 34px;
+}
+.form-input{
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.input-label{
+    text-align: right;
+    line-height: 40px;
+    color: #0079D3;
+}
+.input-out{
+    display: inline-block;
+}
+
+.value-default-width .form-input, .value-default-width .dropdown-toggle{
+    width: 260px;
+    display: inline-block;
+}
+.pop-dialog{
+    border-radius: 8px;
+    max-width: 426px;
+    padding: 0;
+}
+.pop-title{
+    background: #f7f7f7;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.title-line{
+    margin: auto;
+    line-height: 50px;
+    font-family: "Microsoft YaHei";
+    color: #999999;
+    font-size: 20px;
+    text-align: center;
+}
+.modal-close{
+    display: block;
+    position: absolute;
+    margin: -49px 383px;
+    width: 30px;
+    height: 30px;
+    background: url("/newifi/icons/Settings_supervise_03_02.png");
+}
+.modal-bar-out{
+    height: 30px;
+    padding-top: 15px;
+    overflow: hidden;
+}
+.modal-bar-moving{
+    width: 302px;
+    border: 1px #0f91ff solid;
+    height: 10px;
+    margin: 5px auto 0;
+    border-radius: 4px;
+}
+.modal-bar-gone{
+    width: 0px;
+    background: #0f91ff;
+    height: 8px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+
+}
+.modal-close:hover{
+    cursor: pointer;
+    background: url("/newifi/icons/Settings_supervise_03.png");
+}
+.textCenter-text{
+    margin: 0;
+}
+.progressBar{
+    border-radius: 4px;
+    width: 302px;
+    margin: 20px 61px 0;
+}
+.progressBaring{
+    border-radius: 4px;
+    width: 302px;
+    margin: 0px 61px 0;
+}
+.multi-close{
+    display: block;
+    height: 30px;
+    width: 30px;
+    background: url("/newifi/icons/Settings_supervise_03_02.png") no-repeat;
+}
+
+.multi-close:hover{
+    background: url("/newifi/icons/Settings_supervise_03.png");
+}
+
+.button-line{
+    padding: 0 0 33px;
+    overflow: hidden;
+    text-align: center;
+}
+.button-section{
+    padding: 30px 300px 30px;
+}
+.button-IP{
+    padding: 30px 300px 0;
+}
+.panel-title{
+    font-size: 20px;
+}
+.pop-body{
+    position: relative;
+    padding: 33px 0 33px;
+}
+.pop-body-content {
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+    padding: 0 40px;
+    margin: 0;
+    line-height: 34px;
+}
+.get-in{
+    width: 200px;
+    margin: auto;
+}
+.get-left{
+    margin: 10px 0 20px;
+    display: block;
+    border-radius: 2px;
+}
+.get-right{
+    width: 200px;
+    margin: 0;
+    border-radius: 2px;
+    border: 1px #8AC2EB solid;
+    height: 31px;
+    line-height: 30px;
+}
+.wds-lock{
+    background: url("/newifi/icons/Settings_Relay_04.png") 0px 0px;
+    width: 13px;
+    height: 14px;
+    float: left;
+    margin-top: 1px;
+}
+.wds-lock-hidden{
+    visibility: hidden;
+}
+.wds-wifi{
+    width: 21px;
+    height: 14px;
+    float: left;
+    margin: 0px 50px 0px 30px;
+}
+.wds-conecting{
+    display: block;
+    height: 16px;
+}
+.wds-content{
+    float: left;
+    margin: 0 70px 0 0;
+    line-height: 34px;
+    width: 200px;
+    overflow: hidden;
+}
+.wds-div{
+    overflow: hidden;
+    margin-left: 207px;
+    width: 660px;
+    padding: 0 20px;
+    line-height: 34px;
+    font-size: 18px;
+    color: #333333;
+    height: 34px;
+    margin-top: 10px;
+}
+.wds-img{
+    overflow: hidden;
+    padding-top: 10px;
+}
+.wds-div:hover{
+    background: #fafafa;
+    cursor: pointer;
+}
+.wds-novalue{
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin: 80px auto;
+}
+.wds-ncontent{
+    margin-top: 30px;
+    color: #666666;
+    font-size: 16px;
+}
+
+
+.wds-none{
+    font-size: 18px;
+    padding-top: 85px;
+    color: #333;
+}
+
+.wds-none img{
+    margin-bottom: 28px;
+}
+
+
+.pop-body-wds{
+    font-size: 18px;
+}
+
+.pop-body-wds p{
+    margin-bottom: 20px;
+}
+
+.wds-link{
+    color: #007ad3;
+}
+
+.display-none{
+    display: none;
+}
+.first-radio{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.second-radio{
+    float: left;
+    margin-left: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.radio-text{
+    margin-left: 5px;
+}
+.radio-style{
+    padding: 6px 0px;
+    margin-left: 300px;
+    float: left;
+    font-size: 14px;
+}
+.label-text{
+    font-size: 18px;
+    margin: 10px 0 10px 196px;
+    color: #333333;
+}
+.label-text-two{
+    margin-left: 15px;
+}
+.mac-tip{
+    position: absolute;
+    margin: -27px 0px 0 186px;
+    color: #999999;
+}
+.info-view{
+    margin-top: 10px;
+}
+.mac-margin{
+    margin-left: 290px;
+}
+.mac-now-manage{
+    font-size: 14px;
+    color: #999999;
+    margin-left: 20px;
+}
+#btn_mac_clone{
+    width: 100px;
+    background: #007ad3;
+}
+#btn_mac_recovery{
+    background: #007ad3;
+    width: 100px;
+    margin-left: 40px;
+}
+#btn_mac_recovery:hover,#btn_mac_clone:hover{
+    background: #0f91ff;
+}
+.warn-detail{
+    margin-left: 140px;
+}
+.line-left{
+    display: block;
+    float: left;
+    text-align: right;
+    width: 290px;
+    padding: 8px;
+    color: #007AD3;
+}
+.line-right{
+    display: block;
+    padding: 8px;
+    float: left;
+    color: #666666;
+}
+.high-section-footer{
+    padding: 30px 202px 55px;
+}
+.high-seting-content{
+    padding: 33px 212px 13px;
+    color: #333333;
+    list-style-type: none;
+}
+.sys-line-left{
+    display: block;
+    float: left;
+    text-align: right;
+    width: 95px;
+    padding: 8px 10px 8px 0px;
+    color: #0079D3;
+}
+.info-line{
+    overflow: hidden;
+}
+
+.local-father{
+    overflow: hidden;
+    float: left;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+.upgrade-father{
+    overflow: hidden;
+    float: left;
+    margin-top: 10px;
+}
+.version-png{
+    margin: -7px 5px 0;
+    position: absolute;
+}
+.version-now{
+    float: left;
+    color: #333333;
+}
+.version-new{
+    float: left;
+    margin-left: 40px;
+    color: #333333;
+}
+.upgrade-info{
+    overflow: hidden;
+    margin: 0px 0 0px 213px;
+    line-height: 34px;
+}
+.dummysection-foot{
+    padding: 10px 320px 30px;
+}
+.firmware_input{
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    background: green;
+    position:absolute;
+    z-index: 99;
+    width: 200px;
+    height: 40px;
+    opacity: 0;
+}
+.upload{
+    overflow: hidden;
+    position: absolute;
+    margin: -24px 0 0 634px;
+}
+.up-form{
+    position: absolute;
+    margin: -40px 0;
+    height: 40px;
+    width: 169px;
+    -webkit-opacity: 0;
+    /* Netscape and Older than Firefox 0.9 */
+    -moz-opacity: 0;
+    /* Safari 1.x (pre WebKit!) ��ʽkhtml�ں˵�Safari�����*/
+    -khtml-opacity: 0;
+    /* IE9 + etc...modern browsers */
+    opacity: 0;
+    /* IE 4-9 */
+    filter:alpha(opacity=0);
+    /*This works in IE 8 & 9 too*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+/*ingstyle model autored by yd*/
+.pop-body-ingstyle{
+    font-size: 18px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+}
+.pop-body-ingstyle .ingstyle-icon{
+    display: inline-block;
+    vertical-align: middle;
+}
+.ingstyle-text{
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.pop-body-ingstyle .icon-refresh{
+    width: 30px;
+    height: 25px;
+    background: url(/newifi/icons/ingStyle.gif) no-repeat;
+}
+
+.pop-body-ingstyle .icon-success{
+    width: 25px;
+    height: 25px;
+    background: url(/newifi/icons/icon-success.png) no-repeat;
+}
+
+
+.lineText-text{
+    margin: 0;
+    line-height: 33px;
+    font-size: 16px
+}
+.pop-body-lineText{
+    padding: 0 30px;
+    font-size: 18px;
+}
+.list-group-item{
+    border: none;
+}
+.section-overflow{
+    overflow: hidden;
+}
+.col-xs-3{
+    width: 290px;
+}
+.version-right{
+    color: #666666;
+    margin-left: 20px;
+}
+.version-left{
+    color: #007AD3;
+}
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px #F4F4F4 inset;
+}
+.no-heading{
+    /*border-bottom: 1px dashed transparent;*/
+    border-color: #dddddd;
+}
+.ip-enter-one,.ip-enter-two,.rent-enter{
+    width: 45px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    line-height: 37px;
+    display: block;
+    float: left;
+}
+.ip-text-one{
+    margin-right: 16px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    float: left;
+}
+.ip-text-two{
+    width: 30px;
+    font-weight: normal;
+    text-align: center;
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.lan-ip-width .form-input{
+    width: 220px;
+    display: inline-block;
+}
+.rent-text{
+    font-weight: normal;
+    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    float: left;
+}
+.rentTime-width .has-error, .ipAssignment-width .has-error{
+   display: inline-block !important;
+   vertical-align: middle;
+}
+.rentTime-width .label-danger, .ipAssignment-width .label-danger{
+    display: inline-block;    
+    position: static;
+}
+.dhcp-switch{
+    width: 50px;
+    height: 24px;
+    margin: 8px 0;
+}
+.dhcp-label{
+    width: 290px;
+    float: left;
+    padding: 0 10px 10px 10px;
+    margin: -8px 0;
+}
+.dhcpService-width{
+    overflow: auto;
+    float: left;
+    padding: 0 10px 10px 10px;
+    margin-top: -8px;
+}
+.table{
+    width:700px;
+    margin-left: 196px;
+}
+.wds-section{
+    min-height: 500px;
+}
+.system-li{
+    cursor: pointer;
+}
+.plugins-a{
+    font-size: 14px;
+    height: 30px;
+    float: left;
+    width: 100px;
+    text-align: center;
+    background: #007AD3;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 15px 0 15px 0px;
+    display: block;
+}
+.navbar-view .plugins-li > a{
+    padding: 0;
+}
+ul .plugins-first{
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin: 15px 0 15px 30px;
+}
+ul .plugins-active{
+    background: #ffffff;
+    color: #333333;
+}
+ul .plugins-last{
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.navbar-view .plugins-li > a:hover, .navbar-view .plugins-li > a:focus{
+    background: #ffffff;
+    color: #333333;
+    cursor: pointer;
+}
+.plugins-htm{
+    min-height: 600px;
+    background: #ffffff;
+    padding-top: 30px;
+    overflow: hidden;
+    position: relative;
+}
+.plugins-out{
+    float: left;
+    overflow: hidden;
+    width: 284px;
+    height: 140px;
+    border-radius: 4px;
+    border: 1px #E9E9E9 solid;
+    margin: 0 0px 20px 20px;
+}
+.plugins-f{
+    overflow: hidden;
+}
+.plugins-img{
+    width: 90px;
+    height: 90px;
+    margin: 25px 20px 25px 20px;
+    display: block;
+    float: left;
+}
+.plugins-right{
+    float: left;
+    margin-top: 25px;
+}
+.plugins-descr{
+    width: 140px;
+    overflow: hidden;
+    height: 32px;
+    word-wrap: break-word;
+    font-size: 12px;
+    color: #999999;
+    margin: 10px 0 19px 0;
+    line-height: 16px;
+}
+.plugins-title{
+    width: 140px;
+    overflow: hidden;
+    font-size: 16px;
+    color: #333333;
+    height: 16px;
+    margin: 0;
+}
+.plugins-guanf{
+    position: absolute;
+    display: block;
+    margin-top: 90px;
+}
+.plugins-isInstall-btn{
+    color: #ffffff;
+    background: #0f91ff;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: none;
+    position: absolute;
+    margin: -39px 0px 0 130px;
+}
+.plugins-not-latest{
+    color: #333333;
+    background: #e9f5ff;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: none;
+    position: absolute;
+    margin: -46px 0px 0 135px;
+}
+.plugins-out:hover{
+    cursor: pointer;
+    -webkit-box-shadow:0 0 10px rgba(204, 204, 204, .5);  
+    -moz-box-shadow:0 0 10px rgba(204, 204, 204, .5);  
+    box-shadow:0 0 10px rgba(204, 204, 204, .5); 
+}
+.plugins-out:hover .plugins-isInstall-btn{
+    display: block;
+}
+.plugins-out:hover .plugins-not-latest{
+    display: block;
+}
+.plugins-more{
+    clear: both;
+    background: #ffffff;
+    overflow: hidden;
+}
+.plugins-more-hs,.plugins-more-dis{
+    margin: 0 20px 20px 20px;
+    background: #f4f4f4;
+    height: 34px;
+    -moz-user-select:none;
+}
+.plugins-more-hs:hover{
+    cursor: pointer;
+    background: #e9e9e9
+}
+.plugins-more-text{
+    font-size: 18px;
+    color: #007AD3;
+    text-align: center;
+    line-height: 34px;
+}
+.plugins-ingtext{
+    line-height: 34px;
+    font-size: 18px;
+    color: #007AD3;
+}
+.plugins-ingstyle{
+    display: block;
+    float: left;
+    padding: 4px 20px 4px 0;
+}
+.plugins-more-loading{
+    overflow: hidden;
+    width: 136px;
+    margin: 0 auto;
+}
+.plugins-nostorage-desc{
+    margin: 0;
+    float: left;
+    line-height: 34px;
+    color: #333333;
+}
+.plugins-nostorage-restart{
+    margin: 0;
+    float: left;
+    line-height: 34px;
+    color: #007ad3;
+    cursor: pointer;
+}
+.plugins-install-nostorage{
+    height: 34px;
+    width: 440px;
+    margin: 0 auto 50px;
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+.plugins-local-upgrade{
+    color: #ffffff;
+    background: #3FB350;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    float: left;
+}
+.plugins-local-uninstall{
+    color: #333333;
+    background: #e9f5ff;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    float: right;
+    display: none;
+}
+.plugins-local-out{
+    width: 140px;
+    font-size: 14px;
+    position: absolute;
+    margin: -46px 0px 0 135px;    
+}
+.plugins-out:hover .plugins-local-uninstall{
+    display: block;
+}
+.plugins-allapp-img{
+    display: block;
+    margin: 25px auto;
+}
+.plugins-novalue{
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin: 100px auto;
+}
+.plugins-ncontent{
+    margin-top: 30px;
+    color: #666666;
+    font-size: 16px;
+}
+.plugins-restart{
+    color: #007AD3;
+    cursor: pointer;
+}
+.os-version-tip{
+    background: url("/newifi/icons/new_version.png");
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin: -39px 311px;
+    display: none;
+}
+.os-version-tip:hover{
+    cursor: pointer;
+    background: url("/newifi/icons/new_version.png") no-repeat -20px 0px;
+}
+.nav-arrow{
+    width: 14px;
+    height: 8px;
+    position: relative;
+    z-index: 22;
+    margin: 0 auto;
+    background: url("/newifi/icons/nav-arrow.png");
+}
+/*error msg authored by yd*/
+.error-msg{
+    position: relative;
+}
+
+.error-msg .error-text{
+    font-size: 14px;
+    color: #ff0000;
+    position: absolute;
+    left: 300px;
+    top: 5px;
+}
+
+.label-danger{
+    color: #ff0000;
+    font-weight: normal;
+}
+
+.has-error .luci2-field-validate{
+    border: 1px solid #ff0000;
+}
+
+/*widget-box authored by yd*/
+.widget-box{
+    margin: 0 87px;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.widget-box:first-child{
+    margin-top: 17px;
+}
+
+.widget-box .widget-title{
+    background-color: #f7f7f7;
+    font-size: 18px;
+    color: #333;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+}
+
+.widget-box .widget-body{
+    padding: 20px 0 20px;
+}
+
+.widget-box .widget-ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.widget-box .widget-ul li{
+    line-height: 34px;
+}
+
+.widget-box .widget-ul li label{
+    font-weight: normal;
+    display: inline-block;
+    width: 116px;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.widget-box .widget-ul li span{
+    display: inline-block;
+}
+
+.widget-box .widget-ul .ul-block{
+    margin-top: 22px;
+}
+
+.widget-box .widget-ul .ul-block:first-child{
+    margin-top: 0;
+}
+.widget-ssid{
+    display: inline-block;
+    width: 165px;
+    margin: 0 20px 0 10px;
+}
+
+/*wds model authored by yd*/
+.wds-model p{
+    font-size: 18px;
+    color: #333;
+}
+.wds-model .wds-password{
+    width: 260px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 6px 12px;
+    margin: 20px auto 0;
+    display: block;
+}
+
+/*plugin detail authored by yd*/
+.plugin-detail{    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    z-index: 1020;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.plugin-content{
+    width: 1236px;
+    margin: 90px auto 60px;
+    min-height: 600px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding-bottom: 30px;
+}
+
+.plugin-content .plugin-title{
+    height: 60px;
+    line-height: 60px;
+    background-color: #0f91ff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.plugin-info{
+    padding: 40px 50px;
+}
+
+.plugin-info-img{
+    display: inline-block;
+
+}
+
+.plugin-info-img img{
+    width: 120px;
+    height: 120px;
+}
+
+.plugin-info-content{
+    margin-left: 50px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.plugin-info-content p{
+    margin: 0 0 30px 0;
+}
+
+.plugin-info-title{
+    font-size: 18px;
+    color: #333;
+}
+
+.plugin-ul{
+    margin: 0;
+    padding-bottom: 14px;
+}
+
+.plugin-ul li{
+    padding: 0;
+    margin-right: 10px;
+}
+
+.plugin-ul li label{
+    font-weight: normal;
+    margin: 0;
+}
+
+.plugin-intro{
+    color: #ff4200;
+    text-decoration: underline;
+}
+
+.plugin-intro:hover{
+    color: #ff4200;
+}
+
+.plugin-operate{
+    margin-top: 15px;
+}
+
+.plugin-operate .newifi-btn{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 40px;
+}
+
+.plugin-operate .btn-update{
+    background-color: #3fb350;
+}
+
+.plugin-operate .btn-install{
+    background-color: #007ad3;
+}
+
+.plugin-operate .btn-uninstall{
+    background-color: #e9f5ff;
+    color: #333;
+}
+
+.plugin-set{
+    margin-top: 3px;
+}
+
+.plugin-set iframe{
+    border: 0 none;
+    width: 100%;
+}
+
+.plugin-set hr{
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.plugin-set .ul-tab{
+    margin: 0;
+    padding: 7px 0 7px 35px;
+}
+
+.plugin-set .ul-tab li a{
+    font-size: 20px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.plugin-set .ul-tab .active a{
+    color: #007AD3;
+}
+
+.plugin-set .ul-tab li{
+    border-left: 1px solid #007AD3;
+}
+
+.plugin-set .ul-tab li:first-child{
+    border-left: 0 none !important;
+}
+
+.plugin-set .app-info{
+    padding-left: 216px;
+    width: 936px;
+}
+
+.plugin-set .app-info p{
+    line-height: 34px;
+    margin-bottom: 34px;
+}
+
+.plugin-modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1010;
+    background-color: #333;
+    opacity: 0.25;
+    filter: alpha(opacity=25);
+}
+.plugin-pop-toggle-text{
+    display: none;
+    font-size: 14px;
+    text-align: left;
+}
+.plugin-title-menu{
+    float: left;
+    padding-left: 50px;
+}
+
+.plugin-title-menu span, .plugin-title-menu a{
+    color: #fff;
+    font-size: 18px;
+}
+
+.plugin-arrow-right{
+    background: url(/newifi/icons/arrow_right.png) no-repeat center center;
+    padding: 9px 15px;
+}
+
+.newifi-return{
+    font-size: 18px;
+    float: right;
+    background: url(/newifi/icons/arrow_left.png) no-repeat 0 center;
+    padding-left: 20px;
+    color: #fff !important;
+    margin-right: 30px;
+}
+
+.border-blue{
+    border-color: #007ad3;
+}
+
+.login-label{
+    font-weight: normal;
+}
+
+/*plugin local by yd*/
+.plugins-local{
+
+    width: 200px;
+    margin: 200px auto 0;
+
+    width: 170px;
+    margin: 89px auto 0;
+    text-align: center;
+}
+
+.plugins-local .local-title{
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.local-upload-btn{
+    width: 150px;
+    position: relative;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.plugin-local-form{
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.input-local{
+    font-size: 100px;
+    
+    display: block;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+
+}
+
+/*device limit by yd*/
+
+.limit-page{
+    min-height: 500px;
+}
+
+.limit-bar{
+    padding: 28px 40px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.limit-bar .limit-bar-title{
+    font-size: 20px;
+    color: #007ad3;
+    display: inline-block;
+    width: 260px;
+    vertical-align: middle;
+}
+
+.limit-bar .limit-switch{
+    display: inline-block;
+    background: url(/newifi/icons/Equipment_01_02.png) no-repeat 0 -100px;
+    height: 24px;
+    width: 50px;
+    vertical-align: middle;
+}
+
+.switch-on{
+    background-position: 0 -24px !important;
+}
+
+.switch-off{
+    background-position: 0 0 !important;
+}
+
+.limit-content{
+   padding-bottom: 30px;   
+}
+
+.limit-off{
+    width: 200px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.limit-off .limit-off-icon{
+    width: 200px;
+    height: 100px;
+    background: url(/newifi/icons/Settings_Relay_07.png) no-repeat center center;
+}
+
+.limit-off p{
+    font-size: 18px;
+    color: #333;
+    line-height: 34px;
+    margin-top: 20px;
+}
+
+.limit-content .limit-table th{
+    color: #007ad3;
+    font-weight: normal;
+    font-size: 18px;
+    height: 74px;
+    background-color: #F1F9FF;
+}
+.limit-table .limit-devices .limit-device-icon{
+    display: inline-block;
+    height: 40px;
+    width: 30px;
+    vertical-align: middle;
+}
+
+.limit-table tbody tr{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+
+.limit-devices{
+    height: 112px;
+}
+
+.limit-devices .icon-pc{
+    background: url(/newifi/icons/icon_pc.png) no-repeat;
+}
+
+.limit-devices .icon-phone{
+    background: url(/newifi/icons/icon_phone.png) no-repeat;
+}
+
+.limit-devices .icon-pad{
+    background: url(/newifi/icons/icon_pad.png) no-repeat;
+}
+
+.limit-devices .icon-unknown{
+    background: url(/newifi/icons/icon_unknown.png) no-repeat;
+}
+
+.limit-devices .limit-device-info{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.limit-device-info .info-type, .limit-info .limit-info-value, .limit-network .limit-network-value{
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+
+.limit-info .limit-info-title,.limit-network .limit-network-title{
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+.device-table th{
+    color: #007ad3;
+    font-weight: normal;
+    font-size: 18px;
+    height: 74px;
+    background-color: #F1F9FF;
+}
+
+
+.device-refresh {
+    display: inline-block;
+    width: 16px;
+    height: 17px;
+    background: url(/newifi/icons/Settings_Relay_02.png) no-repeat;
+    margin-left: 20px;
+}
+
+.device-section .device-icon{
+    display: inline-block;
+    height: 40px;
+    width: 30px;
+    vertical-align: middle;
+}
+
+.device-table tbody tr{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.limit-symbol{
+    padding-left: 20px;
+}
+
+.device-section{
+    height: 112px;
+}
+
+.device-section .icon-pc{
+    background: url(/newifi/icons/icon_pc.png) no-repeat;
+}
+
+.device-section .icon-phone{
+    background: url(/newifi/icons/icon_phone.png) no-repeat;
+}
+
+.device-section .icon-pad{
+    background: url(/newifi/icons/icon_pad.png) no-repeat;
+}
+
+.device-section .icon-unknown{
+    background: url(/newifi/icons/icon_unknown.png) no-repeat;
+}
+.device-section .icon-HUAWEI{
+    background: url(/newifi/icons/logo/huawei.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-DELL{
+    background: url(/newifi/icons/logo/dell.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-LENOVO{
+    background: url(/newifi/icons/logo/lenovo.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-SMARTISAN{
+    background: url(/newifi/icons/logo/smartisam.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-ZTE{
+    background: url(/newifi/icons/logo/zte.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-THINKPAD{
+    background: url(/newifi/icons/logo/thinkpad.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-XIAOMI{
+    background: url(/newifi/icons/logo/xiaomi.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-COOLPAD{
+    background: url(/newifi/icons/logo/coolpad.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-VIVO{
+    background: url(/newifi/icons/logo/vivo.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-MICROSOFT{
+    background: url(/newifi/icons/logo/microsoft.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-TCL{
+    background: url(/newifi/icons/logo/tcl.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-SONY{
+    background: url(/newifi/icons/logo/sony.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-ASUS{
+    background: url(/newifi/icons/logo/asus.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-OPPO{
+    background: url(/newifi/icons/logo/oppo.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-SAMSUNG{
+    background: url(/newifi/icons/logo/samsung.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-NOKIA{
+    background: url(/newifi/icons/logo/nokia.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-APPLE{
+    background: url(/newifi/icons/logo/apple.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-LG{
+    background: url(/newifi/icons/logo/lg.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-NUBIA{
+    background: url(/newifi/icons/logo/nubia.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-HTC{
+    background: url(/newifi/icons/logo/htc_htc.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-MEIZU{
+    background: url(/newifi/icons/logo/meizu.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-HP{
+    background: url(/newifi/icons/logo/hp.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-LESHI{
+    background: url(/newifi/icons/logo/leshi.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-ACER{
+    background: url(/newifi/icons/logo/acer.png) no-repeat;
+    margin-top: -10px;
+}
+.device-section .icon-public{
+    background: url(/newifi/icons/logo/public.png) no-repeat;
+    margin-top: -10px;
+}
+
+
+
+
+
+.limit-devices .icon-pc{
+    background: url(/newifi/icons/icon_pc.png) no-repeat;
+}
+
+.limit-devices .icon-phone{
+    background: url(/newifi/icons/icon_phone.png) no-repeat;
+}
+
+.limit-devices .icon-pad{
+    background: url(/newifi/icons/icon_pad.png) no-repeat;
+}
+
+.limit-devices .icon-unknown{
+    background: url(/newifi/icons/icon_unknown.png) no-repeat;
+}
+.limit-devices .icon-HUAWEI{
+    background: url(/newifi/icons/logo/huawei.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-DELL{
+    background: url(/newifi/icons/logo/dell.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-LENOVO{
+    background: url(/newifi/icons/logo/lenovo.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-SMARTISAN{
+    background: url(/newifi/icons/logo/smartisam.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-ZTE{
+    background: url(/newifi/icons/logo/zte.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-THINKPAD{
+    background: url(/newifi/icons/logo/thinkpad.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-XIAOMI{
+    background: url(/newifi/icons/logo/xiaomi.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-COOLPAD{
+    background: url(/newifi/icons/logo/coolpad.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-VIVO{
+    background: url(/newifi/icons/logo/vivo.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-MICROSOFT{
+    background: url(/newifi/icons/logo/microsoft.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-TCL{
+    background: url(/newifi/icons/logo/tcl.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-SONY{
+    background: url(/newifi/icons/logo/sony.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-ASUS{
+    background: url(/newifi/icons/logo/asus.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-OPPO{
+    background: url(/newifi/icons/logo/oppo.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-SAMSUNG{
+    background: url(/newifi/icons/logo/samsung.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-NOKIA{
+    background: url(/newifi/icons/logo/nokia.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-APPLE{
+    background: url(/newifi/icons/logo/apple.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-LG{
+    background: url(/newifi/icons/logo/lg.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-NUBIA{
+    background: url(/newifi/icons/logo/nubia.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-HTC{
+    background: url(/newifi/icons/logo/htc_htc.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-MEIZU{
+    background: url(/newifi/icons/logo/meizu.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-HP{
+    background: url(/newifi/icons/logo/hp.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-LESHI{
+    background: url(/newifi/icons/logo/leshi.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-ACER{
+    background: url(/newifi/icons/logo/acer.png) no-repeat;
+    margin-top: -10px;
+}
+.limit-devices .icon-public{
+    background: url(/newifi/icons/logo/public.png) no-repeat;
+    margin-top: -10px;
+}
+
+
+
+.device-section .device-info{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.device-info .info-title{
+    color: #333;
+    width: 200px;
+    height: 16px;
+    text-overflow: ellipsis;
+}
+
+.native-title-text{
+    display: block;
+    float: left;
+    max-width: 160px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.native-title-label{
+    margin-left: 10px;
+    color: #999;
+    font-size: 12px;
+    border-left: 1px solid #999;
+    padding-left: 5px;
+}
+
+.device-info .info-type, .device-net .device-net-value, .device-brand .device-brand-value{
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+
+.device-net .device-net-title,.device-brand .device-brand-title{
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.form-limit .group-limit{
+    display: inline-block;
+}
+
+.form-limit .group-limit:first-child{
+    margin-right: 20px;
+}
+
+.form-limit .group-limit label{
+    font-weight: normal;
+}
+
+.group-error .input-error{
+    border-color: #ff0000 !important;
+}
+
+.form-limit .group-limit .input-limit{
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+    margin: 0 4px;
+    border-color: #dedede;
+}
+
+.form-limit .group-limit .input-limit:focus{
+    border-color: #007ad3;
+    box-shadow: 0 none;
+}
+
+.limit-broadband{
+    position: relative;
+    text-align: center;
+}
+
+.group-limit{
+    position: relative;
+}
+
+.group-limit .limit-value{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+
+.limit-error{
+    position: absolute;
+    margin: 10px 0 0 40px;
+    display: block;
+    padding: 0;
+    font-size: 14px;
+}
+
+.limit-footer{
+    margin-top: 40px;
+    margin-left: 410px;
+}
+
+.limit-footer .btn-cancel{
+    width: 200px;
+}
+
+.limit-footer .newifi-btn{
+   margin-right: 40px; 
+}
+
+#btn_device_save, #btn_device_cancel{
+    display: none;
+}
+
+.limit-device-no{
+    border: 0 none !important;
+}
+
+.limit-device-no td{
+    padding-left: 50px;
+}
+
+.limit-measure{
+    padding: 30px 0px 50px 410px;    
+}
+
+.limit-measure-details{    
+    
+}
+
+.limit-measure-notice{  
+    margin-top: 15px; 
+    font-size: 14px;
+    color: #999;
+    background: url(/newifi/icons/notice_bulb.png) no-repeat;
+    padding: 5px 33px;
+}   
+
+.limit-measure-item{
+    font-size: 18px;
+    color: #333;    
+}
+
+.limit-measure-item:first-child{
+    margin-bottom: 25px;
+}
+
+.input-measure{
+    width: 60px;
+    color: #007ad3;
+    font-size: 18px;
+    text-align: center;
+    padding: 6px;
+    position: absolute;
+    top: -23px;
+    left: 16px;
+}
+
+.text-measure{
+    overflow: hidden;
+    white-space: nowrap;
+    color: #007ad3;
+}
+
+.limit-measure-operate{
+    margin-top: 40px;
+}
+
+.limit-measure-operate-btn{
+    margin-right: 40px;
+}
+
+.limit-measure-item-info{
+    display: inline-block;
+    width: 95px;
+    text-align: center;
+    position: relative;
+}
+
+.limit-measure-operate-set{
+    display: none;
+}
+
+.limit-measure-cancel{
+    width: 200px;
+}
+
+.limit-measure-operate-cancel:hover{
+    color: #333;
+}
+
+.limit-measure-operate-save{
+    color: #fff;
+}
+
+.limit-measure-operate-save:hover{
+    color: #fff;
+}
+
+.limit-measure-info{
+    padding-left: 93px;
+}
+
+
+.limit-measure-info-doing-icon{
+    display: inline-block;
+    height: 32px;
+    background: url(/newifi/icons/black.gif) no-repeat;
+    padding-right: 42px;
+    vertical-align: middle;
+}
+
+.measure-error{
+    display: none;
+}
+
+.group-error .measure-error{
+    display: inline-block;
+}
+
+/*dmz by yd*/
+/*dmz by yd*/
+.portdmz-dmz-part{
+    position: relative;
+}
+
+.dmz-title{
+    display: inline-block;
+
+}
+
+.dmz-switch{
+    display: inline-block;
+    vertical-align: middle;
+    background: url(/newifi/icons/Equipment_01_02.png) no-repeat 0 24px;
+}
+
+.dmz-content{
+    padding: 40px 30px 30px 0;
+}
+
+.dmz-off{
+    padding-left: 300px;
+}
+
+.dmz-off-line-1{
+    color: #333;
+    font-size: 18px;    
+}
+
+.dmz-off-line-2{
+    color: #999;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.dmz-off .dmz-off-img{
+    background: url(/newifi/icons/Settings_wifi_03.png) no-repeat 0 10px;
+    padding: 15px;
+    margin-right: 40px;
+    vertical-align: middle;
+}
+
+.dmz-icon{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 28px;
+    left: 140px;
+}
+
+.dmz-help-icon{
+    width: 22px;
+    height: 26px;
+    background: url(/newifi/icons/portdmz-help.png) no-repeat;
+    cursor: pointer;
+}
+
+.dmz-help-icon:hover{
+    background-position: -22px 0;
+}
+
+.dmz-help-arrow{
+    width: 15px;
+    height: 8px;
+    background: url(/newifi/icons/portdmz-arrow.png) no-repeat;
+    position: absolute;
+    left: 5px;
+    top: -7px;
+    z-index: 101;
+}
+
+.dmz-help-panel{
+    width: 380px;    
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    display: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 7px 2px #d7d7d7;
+    position: absolute;
+    top: 62px;
+    left: 140px;
+    z-index: 100;
+}
+
+
+
+.dmz-help-title{
+    height: 50px;
+    font-size: 14px;
+    color: #999;
+    padding: 17px 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.dmz-help-content{
+    padding: 0 20px 22px;
+}
+
+.dmz-help-text{
+    font-size: 12px;
+    margin-top: 22px;
+}
+
+.dmz-input{
+    width: 60px;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.dmz-status{
+    display: inline-block;
+    margin: 0;
+    line-height: 40px;
+}
+
+.dmz-line-height{
+    line-height: 40px;
+}
+
+.btn-dmz{
+    margin-left: -10px;
+}
+
+
+
+.macfilter-icon{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 28px;
+    left: 200px;
+}
+
+
+
+.dmz-help-panel{
+    width: 380px;    
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    display: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 7px 2px #d7d7d7;
+    position: absolute;
+    top: 62px;
+    left: 140px;
+    z-index: 100;
+}
+
+
+
+
+/*macfilter*/
+.mac-filter{
+    position: relative;
+}
+
+.macfilter-title{
+    display: inline-block;
+}
+
+.help-icon-macfilter{
+    left: 185px;
+}
+
+
+
+.mac-tabs{
+    height: 74px;
+    line-height: 74px;
+    padding-left: 42px;
+}
+
+.ul-mac li a{
+    padding-left: 22px;
+}
+
+.tabs-mac-online{
+    background: url(/newifi/icons/online.png) no-repeat;
+}
+
+.tabs-mac-offline{
+    background: url(/newifi/icons/offline.png) no-repeat;
+}
+
+.tabs-mac-blacklist{
+    background: url(/newifi/icons/blacklist.png) no-repeat;
+}
+
+.ul-mac li a:hover, .ul-mac li.active a{
+    background-position: 0 -18px;
+    color: #007AD3;
+}
+
+.mac-offline, .mac-blacklist{
+    display: none;
+}
+
+
+.macfilter-help-content{
+    padding: 0 20px 22px 15px;
+}
+
+.macfilter-help-text{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.macfilter-help-text label{
+    font-size: 12px;
+    color: #333333;
+    font-weight: normal;
+}
+
+.macfilter-help-text span{
+    line-height: 19px;
+}
+
+.macfilter-help-text .mac-filter-desc{
+    display: inline-flex;
+    width: 255px;
+}
+.macfilter-help-icon{
+    width: 22px;
+    height: 26px;
+    background: url(/newifi/icons/portdmz-help.png) no-repeat;
+    cursor: pointer;
+}
+
+.macfilter-help-icon:hover{
+    background-position: -22px 0;
+}
+
+
+.macfilter-help-title{
+    height: 50px;
+    font-size: 14px;
+    font-family:"Microsoft YaHei",微软雅黑;
+    color: #999999;
+    padding: 17px 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.macfilter-help-arrow{
+    width: 15px;
+    height: 8px;
+    background: url(/newifi/icons/portdmz-arrow.png) no-repeat;
+    position: absolute;
+    left: 5px;
+    top: -7px;
+    z-index: 101;
+}
+
+.macfilter-help-panel{
+    width: 380px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    display: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 7px 2px #d7d7d7;
+    position: absolute;
+    top: 62px;
+    left: 200px;
+    z-index: 100;
+}
+
+.macfilter-off{
+    padding-left: 300px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.macfilter-off-line-1{
+    color: #333;
+    font-size: 18px;    
+}
+
+.macfilter-off-line-2{
+    color: #999;
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.macfilter-off .macfilter-off-img{
+    background: url(/newifi/icons/Settings_wifi_03.png) no-repeat 0 10px;
+    padding: 15px;
+    margin-right: 40px;
+    vertical-align: middle;
+}
+
+.mac-btn{    background: #007ad3;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    }
+
+
+.mac-out-btn{
+     background: #007ad3;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.mac-input-btn{
+    background: #007ad3;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    margin-left:3px;
+}
+.add-btn{
+ background: #007ad3;
+
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.mac-filter-add{
+
+    width: 240px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 6px 12px;
+    margin-left: 10px;
+    display: block;
+    float: left;
+}
+.mac-tips{
+    display: block;
+    float: left;
+    margin: 10px 0 0 108px;
+    font-size: 15px;
+    position: absolute;
+    color: red;
+}
+.add-txt{
+    display: block;
+    float: left;
+    line-height: 40px;
+    color: #999999;
+    margin-left: 25px;
+
+}
+.mac-p-top{
+    margin-top: 35px;
+}
+
+.mac-input-miss{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #333;
+}
+.macfilter-help-text .help-icon{
+    width: 19px;
+    height: 19px;
+    background: url() no-repeat;
+}
+
+.plugins-out .plugins-isInstall-new{
+    width: 39px;
+    height: 39px;
+    /*background: red;*/
+    position: absolute;
+    background:url(/newifi/icons/new_mark.png) no-repeat;
+    margin: -3px 0px 0 246px;
+}
+
+.upload-icon{
+    width: 100px;
+    height: 100px;
+    background: url(/newifi/icons/upload.png) no-repeat;
+}
+
+ 
+/*
+.macfilter-help-content{
+    padding: 0 20px 22px;
+}
+
+.macfilter-help-text{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.macfilter-help-text span{
+    line-height: 19px;
+}
+
+.macfilter-help-text .mac-filter-desc{
+    display: inline-flex;
+    width: 290px;
+}
+.macfilter-help-icon{
+    width: 22px;
+    height: 26px;
+    background: url(/newifi/icons/portdmz-help.png) no-repeat;
+    cursor: pointer;
+}
+
+.macfilter-help-icon:hover{
+    background-position: -22px 0;
+}
+
+
+.macfilter-help-title{
+    height: 50px;
+    font-size: 14px;
+    color: #999;
+    padding: 17px 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.macfilter-help-icon{
+    width: 15px;
+    height: 8px;
+    background: url(/newifi/icons/portdmz-arrow.png) no-repeat;
+    position: absolute;
+    left: 5px;
+    top: -7px;
+    z-index: 101;
+}
+
+.macfilter-help-panel{
+    width: 420px;    
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    display: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 7px 2px #d7d7d7;
+    position: absolute;
+    top: 62px;
+    left: 200px;
+    z-index: 100;
+}
+*/
+
+
+/*mac绑定  start*/
+
+
+.macbind-icon{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 28px;
+    left: 220px;
+}
+
+
+
+
+
+
+/*macbind*/
+.mac-bind{
+    position: relative;
+}
+
+.macbind-title{
+    display: inline-block;
+}
+
+.help-icon-macbind{
+    left: 185px;
+}
+
+
+
+.macbind-help-content{
+    padding: 0 20px 22px 15px;
+}
+
+.macbind-help-text{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.macbind-help-text label{
+    font-size: 12px;
+    color: #333333;
+    font-weight: normal;
+    display: inline-flex;
+    width: 310px;
+    line-height: 20px;
+}
+
+.macbind-help-text span{
+    line-height: 19px;
+}
+
+.macbind-help-text .mac-bind-desc{
+    display: inline-flex;
+    width: 275px;
+}
+.macbind-help-icon{
+    width: 22px;
+    height: 26px;
+    background: url(/newifi/icons/portdmz-help.png) no-repeat;
+    cursor: pointer;
+}
+
+.macbind-help-icon:hover{
+    background-position: -22px 0;
+}
+
+
+.macbind-help-title{
+    height: 50px;
+    font-size: 14px;
+    font-family:"Microsoft YaHei",微软雅黑;
+    color: #999999;
+    padding: 17px 0;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.macbind-help-arrow{
+    width: 15px;
+    height: 8px;
+    background: url(/newifi/icons/portdmz-arrow.png) no-repeat;
+    position: absolute;
+    left: 5px;
+    top: -7px;
+    z-index: 101;
+}
+
+.macbind-help-panel{
+    width: 380px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    display: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 7px 2px #d7d7d7;
+    position: absolute;
+    top: 62px;
+    left: 218px;
+    z-index: 100;
+}
+
+
+.mac-tips{
+    display: block;
+    float: left;
+    margin: 10px 0 0 108px;
+    font-size: 15px;
+    position: absolute;
+    color: red;
+}
+
+.macbind-help-text .help-icon{
+    width: 19px;
+    height: 19px;
+    background: url() no-repeat;
+}
+
+
+
+/*mac绑定  end*/

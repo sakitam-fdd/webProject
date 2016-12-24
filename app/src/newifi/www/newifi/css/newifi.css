@@ -1,0 +1,462 @@
+body{
+	font-family: Arial,Helvetica, "Microsoft YaHei";
+	color: #666;
+}
+
+img, img:hover, a:hover{
+	border: 0 none;
+}
+a{
+	outline: none !important;
+	cursor: pointer;
+}
+
+button{
+	outline: none;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.fade.in {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.progress {
+	display: inline-block;
+	position: relative;
+	max-width: 250px;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.progress-bar {
+	z-index: 1;
+	position: absolute;
+}
+
+.progress small {
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	color: black;
+	text-align: center;
+	width: 100%;
+}
+
+.nav.nav-tabs {
+	margin-bottom: 15px;
+}
+
+.luci2-modal-loader {
+	background: #FFFFFF url(/luci2/icons/loading.gif) no-repeat 10px center;
+	text-align: center;
+}
+
+.luci2-section-header {
+	position: relative;
+}
+
+.luci2-section-header .badge {
+	position: absolute;
+	left: -11px;
+	top: -7px;
+	background-color: #D9534F;
+}
+
+.nav-tabs li a .badge {
+	background-color: #D9534F;
+}
+
+.nav-tabs li.active a .badge {
+	display: none;
+}
+
+.list-group-item .luci2-section-header > .btn-group {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	z-index: 10;
+	box-shadow: -5px 0 5px 10px #FFFFFF;
+	display: none;
+}
+
+.list-group-item:hover .luci2-section-header > .btn-group {
+	display: inline-block;
+}
+
+.luci2-section-teaser {
+	font-size: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	margin-bottom: 0 !important;
+}
+
+.panel > .list-group > .list-group-item:first-child {
+	border-top: none;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	margin-top: 15px;
+}
+
+.panel > .panel-body + .list-group > .list-group-item:first-child {
+	border-top: 1px solid #DDDDDD;
+	/*border-top-left-radius: 0;*/
+	/*border-top-right-radius: 0;*/
+}
+
+.row.condensed {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.row.condensed > div {
+	padding: 0 1px 0 0;
+}
+
+.row.condensed > div:last-child {
+	padding-right: 0;
+}
+
+table.table td .btn-group {
+	white-space: nowrap;
+}
+
+table.table td .btn-group > .btn {
+	float: none;
+}
+
+pre.uci-changes {
+	margin: 3px 0;
+}
+
+pre.uci-changes ins {
+	text-decoration: none;
+	color: #008000;
+}
+
+pre.uci-changes del {
+	text-decoration: none;
+	color: #800000;
+}
+
+.ifacebox {
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.ifacebox-head {
+	border-bottom: 1px solid #DDDDDD;
+	padding: 0 3px;
+}
+
+.traffic-chart {
+	position: relative;
+}
+
+.traffic-chart label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	font-size: 80%;
+	font-weight: normal;
+}
+
+.badge input[type=text] {
+	border: none;
+	border-radius: 3px;
+	padding: 1px 3px;
+}
+
+.luci2-grid {
+	margin-bottom: 20px;
+}
+
+.luci2-grid > .row {
+	border-top: 1px solid #e5e5e5;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.luci2-grid > .row:last-child {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.luci2-grid > .row > .cell {
+	padding-top: 5px;
+	padding-bottom: 5px;
+    display: inline-block !important;
+    vertical-align: middle;
+    float: none;
+}
+
+.luci2-grid > .row > .cell.nowrap {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.luci2-grid > .row > .cell.caption {
+	font-weight: bold;
+}
+
+.luci2-grid-condensed {
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+
+.luci2-grid-condensed > .row > .cell {
+	padding: 5px 3px;
+	vertical-align: top;
+}
+
+.luci2-grid-hover > .row:hover {
+	background-color: #f5f5f5;
+}
+
+.luci2-grid > .row > .cell > .btn-group {
+	white-space: nowrap;
+}
+
+.luci2-grid > .row > .cell > .btn-group > .btn {
+	float: none;
+}
+
+@media (max-width: 767px) {
+	
+	.badge {
+		padding: 2px 4px;
+	}	
+	.luci2-grid > .row > .cell.hidden-xs,
+	.luci2-grid > .row > .cell.hidden-sm.hidden-xs,
+	.luci2-grid > .row > .cell.hidden-md.hidden-xs,
+	.luci2-grid > .row > .cell.hidden-lg.hidden-xs { display: none !important; }
+	.luci2-grid > .row > .cell { padding: 5px; }
+	.luci2-grid-condensed > .row > .cell {
+		vertical-align: middle;
+		padding: 5px 10px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.luci2-grid > .row > .cell.hidden-xs.hidden-sm,
+	.luci2-grid > .row > .cell.hidden-sm,
+	.luci2-grid > .row > .cell.hidden-md.hidden-sm,
+	.luci2-grid > .row > .cell.hidden-lg.hidden-sm { display: none !important; }
+	.luci2-grid > .row > .cell { padding: 5px; }
+	.luci2-grid-condensed > .row > .cell > .btn-group > .btn {
+		padding: 6px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.luci2-grid > .row > .cell.hidden-xs.hidden-md,
+	.luci2-grid > .row > .cell.hidden-sm.hidden-md,
+	.luci2-grid > .row > .cell.hidden-md,
+	.luci2-grid > .row > .cell.hidden-lg.hidden-md { display: none !important; }
+}
+@media (min-width: 1200px) {
+	.luci2-grid > .row > .cell.hidden-xs.hidden-lg,
+	.luci2-grid > .row > .cell.hidden-sm.hidden-lg,
+	.luci2-grid > .row > .cell.hidden-md.hidden-lg,
+	.luci2-grid > .row > .cell.hidden-lg { display: none !important; }
+} 
+
+/*page-header*/
+.page-head .head-ul{
+	margin: 8px 0;
+}
+
+/*navigation*/
+#mainmenu{
+	height: 100px;
+}
+
+#mainmenu ul{
+	height: 100%;
+	margin: 0;
+}
+
+#mainmenu .navbar-icon {
+    width: 40px;
+    height: 40px;
+}
+
+#mainmenu .navbar-nav li{
+	float: left;
+	width: 247px;
+	height: 100%;
+}
+
+#mainmenu .navbar-nav li a{
+	width: 120px;
+	margin: 0 auto -1px;
+	padding: 16px 0 10px;
+}
+
+#mainmenu .nav-item{
+	text-align: center;	
+}
+
+#mainmenu .nav-item:hover{
+	border-bottom: 1px solid #007ad3;
+}
+
+#mainmenu .nav-item .nav-icon{
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+	background: url("/newifi/icons/navbar.png") no-repeat;
+}
+
+#mainmenu .nav-item:hover .nav-icon{
+	background: url("/newifi/icons/navbar.png") no-repeat;
+}
+
+#mainmenu .nav-item .nav-text{
+	font-weight: normal;
+	line-height: 34px;
+}
+
+#mainmenu .nav-item:hover .item0{
+	background-position: 0px -40px !important;
+}
+
+#mainmenu .nav-item:hover .item1{
+	background-position: -40px -40px !important;
+}
+
+#mainmenu .nav-item:hover .item2{
+	background-position: -80px -40px !important;
+}
+
+#mainmenu .nav-item:hover .item3{
+	background-position: -120px -40px !important;
+}
+
+#mainmenu .nav-item:hover .item4{
+	background-position: -160px -40px !important;
+}
+
+.item0{
+	background-position: 0px 0px !important;
+}
+
+.item1{
+	background-position: -40px 0px !important;
+}
+
+.item2{
+	background-position: -80px 0px !important;
+}
+
+.item3{
+	background-position: -120px 0px !important;
+}
+
+.item4{
+	background-position: -160px 0px !important;
+}
+
+.item-active .item0{
+	background-position: 0px -40px !important;
+}
+
+.item-active .item1{
+	background-position: -40px -40px !important;
+}
+
+.item-active .item2{
+	background-position: -80px -40px !important;
+}
+
+.item-active .item3{
+	background-position: -120px -40px !important;
+}
+
+.item-active .item4{
+	background-position: -160px -40px !important;
+}
+
+.item-active a{
+	border-bottom: 1px solid #007ad3;
+}
+
+.item-active .nav-text, .nav-item:hover .nav-text{
+	color: #007ad3;
+}
+
+/*no-responsive*/
+.navbar{
+	width: 100%;
+	min-width: 1236px !important;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.container {
+	width: 1236px;
+	min-width: 1236px !important;
+	border: 0 none;
+}
+
+.navbar-header {
+	float: left;
+}
+
+.navbar-text{
+	margin-right: 30px;
+	margin-left: 0;
+	font-size: 14px;
+    position: relative;
+}
+
+.navbar-link{
+	opacity: 0.7;
+    filter:alpha(opacity=70);
+}
+
+.navbar-text:hover .navbar-link{
+	opacity: 1;
+    filter:alpha(opacity=100);
+}
+
+.navbar-text .navbar-dot{
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	top: -4px;
+	left: 11px;
+	z-index: 100;
+}
+
+.navbar-dot-show{
+	background: url(/newifi/icons/new_dot.png) no-repeat 0 0;
+}
+
+.navbar-text1 img{
+	margin-right: 10px;
+}
+
+input{
+	outline: none;
+}
+
+input:focus{
+	border-color: #007ad3;
+}
+
+#maincontent{
+	background-color: #fff;
+}
+
+.col-sm-offset-3{
+	margin-left: 25%;
+}
+
+.form-control:focus{
+	box-shadow: none;
+}

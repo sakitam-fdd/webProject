@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.base64.js"></script>
+<script src="js/common.js"></script>
+<title>开始配置</title>
+</head>
+<body>
+<div id="wrap" class="wrap">
+	<img class="logo" src="images/logo.png">
+
+	<p class="title">欢迎体验newifi新路由</p>
+
+	<img id="initalize-img" class="img">
+
+	<div id="initalize-protocol" class="initalize-protocol clearfix">
+		<div class="checkbox-wrap">
+			<input id="initalize-protocol-checkbox" class="checkbox-input" type="checkbox">
+			<label for="initalize-protocol-checkbox" class="checkbox-label"></label>
+		</div>
+		<p class="text initalize-protocol-text">同意《<a class="link" href="protocol.html">newifi新路由用户协议</a>》</p>
+	</div>
+
+	<button id="check-btn" class="btn image-btn">开始配置</button>
+
+	<p id="error-message" class="error-message"></p>
+
+	<button id="qrcode-btn" class="qrcode-btn">
+		<img class="qrcode-btn-icon" src="images/icon-qrcode.png">
+		<span class="qrcode-btn-text">下载手机APP</span>
+	</button>
+	<img id="qrcode" class="qrcode" src="images/qrcode.png">
+</div>
+
+<p class="copyright">Copyright © 2015-2016 丨 服务咨询service2@xcloud.cc</p>
+
+<input id="page" type="hidden" value="initalize">
+</body>
+</html>

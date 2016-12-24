@@ -1,0 +1,103 @@
+<div class="portdmz-htm">
+	<div class="portdmz-port-part">
+		<div class="panel-heading duSeHead">
+			<div class="port-title-left">
+				<h3 class="panel-title floatL"><%:portdmz-port-title%></h3>
+				<div class="port-help-icon">
+				<div class="port-help-content">
+					<img class="port-help-arrow" src="/newifi/icons/portdmz-arrow.png">
+					<p class="port-help-title"><%:portdmz-port-help-title%></p>
+					<div class="port-help-text">
+						<p class="port-help-row0">
+							<span class="port-row0-left" style="color: #FA8100;font-weight:600;"><%:portdmz-port-title0%>：</span>
+							<span class="port-row0-right"><%:portdmz-port-title0Explain%></span>
+						</p>
+						<p class="port-help-row1">
+							<span class="port-row1-left" style="color: #FA8100;font-weight:600;"><%:portdmz-port-title1%>：</span>
+							<span class="port-row1-right"><%:portdmz-port-title1Explain%></span>
+						</p>
+						<p class="port-help-row2">
+							<span class="port-row2-left" style="color: #FA8100;font-weight:600;"><%:portdmz-port-title2%>：</span>
+							<span class="port-row2-right"><%:portdmz-port-title2Explain%></span>
+						</p>
+						<p class="port-help-row3">
+							<span class="port-row3-left" style="color: #FA8100;font-weight:600;"><%:portdmz-port-title3%>：</span>
+							<span class="port-row3-right"><%:portdmz-port-title3Explain%></span>
+						</p>
+						<p class="port-help-row4">
+							<span class="port-row4-left" style="color: #FA8100;font-weight:600;"><%:portdmz-port-title4%>：</span>
+							<span class="port-row4-right"><%:portdmz-port-title4Explain%></span>
+						</p>
+						<p class="port-help-row5">
+							<span class="port-row5-left" style="color: #FA8100;font-weight:600;"><%:portdmz-port-title5%>：</span>
+							<span class="port-row5-right"><%:portdmz-port-title5Explain%></span>
+						</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="port-title-right" id="port_addNewEntery"  onselectstart="return false;" style="-moz-user-select:none;">
+				<div class="port-add-icon"></div>
+				<span class="port-add-text"><%:portdmz-port-add%></span>
+			</div>
+		</div>
+		<div class="port-titlerow">
+			<span class="port-info-title0"><%:portdmz-port-title0%></span>
+			<span class="port-info-title1"><%:portdmz-port-title1%></span>
+			<span class="port-info-title2"><%:portdmz-port-title2%></span>
+			<span class="port-info-title3"><%:portdmz-port-title3%></span>
+			<span class="port-info-title4"><%:portdmz-port-title4%></span>
+			<span class="port-info-title5"><%:portdmz-port-title5%></span>
+			<span class="port-info-title6"><%:portdmz-port-title6%></span>
+		</div>
+		<div class="port-inforow" id="portdmz_port"></div>
+	</div>
+	<div class="portdmz-dmz-part" id="portdmz_dmz">
+		<div class="dmz-icon">
+			<div class="dmz-help-icon"></div>
+		</div>				
+		<div class="dmz-help-panel">
+			<div class="dmz-help-arrow"></div>
+			<div class="dmz-help-title"><%:dmz-help%></div>
+			<div class="dmz-help-content">
+				<p class="dmz-help-text"><%:dmz-help-text-one%></p>
+				<p class="dmz-help-text"><%:dmz-help-text-two%></p>
+			</div>
+		</div>
+		<div class="dmz-panel panel-heading duSeHead">
+			<h3 class="panel-title dmz-title"><%:dmz-title%></h3>
+			<div id="dmz_switch" class="section-switch dmz-switch"></div>			
+		</div>
+		<div class="dmz-content">
+			<div class="dmz-off">
+				<p class="dmz-off-line-1"><span class="dmz-off-img"></span><%:dmz-off%></p>
+				<p class="dmz-off-line-2"><%:dmz-off-info%></p>
+			</div>
+			<div class="dmz-on" style="display: none;">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-xs-3 control-label input-label login-label"><%:dmz-host-ip%></label>
+						<div class="col-xs-8 dmz-line-height">
+							<span id="dmz_ip_pre"></span>
+							<input class="form-input dmz-input luci2-field-validate" maxlength = '3' />
+							<div class="label label-danger dmz-error" style="display: none;">
+																
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-3 control-label input-label login-label"><%:status%>:</label>
+						<div class="col-xs-8">
+							<p class="dmz-status"></p>
+						</div>
+					</div>
+					<div class="form-group">					
+						<div class="col-xs-8 col-sm-offset-3">
+							<button id="dmz_btn" class="btn-dmz newifi-btn btn-ready"><%:action%></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>

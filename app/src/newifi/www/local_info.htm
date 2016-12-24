@@ -1,0 +1,137 @@
+ id="body">
+<style>
+        .clearfix:after{
+            display: block;
+            height: 0;
+            clear: both;
+            content: ".";
+            visibility: hidden;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .info{
+            width: 360px;
+            height: 110px;
+            margin: 0 auto;
+            background: #33c9fd url('/luci-static/resources/device.png') 220px -5px no-repeat;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            color: #ffffff;
+        }
+        .info .title-close{}
+        .info .title-close .title{
+            height: 23px;
+            float: left;
+            padding: 5px 0 0 129px;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 23px;
+            text-align: center;
+        }
+        .info .title-close .close{
+            width: 28px;
+            height: 28px;
+            float: right;
+            background: url('/luci-static/resources/delete.png') 8px 6px no-repeat;
+            cursor: pointer;
+        }
+        .info .content{
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        .info .content ul{
+            padding-left: 0px;
+            list-style-type: none;
+        }
+        .info .content ul li{
+            padding-left: 34px;
+            line-height: 26px;
+        }
+        .info .content .value{
+            font-size: 18px;
+            font-family: Arial;
+        }
+    </style>
+    <div class="info">
+        <div class="title-close clearfix">
+  		<div class="title">JD智能路由器</div>
+            <!-- <div class="close"></div> -->
+        </div>
+        <div class="content">
+            <ul>
+		  	  <li>当前下载速度: <span id="rate" class="value"></span></li>
+		  	  <li>链接设备数量: <span id="num" class="value"></span></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="/luci-static/resources/jquery-1.8.2.min.js"></script>
+    <script>
+        var rate_timer;
+        var num_timer;
+        var hash_timer;
+        function get_device_num()
+        {
+            var data = '{"jsonrpc":"2.0","id":1,"method":"call","params":["00000000000000000000000000000000","xapi.basic","get_count_of_current_device",{}]}';
+            $.ajax({
+                url:'http://xyun.co/ubus',
+                data:data,
+                dataType:'json',
+                type:'POST',
+                timeout:10000,
+                success:function(r){
+                    var res = r.result;
+                    $('#num').html(res[1].count);
+                },
+                error:function(r){
+                }
+            })
+        }
+        function get_wan_statistics()
+        {
+            var data = '{"jsonrpc":"2.0","id":1,"method":"call","params":["00000000000000000000000000000000","xapi.basic","get_wan_rate",{}]}';
+            $.ajax({
+                url:'http://xyun.co/ubus',
+                data:data,
+                dataType:'json',
+                type:'POST',
+                timeout:10000,
+                success:function(r){
+                    var res = r.result;
+                    var real_rate = res[1].down_rate;
+                    var new_str = '';
+                    if(real_rate > 1024*1024)
+                        new_str = parseInt(real_rate/(1024*1024))+' MB/s';
+                    else if(real_rate > 1024)
+                        new_str = parseInt(real_rate/(1024))+' KB/s';
+                    else
+                        new_str = real_rate+' B/s';
+                    $('#rate').html(new_str);
+                },
+                error:function(r){
+                }
+            })
+        }
+        function get_info()
+        {
+            rate_timer = setInterval(function(){
+                get_wan_statistics();
+            },1000);
+            num_timer = setInterval(function(){
+                get_device_num();
+            },3000);
+            hash_timer = setInterval(function () {
+                checkHash();
+            }, 1000);
+        }
+        function checkHash () {
+            if (location.hash == "#close") {
+                clearInterval(rate_timer);
+                clearInterval(num_timer);
+                clearInterval(hash_timer);
+            }
+        }
+        get_wan_statistics();
+        get_device_num();
+        get_info();
+    </script>

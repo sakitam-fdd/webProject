@@ -1,0 +1,321 @@
+/* *********
+ *    author:yd
+ *    version:1.0.2
+ *    date:2016-03-31
+ *    file:status.css
+ ********* */
+.status-page{
+	background-color: #fff;
+}
+
+.status-bar{
+	background-color: #0093ff;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+	padding: 40px 182px 30px;
+}
+
+.status-bar .status-content .status-bar-device{
+	width: 114px;
+	text-align: center;
+	color: #c2deff;
+	margin-top: 72px;
+	padding-top: 116px;	
+}
+
+.status-bar .status-content .status-bar-device:hover{
+	background-position: 0 0;
+}
+
+.status-bar .status-content .status-wan{
+	
+	background: url(/newifi/icons/status_wan.png) no-repeat -114px 0; 
+}
+
+.status-bar .status-content .status-link{
+	height: 41px;
+	width: 120px;
+	margin: 104px 40px 0;
+	position: relative;
+}
+
+.status-bar .status-content .status-link .link-line{
+	height: 3px;
+	background-color: #66beff;
+	margin-top: 19px;
+}
+
+.status-bar .status-content .status-link .link-icon{
+	width: 41px;
+	height: 41px;
+	position: absolute;
+	top: 0;
+	left: 39px;
+	z-index: 2;
+	background: url(/newifi/icons/status_icon.png) no-repeat -41px -41px;
+}
+
+.status-bar .status-content .status-link .link-icon-os{
+	background-position: 0 0;
+}
+
+.status-bar .status-content .status-os{
+	width: 202px;
+	height: 202px;
+	margin: 0 20px;
+}
+
+.status-os-y1{
+	background: url(/newifi/icons/status_y1.png) no-repeat;
+}
+
+.status-os-y1s{
+	background: url(/newifi/icons/status_y1s.png) no-repeat;
+}
+
+.status-os-d1{
+	background: url(/newifi/icons/status_d1.png) no-repeat;
+}
+
+.status-os-d2{
+	background: url(/newifi/icons/status_d2.png) no-repeat;
+}
+
+.status-bar .status-content .status-pc{	
+	background: url(/newifi/icons/status_pc.png) no-repeat -114px 0;
+}
+
+.pc-num{	
+	padding: 2px 5px;
+	border-radius: 6px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #007ad3;
+}
+
+.status-bar .status-content .status-info{
+	width: 350px;
+	height: 30px;
+	line-height: 30px;
+	background: url(/newifi/icons/status_info.png) no-repeat;
+	margin: 27px auto 0;
+	color: #fff;
+	font-size: 14px;
+	padding: 0 20px;
+}
+
+.status-bar .status-content .status-info label{
+	font-weight: normal;
+	margin-bottom: 0;
+	display: inline !important;
+	color: #b3d7f2;
+}
+
+.status-charts{
+	margin-top: 30px;
+}
+
+.status-charts .chart-title{
+	height: 34px;
+	line-height: 34px;
+	font-size: 20px;
+	color: #333;
+	padding: 0 20px 0 30px;
+}
+
+.status-charts .chart-net{
+	width: 616px;
+	border-right: 1px solid #e8e8e8;
+	padding-bottom: 30px;
+}
+
+.cur-net-info{font-size: 13px;}
+
+.status-charts .chart-net .net-legend{
+	font-size: 14px;
+}
+.status-charts .chart-net .net-legend span{
+	background-color: #007ad3;
+	height: 11px;
+	width: 15px;
+	display: inline-block;
+	border-radius: 3px;
+	margin-right: 5px;
+}
+
+.status-charts .chart-net .chart-content{
+	padding: 20px 30px 0;
+}
+
+.status-charts .chart-net .net-panel{
+	width: 500px;
+	height: 75px;
+	margin: 30px auto 0;
+	border: 1px solid #e8e8e8;
+}
+
+.status-charts .chart-net .net-panel .net-line{
+	border-right: 1px solid #e8e8e8;	
+}
+
+.status-charts .chart-net .net-panel .net-block{
+	width: 123px;
+	text-align: center;
+	float: left;
+	height: 75px;
+	padding: 15px 0;
+}
+
+.net-panel .net-block .net-desc{
+	font-size: 14px;
+	color: #666;
+}
+
+.net-panel .net-block .net-up span{
+	font-size: 20px;
+	color: #29cc4c;
+}
+
+.net-panel .net-block .net-down span{
+	font-size: 20px;
+	color: #007ad3;
+}
+
+.status-charts .chart-storage{
+	width: 618px;
+	padding-bottom: 30px;
+}
+
+.status-charts .chart-storage .storage-no{
+	text-align: center;
+	padding-top: 70px;
+}
+
+.status-charts .chart-storage .storage-no p{
+	margin-top: 23px;
+}
+
+.status-help-value{
+	font-size: 12px;
+	line-height: 18px;
+	margin: 5px 0;
+}
+
+.storage-list .chart-content{
+	width: 538px;
+	text-align: center;
+	padding-top: 35px;
+	position: relative;
+}
+
+.storage-list .chart-content .storage-pie{	
+	margin: 0 auto;
+}
+
+.storage-list .chart-content .storage-dot{
+	height: 30px;
+	width: 30px;
+	background: url(/newifi/icons/storage_dot.png) no-repeat;
+	position: absolute;
+	left: 255px;
+	top: 140px;
+	z-index: 9;
+}
+
+.storage-list .chart-content .storage-info .storage-title{
+	height: 34px;
+	line-height: 34px;
+	color: #333;	
+	margin-bottom: 0;
+}
+
+.storage-list .chart-content .storage-info .storage-status{
+	font-size: 10px;
+	color: #fff;
+	padding: 3px 5px;
+	background-color: #ff1e00;
+	margin-left: 10px;
+	border-radius: 5px;
+}
+
+.storage-list .chart-content .storage-info .storage-source{
+	font-size: 13px;
+}
+
+.list .chart-content .storage-info .storage-content{
+	font-size: 14px;
+	color: #333;
+	margin: 6px 0 0;	
+}
+
+.storage-content .storage-item{
+	padding: 0 10px;
+	height: 18px;
+	line-height: 18px;	
+}
+
+.storage-content .storage-total,.storage-content .storage-used{
+	border-right: 1px solid #ccc;
+}
+
+.storage-content .storage-item label{
+	font-weight: normal;
+	margin-bottom: 0;
+	display: inline-block !important;
+}
+
+.storage-content .storage-total span{color: #29cc4c;}
+.storage-content .storage-used span{color: #ffa800;}
+.storage-content .storage-unused span{color: #007ad3;}
+
+.storage-list .chart-content .storage-exit{position: relative;}
+.storage-list .chart-content .storage-exit a{
+	height: 22px;
+	line-height: 22px;
+	width: 80px;
+	border-radius: 9px;
+	border: 1px solid #29cc4c;
+	color: #29cc4c;
+	font-size: 14px;
+	margin: 13px auto 0;
+	display: block;	
+}
+
+.storage-list .chart-content .storage-exit a:hover{
+	color: #32b24d;
+	border-color: #32b24d;
+}
+
+.storage-list .chart-content .storage-exit span{
+	position: absolute;
+	top: 35px;
+	left: 200px;
+}
+
+.storage-list .chart-list{
+	width: 50px;
+	margin-right: 30px;
+}
+
+.storage-list .chart-list ul li{
+	
+}
+
+.storage-list .chart-list ul li a{
+	width: 50px;
+	height: 46px;
+	background: url(/newifi/icons/chart_item.png) no-repeat;
+	background-position: 0 -4px;
+	display: block;
+}
+
+.storage-list .chart-list ul li a:hover{	
+	height: 52px;
+	background-position: -50px 0;
+}
+
+.li-active a{
+	height: 52px !important;
+	background-position: -50px 0 !important;
+}
+

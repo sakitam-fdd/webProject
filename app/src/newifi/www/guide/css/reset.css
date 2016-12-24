@@ -1,0 +1,45 @@
+/* *********
+ *    Author: Jason He;
+ *    Copyright: xcloud.cc;
+ *    Version: 1.0.1;
+ *    Date: 2016-07-20;
+ *    File: reset.css;
+ ********* */
+
+/*reset*/
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	outline: none;
+	blr: expression(this.onFocus=this.blur());
+	text-decoration: none;
+}
+a, a:focus, input, input:focus, button, button:focus{
+	outline: none;
+}
+body{
+	font-family: Arial, "Microsoft YaHei";
+	text-align: center;
+}
+input, label, button{
+	font-family: Arial, "Microsoft YaHei";
+}
+img{
+	border: none;
+}
+ul{
+	list-style: none;
+}
+.clearfix{
+	*zoom: 1;
+}
+.clearfix:before, .clearfix:after{
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.clearfix:after{
+	clear: both;
+}

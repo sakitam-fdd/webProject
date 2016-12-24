@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/common.css">
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.base64.js"></script>
+<script src="js/common.js"></script>
+<title>无法检测到网络</title>
+</head>
+<body>
+<div id="wrap" class="wrap">
+	<img class="logo" src="images/logo.png">
+	
+	<p class="title">无法检测到网络</p>
+
+	<img class="img" src="images/offline.png">
+
+	<p class="text offline-text"><span class="offline-text-dot blue"></span>请检查网线连接状况</p>
+	<p class="text offline-text offline-text-margin"><span class="offline-text-dot yellow"></span>如果依然无法连接请联系运营商</p>
+
+	<button id="check-btn" class="btn image-btn">重新检测</button>
+
+	<p id="error-message" class="error-message"></p>
+
+	<div class="footer image-footer">
+		<a class="link" href="wifi.html?from=offline">跳过</a>
+		丨
+		<a class="link" href="index.html">返回</a>
+	</div>
+
+	<button id="qrcode-btn" class="qrcode-btn">
+		<img class="qrcode-btn-icon" src="images/icon-qrcode.png">
+		<span class="qrcode-btn-text">下载手机APP</span>
+	</button>
+	<img id="qrcode" class="qrcode" src="images/qrcode.png">
+</div>
+
+<p class="copyright">Copyright © 2015-2016 丨 服务咨询service2@xcloud.cc</p>
+
+<div id="confirm-wrap" class="confirm-wrap">
+	<div class="confirm">
+		<p class="confirm-text">无法连接到网络，建议选择跳过</p>
+		<div class="confirm-btn-wrap">
+			<button id="confirm-cancel-btn" class="confirm-btn confirm-btn-cutline">取消</button>
+			<a class="confirm-btn" href="wifi.html?from=offline">确定</a>
+		</div>
+	</div>
+</div>
+
+<input id="page" type="hidden" value="offline">
+</body>
+</html>

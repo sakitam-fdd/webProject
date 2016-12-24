@@ -1,0 +1,15 @@
+<div class="plugins-htm plugins-local">
+	
+	<div class="upload-icon" style="margin: 20px auto;"></div>
+	
+	<p class="local-title"><%:plucin-local-title%></p>
+	<div id="plugins_local" class="local-upload-btn newifi-btn btn-ready">
+		<%:upload%>		
+		<form id="plugin_local_form" class="plugin-local-form" action="/cgi-bin/luci-upload" enctype="multipart/form-data" method="post" target="plugin-local-iframe" >
+			<input type="hidden" name="sessionid" id="plugin_local_sid">
+			<input type="hidden" name="filename" value="/tmp/localapp.xipk" />
+			<input id="plugin_local_file" type="file" name="filedata" class="input-local" />			
+		</form>
+		<iframe id="plugin_local_iframe" name="plugin-local-iframe" style="visibility: hidden"></iframe>		
+	</div>
+</div>

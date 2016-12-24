@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>newifi</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+  <link rel="stylesheet" href="./newifi/css/bootstrap.css">
+  <link rel="stylesheet" href="./newifi/css/status.css">
+  <link rel="stylesheet" href="./newifi/css/lofo.css">
+  <link rel="stylesheet" href="./newifi/css/controls.css">
+  <link rel="stylesheet" href="./newifi/css/newifi.css">
+  <link rel="shortcut icon" href="./newifi/icons/favicon.ico">
+
+  <script type="text/javascript" src="./newifi/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="./newifi/jquery.base64.js"></script>
+
+  <script type="text/javascript" src="./newifi/jquery.peity.js"></script>
+  <script type="text/javascript" src="./newifi/bootstrap.js"></script>
+  <script type="text/javascript" src="./newifi/newifi.js"></script>
+
+  <script type="text/javascript">
+    var L;
+    $(function () {
+      L = new newifi();
+
+      L.ui.login().then(function () {
+        L.ui.load();
+        var sessionnum = 0;
+        document.onmousemove = function () {
+          sessionnum = 1;
+        };
+        document.onmousedown = function () {
+          sessionnum = 1;
+        };
+        document.onkeypress = function () {
+          sessionnum = 1;
+        }
+        setInterval(function () {
+          if (sessionnum == 0) {
+            window.location.href = '/index.html';
+          } else {
+            sessionnum = 0;
+          }
+        }, 480000);
+
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="navbar">
+  <div class="navbar-inverse page-head" role="banner">
+    <div class="container" id="navHead">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="javascript: void(0)" id="brandname"></a>
+      </div>
+      <ul class="list-unstyled pull-right head-ul">
+        <li class="navbar-phone navbar-text navbar-left">
+          <div class="navbar-dot"></div>
+          <a class="navbar-link" id="navbar-text1"></a>
+        </li>
+        <li class="navbar-text navbar-left" style="padding-top: 3px;">
+          <a href="http://www.xcloud.cc/" target="_blank" class="navbar-link" id="navbar-text2"></a>
+        </li>
+        <div class="clearfix"></div>
+      </ul>
+    </div>
+  </div>
+  <div class="navbar-default" role="banner">
+    <div class="container">
+      <div class="" id="mainmenu"></div>
+    </div>
+  </div>
+</div>
+
+<div id="viewmenu"></div>
+
+<div id="maincontent" class="container"></div>
+
+<div id="sysauth"></div>
+
+<div id="footer"></div>
+
+<div id="plugin_modal" class="plugin-modal" style="display: none;"></div>
+<script type="text/javascript" src="./newifi/echarts.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+/*login css creat by jessieLee*/
+.loginbk{
+    position: absolute;
+    width: 100%;
+    background: #007ad3;
+    top: 0;
+    bottom: 0;
+    min-height: 920px;
+}
+.center-top{
+    font-family: "Microsoft YaHei";
+    height: 100%;
+    padding-top: 130px;
+}
+.login-modal-content{
+    width: 426px;
+    height: 438px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    border-radius: 4px;
+    border: none;
+}
+.login-logo{
+    margin: 60px auto 0;
+    display: block;
+}
+.loginbo-png{
+    background: url("/newifi/icons/home.png") no-repeat;
+    width: 100%;
+    height: 285px;
+    bottom: 0px;
+    position: absolute;
+}
+.login-welcome{
+    margin: 12px auto 34px;
+    font-size: 20px;
+    color: #333333;
+    line-height: 34px;
+    text-align: center;
+}
+
+#footer{
+    width: 100%;
+    font-family: "微软雅黑";
+}
+.footer-top{
+    overflow: hidden;
+    margin: 0 auto 5px;
+    font-size: 12px;
+    color: #999999;
+    text-align: center;
+}
+.footer-margin,.system-version,.mac-address{
+    margin-left: 10px;
+}
+.login-modal-footer{
+    margin-top: 0px;
+    padding: 0px;
+    text-align: center;
+    border-top: none;
+}
+.login-footer{
+    width: 600px;
+    margin: auto;
+    position: relative;
+}
+.login-footer li{
+    list-style-type: none;
+    float: left;
+}
+.footer-xian{
+    margin: -1px 10px;
+    display: block;
+    float: left;
+    color: #999999;
+}
+
+.footer-weixin-img{
+    position: absolute;
+    bottom: 10px;
+    left: 195px;
+    z-index: 100;
+    display: none;
+}
+.footer-weixin:hover .footer-weixin-img{
+    display: block;
+}
+.modal-footer .btn-login{
+    height: 40px;
+    background: #007AD3;
+    text-align: center;
+    color: #FFFFFF;
+    width: 260px;
+    margin: 0px auto 0px;
+    font-size: 18px;
+    border-radius: 4px;
+    line-height: 40px;
+    padding: 0px;
+    border: none;
+    display: block;
+}
+.modal-footer .btn-login:hover{
+    cursor: pointer;
+    background: #0F91FF;
+}
+.login-ul{
+    padding: 0;
+    font-size: 12px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+}
+.login-ul .loginf-hover,.login-ul .loginf-nhover{
+    color: #b0cbec;
+    font-weight: normal;
+    margin: 0;
+}
+.login-ul .loginf-hover:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+.login-ul .otherf-nhover{
+    font-weight: normal;
+    color: #999999;
+    margin: 0;
+}
+.login-ul .otherf-hover{
+    color: #999999;
+}
+.login-ul .otherf-hover:hover{
+    color: #007AD3;
+    text-decoration: none;
+    cursor: pointer;
+}
+.jdwl-ewm{
+    position: absolute;
+    margin: -140px 0 0 75px;
+    display: none;
+}
+.jdwl-out{
+    margin-bottom: 15px;
+}
+.login-footer .jdwl-out a:hover .jdwl-ewm{
+    display: block;
+}
+
+/*authored by yd*/
+.login-section{
+    position: relative;
+    width: 260px;
+    margin: 0 auto;
+    background: #F4F4F4;
+    height: 40px;
+    z-index: 1;
+}
+
+.login-section .login-info{
+    position: absolute;
+    z-index: -1;
+    top: 12px;
+    left: 20px;
+    color: #999;
+}
+
+.login-section .login-password{
+    height: 40px;    
+    display: block;
+    font-size: 16px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    border: 1px solid #ECECEC;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+/*end by yd*/
+
+.login-p{
+    margin: 0;
+}
+.displaynone{
+    display: none;
+}
+.weixin{
+    background: #ffffff;
+    margin: auto;
+    display: none;
+    position: fixed;
+    border-radius: 8px;
+    z-index: 1040;
+    width: 426px;
+    height: 426px;
+}
+.weixin-close{
+    margin: 10px;
+    float: right;
+}
+.weixin-attention{
+    width: 145px;
+    margin: auto;
+    line-height: 51px;
+    font-family: "Microsoft YaHei";
+    color: #9D9D9D;
+}
+.weixin-title{
+    background-color: #F4F4F4;
+    border-radius: 8px;
+    padding-bottom: 8px;
+    position: absolute;
+    width: 100%;
+}
+.weixin-middle{
+    height: 8px;
+    background: #ffffff;
+    position: relative;
+    top: 51px;
+}
+.weixin-png{
+    width: 290px;
+    height: 290px;
+    margin: 100px auto 0;
+    display: block;
+}
+.alert-danger{
+    color: #FF7A7A;
+    width: 260px;
+    margin: auto;
+    height: 33px;
+    line-height: 30px;
+    padding: 0 20px 0;
+    border: none;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+.login-warn{
+    height: 34px;
+}
+.login-pop{
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background: black;
+    opacity: 0.7;
+    display: none;
+}
+.login-modal-body{
+    padding: 0px;
+    overflow: hidden;
+}
+.head-pop{
+    position: absolute;
+    margin-left: 65%;
+    width: 300px;
+    background: #FFFFFF;
+    top: 72px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    z-index: 9;
+    display: none;
+}
+.headpop-title{
+    background: #f7f7f7;
+}
+.head-pop-logo{
+    display: block;
+    margin: 25px auto 0;
+}
+.head-pop-des{
+    color: #333333;
+    font-size: 20px;
+    line-height: 34px;
+    text-align: center;
+    margin: 0;
+}
+.head-pop-detail{
+    color: #333333;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    line-height: 34px;
+}
+.app-load{
+    width: 80px;
+    margin: auto;
+    line-height: 51px;
+    font-family: "Microsoft YaHei";
+    color: #9D9D9D;
+}
+.head-pop-close{
+    margin: 10px;
+    float: right;
+}
+.navbar-link:hover{
+    cursor: pointer;
+}
+.head-pop-png{
+    margin: 23px 0;
+    overflow: hidden;
+}
+.png-first{
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+.container{
+    position: relative;
+}
+.navbar-fixed-top{
+    position: inherit;
+}
+.nav-a{
+    width: 64px;
+}
+.nav-a:hover{
+    cursor: pointer;
+}
+.nav-word{
+    line-height: 34px;
+}
+.nav-new-tip{
+    width: 31px;
+    height: 31px;
+    background: url("/newifi/icons/new.png") no-repeat;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+    color: #ffffff;
+    font-size: 12px;
+}
+::-ms-clear, ::-ms-reveal{display: none;}
+
+
+.icon-status {
+    background-position: 0 0 !important;
+}
+
+.icon-devices {
+    background-position: 0 0 !important;
+}
+
+.icon-plugins {
+    background-position: 0 0 !important;
+}
+
+.icon-system {
+    background-position: 0 0 !important;
+}
+
+.navbar-view{    
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #0f91ff;
+    height: 60px;
+}
+
+.system-a{
+    font-size: 16px;
+    height: 60px;
+    float: left;
+    width: 20%;
+    text-align: center;
+    background: #0F91FF;
+    line-height: 60px;
+    color: #C4DDFF;
+}
+.navbar-view .system-li > a{
+    padding: 0;
+}
+.system-first{
+    border-top-left-radius: 4px;
+}
+.system-last{
+    border-top-right-radius: 4px;
+}
+.navbar-view .system-li > a:hover, .navbar-view .system-li > a:focus,.system-li .nav-active{
+    background: #007AD3;
+    color: #ffffff;
+}

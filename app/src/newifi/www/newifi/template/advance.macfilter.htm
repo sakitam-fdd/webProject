@@ -1,0 +1,86 @@
+<div class="mac-filter">
+	<div id="macfilter_icon" class="macfilter-icon">
+			<div id="macfilter_help_icon" class="macfilter-help-icon"></div>
+		</div>				
+		<div id="macfilter_help_panel" class="macfilter-help-panel">
+			<div class="macfilter-help-arrow"></div>
+			
+			<div class="macfilter-help-title"><%:macfilter-help%></div>
+			<div class="macfilter-help-content">
+				<p class="macfilter-help-text">
+					<img src="/newifi/icons/lamp.png" style="width:19px;height:19px;margin-right: 8px;margin-top: -5px;"/><label><%:macfilter-help-text-one%></label>
+				</p>
+
+
+				<p class="macfilter-help-text">
+					<span style="color: #FB8200;"><%:macfilter-help-text-2%></span><br/><br/>
+					<span><%:macfilter-help-text-2-1%></span>
+					<span class="mac-filter-desc"><%:macfilter-help-text-2-2%></span><br/>
+
+					<span><%:macfilter-help-text-5-1%></span>
+					<span class="mac-filter-desc" style="margin-left: 12px;"><%:macfilter-help-text-5-2%></span><br/>
+
+					<span><%:macfilter-help-text-1%></span>
+					<span class="mac-filter-desc" style="margin-left: 36px;"><%:macfilter-help-text-1-1%></span>
+				</p>
+
+				<hr style="margin-top: 12.5px;margin-bottom: 12.5px;border: 0;border-top: 1px solid #eeeeee;" />
+
+				<p class="macfilter-help-text">
+					<span style="color: #FB8200;"><%:macfilter-help-text-3%></span><br/><br/>
+					<span><%:macfilter-help-text-3-1%></span>
+					<span class="mac-filter-desc"><%:macfilter-help-text-3-2%></span><br/>
+					<span><%:macfilter-help-text-1%></span>
+					<span class="mac-filter-desc" style="margin-left: 36px;"><%:macfilter-help-text-1-1%></span>
+				</p>
+
+				<hr style="margin-top: 12.5px;margin-bottom: 12.5px;border: 0;border-top: 1px solid #eeeeee;" />
+
+				<p class="macfilter-help-text">
+					<span style="color: #FB8200;"><%:macfilter-help-text-4%></span><br/><br/>
+					<span><%:macfilter-help-text-4-1%></span>
+					<span class="mac-filter-desc"><%:macfilter-help-text-4-2%></span><br/>
+					<span><%:macfilter-help-text-1%></span>
+					<span class="mac-filter-desc" style="margin-left: 36px;"><%:macfilter-help-text-1-1%></span>
+				</p>
+				<hr style="margin-top: 12.5px;margin-bottom: 12.5px;border: 0;border-top: 1px solid #eeeeee;" />
+				<p class="macfilter-help-text">
+					<span style="color: #FB8200;"><%:macfilter-help-text-5%></span><br/><br/>
+					<span><%:macfilter-help-text-6-1%></span><br/>
+					<span class="mac-filter-desc"><%:macfilter-help-text-6-2%></span>
+				</p>
+
+			</div>
+		</div>
+
+
+	<div class="panel-heading duSeHead">
+		<h3 class="panel-title macfilter-title"><%:macfilter-title%></h3>
+		<div id="mac_switch" style="margin-left: 130px;" class="section-switch dmz-switch "></div>
+		<div class="clearfix"></div>
+	</div>
+	<div id="mac_off" class="mac-off macfilter-off" style="display: none;">
+		<p class="macfilter-off-line-1"><span class="macfilter-off-img"></span><%:macfilter-off%></p>
+		<p class="macfilter-off-line-2"><%:macfilter-off-info%></p>
+	</div>
+
+
+	<div id="mac_on" class="mac-on">
+		<div class="mac-tabs">
+			<ul class="list-inline ul-tabs ul-mac">
+				<li id="a" class="active"><a href="#online" class="tabs-mac tabs-mac-online"><%:macfilter-tab-online%></a></li>
+				<li id="b"><a href="#offline" class="tabs-mac tabs-mac-offline"><%:macfilter-tab-offline%></a></li>
+				<li id="c"><a href="#blacklist" class="tabs-mac tabs-mac-blacklist"><%:macfilter-tab-blacklist%></a></li>
+				<li style="float: right;"><div id="mac_add" class="newifi-btn add-btn" style="width: 100px;height: 30px;margin-top: 21px;display:none;"><%:macfilter-add%></div></li>
+				
+			</ul>
+
+		</div>
+
+		<div class="mac-content">
+			<div id="online" class="mac-online"></div>
+			<div id="offline" class="mac-offline"></div>
+			<div id="blacklist" class="mac-blacklist"></div>
+		</div>
+	</div>
+</div>
