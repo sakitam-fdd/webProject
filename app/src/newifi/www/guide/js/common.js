@@ -235,9 +235,9 @@ var xcloud = {};
 
 					// call api
 					if (page == "initalize") {
-						api.login();
+						// api.login();
 					} else if (page == "offline") {
-						api.checkNetwork("offline");
+						// api.checkNetwork("offline");
 					}
 				}
 				return false;
