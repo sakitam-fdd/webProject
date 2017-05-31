@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>测试解析makedown</title>
+  <link rel="stylesheet" href="./lib/highlight/styles/github.css">
+</head>
+<body>
+<div id="content"></div>
+<script src="lib/marked/marked.js"></script>
+<script src="lib/highlight/highlight.js"></script>
+<script src="lib/axios/axios.js"></script>
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState === 'complete') {
+      marked.setOptions({
+        highlight: null,
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false
+      });
+      axios.get('./docs/function.md').then(function (res) {
+        document.getElementById('content').innerHTML = marked(res['data']);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+</script>
+</body>
+</html>
