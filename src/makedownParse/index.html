@@ -14,13 +14,15 @@
 <body>
 <div id="content"></div>
 <script src="lib/marked/marked.js"></script>
-<script src="lib/highlight/highlight.js"></script>
+<script src="lib/highlight/highlight.min.js"></script>
 <script src="lib/axios/axios.js"></script>
 <script>
   document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
       marked.setOptions({
-        highlight: null,
+        highlight: function (code) {
+          return hljs.highlightAuto(code).value;
+        },
         renderer: new marked.Renderer(),
         gfm: true,
         tables: true,

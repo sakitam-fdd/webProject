@@ -1,0 +1,112 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "kinetic",
+        "scope": null,
+        "escapedName": "kinetic",
+        "name": "kinetic",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\myProject\\webProject\\app"
+    ]
+  ],
+  "_from": "kinetic@latest",
+  "_id": "kinetic@5.2.0",
+  "_inCache": true,
+  "_location": "/kinetic",
+  "_npmUser": {
+    "name": "lavrton",
+    "email": "lavrton@gmail.com"
+  },
+  "_npmVersion": "1.4.28",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "kinetic",
+    "scope": null,
+    "escapedName": "kinetic",
+    "name": "kinetic",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/kinetic/-/kinetic-5.2.0.tgz",
+  "_shasum": "83c4c5eb5644f24e26e9b4b3858431970a30b75f",
+  "_shrinkwrap": null,
+  "_spec": "kinetic",
+  "_where": "E:\\myProject\\webProject\\app",
+  "author": {
+    "name": "Eric Rowell"
+  },
+  "browser": {
+    "canvas": false,
+    "jsdom": false
+  },
+  "bugs": {
+    "url": "https://github.com/lavrton/KineticJS/issues"
+  },
+  "contributors": [
+    {
+      "name": "Anton Lavrenov",
+      "email": "lavrton@gmail.com",
+      "url": "https://twitter.com/lavrton"
+    }
+  ],
+  "dependencies": {},
+  "description": "![div](https://raw.githubusercontent.com/lavrton/KineticJS/master/resources/logo.png)",
+  "devDependencies": {
+    "chai": "1.9.2",
+    "finalhandler": "^0.3.3",
+    "grunt": "0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-concat": "0.5.0",
+    "grunt-contrib-copy": "~0.6.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-nodeunit": "0.4.1",
+    "grunt-contrib-uglify": "0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-jsdoc": "^0.5.7",
+    "grunt-mocha-phantomjs": "~0.6.0",
+    "grunt-replace": "0.7.9",
+    "grunt-shell": "~1.1.1",
+    "jsdoc": "~3.3.0-alpha9",
+    "mocha": "1.21.4",
+    "serve-static": "^1.8.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "83c4c5eb5644f24e26e9b4b3858431970a30b75f",
+    "tarball": "https://registry.npmjs.org/kinetic/-/kinetic-5.2.0.tgz"
+  },
+  "gitHead": "eba941e1c3a8f80c99867db899bf8f884ae9822a",
+  "homepage": "http://lavrton.github.io/KineticJS/",
+  "keywords": [
+    "canvas",
+    "animations",
+    "graphic",
+    "html5"
+  ],
+  "license": "MIT",
+  "main": "kinetic.js",
+  "maintainers": [
+    {
+      "name": "lavrton",
+      "email": "lavrton@gmail.com"
+    }
+  ],
+  "name": "kinetic",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lavrton/KineticJS.git"
+  },
+  "scripts": {},
+  "version": "5.2.0"
+}
