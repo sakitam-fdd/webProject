@@ -3,27 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="renderer" content="webkit">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>测试解析makedown</title>
-  <link rel="stylesheet" href="./lib/highlight/styles/github.css">
+  <link rel="stylesheet" href="./lib/prism/themes/prism.css">
+  <link rel="stylesheet" href="./lib/prism/themes/vue.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <style type="text/css">
+    body:not(.ready) {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    #content {
+      width: 960px;
+      margin: 0 auto;
+    }
+    #content blockquote {
+      margin: 0;
+      margin-bottom: .85em;
+      padding: 0 15px;
+      color: #858585;
+      border-left: 4px solid #e5e5e5
+    }
+
+    #content blockquote:first-child {
+      margin-top: 0
+    }
+  </style>
 </head>
 <body>
 <div id="content"></div>
+<script src="lib/jquery/jquery.js"></script>
 <script src="lib/marked/marked.js"></script>
-<script src="lib/highlight/highlight.min.js"></script>
+<script src="lib/prism/prefixfree.min.js"></script>
+<script src="lib/prism/prism.js"></script>
 <script src="lib/axios/axios.js"></script>
 <script>
   document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
+      var renderer = new marked.Renderer();
+      renderer.waring = function (text) {
+        return '<p class="tip">\n' + text + '</p>\n';
+      }
       marked.setOptions({
-        highlight: function (code) {
-          return hljs.highlightAuto(code).value;
-        },
-        renderer: new marked.Renderer(),
+        renderer: renderer,
         gfm: true,
         tables: true,
         breaks: false,
@@ -34,6 +56,10 @@
       });
       axios.get('./docs/function.md').then(function (res) {
         document.getElementById('content').innerHTML = marked(res['data']);
+        // 完成代码高亮
+        $('#content code').map(function() {
+          Prism.highlightElement(this);
+        });
       }).catch(function (error) {
         console.log(error);
       });

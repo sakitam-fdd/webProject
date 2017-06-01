@@ -1,3 +1,45 @@
+# 恒达时讯WEBGIS开发平台
+
+> 公司内部开发人员以及行业技术支持单位，技术有一定的涉密性，需要得到许可方可使用!
+
+| 编写日期 | 2017年4月14号 |
+| :---: | :---: |
+| 编写人 | 冯冬冬、张永平、常晶娜 |
+| 审核人 | 井志豪 |
+| 文档版本 | V1.1.0 |
+
+!> CSS的压缩文件位于/lib/themes/
+
+<div id='map'></div>
+<script>
+console.log(1)
+</script>
+
+---
+
+## 下载
+
+```bash
+git clone https://github.com/sakitam-fdd/HMap.git
+npm install
+npm run build
+```
+
+## 使用方法
+
+> 示例目录demo
+
+## 截图示例
+![散点图](https://raw.githubusercontent.com/sakitam-fdd/ol3Echarts/master/asset/images/rr.png)
+
+![公交路线](https://raw.githubusercontent.com/sakitam-fdd/ol3Echarts/master/asset/images/bus.gif)
+
+其他示例请自己挖掘
+
+## 参考
+
+> [https://github.com/ecomfe/echarts](https://github.com/ecomfe/echarts)
+
 # 函数的扩展
 
 ## 函数参数的默认值

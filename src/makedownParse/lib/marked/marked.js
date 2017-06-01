@@ -19,6 +19,7 @@ var block = {
   nptable: noop,
   lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
   blockquote: /^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
+  waring: /^( *!>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
   list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
   html: /^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,
   def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
@@ -43,6 +44,10 @@ block.blockquote = replace(block.blockquote)
   ('def', block.def)
   ();
 
+block.waring = replace(block.waring)
+('def', block.def)
+();
+
 block._tag = '(?!(?:'
   + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
   + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
@@ -60,6 +65,7 @@ block.paragraph = replace(block.paragraph)
   ('heading', block.heading)
   ('lheading', block.lheading)
   ('blockquote', block.blockquote)
+  ('waring', block.waring)
   ('tag', '<' + block._tag)
   ('def', block.def)
   ();
@@ -274,6 +280,28 @@ Lexer.prototype.token = function(src, top, bq) {
 
       this.tokens.push({
         type: 'blockquote_end'
+      });
+
+      continue;
+    }
+
+    // waring
+    if (cap = this.rules.waring.exec(src)) {
+      src = src.substring(cap[0].length);
+
+      this.tokens.push({
+        type: 'waring_start'
+      });
+
+      cap = cap[0].replace(/^ *!> ?/gm, '');
+
+      // Pass `top` to keep the current
+      // "toplevel" state. This is exactly
+      // how markdown.pl works.
+      this.token(cap, top, true);
+
+      this.tokens.push({
+        type: 'waring_end'
       });
 
       continue;
@@ -761,6 +789,10 @@ function Renderer(options) {
   this.options = options || {};
 }
 
+Renderer.prototype.waring = function (text) {
+  return '<p class="tip">\n' + text + '</p>\n';
+}
+
 Renderer.prototype.code = function(code, lang, escaped) {
   if (this.options.highlight) {
     var out = this.options.highlight(code, lang);
@@ -1034,6 +1066,15 @@ Parser.prototype.tok = function() {
       }
 
       return this.renderer.blockquote(body);
+    }
+    case 'waring_start': {
+      var body = '';
+
+      while (this.next().type !== 'waring_end') {
+        body += this.tok();
+      }
+
+      return this.renderer.waring(body);
     }
     case 'list_start': {
       var body = ''
